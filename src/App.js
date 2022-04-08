@@ -1,12 +1,15 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link,
     useParams,
     useRouteMatch
 } from "react-router-dom";
+import Redirect from "react-router-dom/es/Redirect";
+import NoMatch from "./views/Nomatch";
+import Home from "./views/Home";
 
 export default function NestingExample() {
     return (
@@ -14,41 +17,38 @@ export default function NestingExample() {
             <div>
                 <ul>
                     <li>
-                        <Link to="/">主页</Link>
+                        <Link to="/home">主页</Link>
                     </li>
                     <li>
-                        <Link to="/input">请选择表现形式</Link>
+                        <Link to="/inputs">请选择表现形式</Link>
                     </li>
                 </ul>
 
-                <hr />
-
                 <Switch>
-                    <Route exact path="/">
-                        <Home />
+                    <Route exact path="/home">
+                        <Home/>
                     </Route>
-                    <Route path="/input">
-                        <Topics />
+                    <Route path="/inputs">
+                        <Inputs/>
                     </Route>
+                    <Redirect exact from="/" to="/home"/>
+                    <Route path="*"><NoMatch/></Route>
                 </Switch>
             </div>
         </Router>
     );
 }
 
-function Home() {
-    return (
-        <div>
-            <h2>主页</h2>
-        </div>
-    );
-}
+// function Home() {
+//     return (
+//         <div>
+//             <h2>主页</h2>
+//         </div>
+//     );
+// }
 
-function Topics() {
-    // The `path` lets us build <Route> paths that are
-    // relative to the parent route, while the `url` lets
-    // us build relative links.
-    let { path, url } = useRouteMatch();
+function Inputs() {
+    let {path, url} = useRouteMatch();
 
     return (
         <div>
@@ -69,24 +69,20 @@ function Topics() {
                 <Route exact path={path}>
                     <h3>请选择一项</h3>
                 </Route>
-                <Route path={`${path}/:topicId`}>
-                    <Topic />
+                <Route path={`${path}/:inputId`}>
+                    <Input/>
                 </Route>
             </Switch>
         </div>
     );
 }
 
-function Topic() {
-    // The <Route> that rendered this component has a
-    // path of `/topics/:topicId`. The `:topicId` portion
-    // of the URL indicates a placeholder that we can
-    // get from `useParams()`.
-    let { topicId } = useParams();
+function Input() {
+    let {inputId} = useParams();
 
     return (
         <div>
-            <h3>{topicId}</h3>
+            <h3>{inputId}</h3>
         </div>
     );
 }

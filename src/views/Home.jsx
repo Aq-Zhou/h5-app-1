@@ -1,30 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../components/Button";
 
 const Wrapper = styled.div`
   position: absolute;
   width: 100vh;
-  height: 100vh;
+  min-height: 100%;
   background: #2b2f38;
-
-  > .h1 {
-    position: absolute;
-
-  }
 `;
 
-const Button = styled.button`
-  width: 180px;
-  height: 40px;
-  background: #2d313c;
-  border-radius: 30px;
-  border: 2px solid white;
-  justify-content: center;
-  align-items: center;
-`
 
-
-const Home = () => {
+function Home (){
     return (
         <Wrapper>
             <h1>你好！</h1>
@@ -33,5 +19,6 @@ const Home = () => {
         </Wrapper>
     );
 }
+
 
 export default Home;
