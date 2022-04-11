@@ -1,5 +1,6 @@
 import React from "react";
-import {HashRouter as Router, Switch, Route, Link, useParams, useRouteMatch} from "react-router-dom";
+import {HashRouter as Router, Switch, Route} from "react-router-dom";
+// , Link, useParams, useRouteMatch
 import Redirect from "react-router-dom/es/Redirect";
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
@@ -11,11 +12,12 @@ import Show from "./components/Show";
 
 
 
-
 export default function NestingExample() {
     return (
         <Router>
             <div>
+
+
                 {/*<ul>*/}
                 {/*    <li>*/}
                 {/*        <Link to="/home">主页</Link>*/}

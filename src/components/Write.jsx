@@ -11,17 +11,70 @@ const Demo = styled.div`
   background: #2b2f38;
 
   > span {
+    display:block;
+    position:absolute;
+    width:50%;
+    height:160px;
+    margin:auto;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    text-align: center;
     color: white;
-    font-size: 26px;
+    font-size: 22px;
   }
-  
   > p {
+    position: absolute;
+    width: 180px;
+    height: 80px;
     margin: auto;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    > .ant-input {
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: none;
+      color: white;
+      min-width: 200px;
+      height: 36px;
+      background: #424852;
+      border-radius: 10px;
+      
+    }
+    > .anticon svg {
+      top: 0;
+      bottom: 42px;
+      left: 168px;
+      right: 0;
+      position: absolute;
+      margin: auto;
+      background: #4faf89;
+      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+    }
   }
 `
+const onChange = (values) => {
+    if(values && values.target) {
+        let value =  values.target.value;
+        if(value == '') {
+            alert('项目名称不能为空')
+        } else {
+            console.log(value);
+        }
+    }
+}
+
 
 function Write() {
-    let {inputId} = useParams();
+    // let {inputId} = useParams();
     return (
         <Demo>
             <span>
@@ -30,10 +83,10 @@ function Write() {
             <p>
                 <Input placeholder="请输入项目名称"/>
                 <NavLink to='show'>
-                    <ArrowRightOutlined style={{fontSize: 30, color: 'white'}} />
+                    <ArrowRightOutlined style={{fontSize: 22, color: 'white'}} />
                 </NavLink>
             </p>
-            <h3>{inputId}</h3>
+            {/*<h3>{inputId}</h3>*/}
         </Demo>
     );
 }

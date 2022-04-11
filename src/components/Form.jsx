@@ -1,6 +1,6 @@
 import { Collapse } from 'antd';
 import React from "react";
-import ReactDOM from "react-dom";
+
 
 export const { Panel } = Collapse;
 
@@ -10,19 +10,20 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-ReactDOM.render(
-    <Collapse accordion>
-        <Panel header="This is panel header 1" key="1">
-            <p>{text}</p>
-        </Panel>
-        <Panel header="This is panel header 2" key="2">
-            <p>{text}</p>
-        </Panel>
-        <Panel header="This is panel header 3" key="3">
-            <p>{text}</p>
-        </Panel>
-    </Collapse>,
-    document.getElementById('root'),
-);
 
-export default {Panel};
+
+export default function Form() {
+    return (
+        <Collapse accordion>
+            <Panel header="视频包装式区位" key="1">
+                <p>{text}</p>
+            </Panel>
+            <Panel header="VR无缝穿梭式区位" key="2">
+                <p>{text}</p>
+            </Panel>
+            <Panel header="不需要区位展示" key="3">
+                <p>{text}</p>
+            </Panel>
+        </Collapse>
+    )
+};

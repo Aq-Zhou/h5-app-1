@@ -1,12 +1,21 @@
 import {Link, Route, Switch, useRouteMatch} from "react-router-dom";
-import Write from "./Write";
 import React from "react";
+import {Form} from "antd";
+import styled from "styled-components";
+
+const Body = styled.div`
+  min-height: 50%;
+  
+`
+
+
 
 function Show() {
     let {path, url} = useRouteMatch();
 
     return (
-        <div>
+        <Body>
+
             <Switch>
                 <Route exact path={path}>
                     <h2>请选择表现形式</h2>
@@ -29,7 +38,7 @@ function Show() {
                 </li>
             </ul>
 
-        </div>
+        </Body>
     );
 }
 

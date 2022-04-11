@@ -5,7 +5,7 @@ import H1 from "./H1";
 import H2 from "./H2"
 import {NavLink} from "react-router-dom";
 import BackPicture from '../images/backPicture.jpg'
-import {render} from "react-dom";
+
 
 // const sectionStyle = styled.div`
 //   display: inline-block;
