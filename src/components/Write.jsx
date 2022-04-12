@@ -2,7 +2,7 @@ import {NavLink, useParams} from "react-router-dom";
 import React from "react";
 import {Input} from 'antd';
 import styled from "styled-components";
-import {ArrowRightOutlined} from '@ant-design/icons';
+import right from '../icons/right.svg'
 
 const Demo = styled.div`
   position: absolute;
@@ -26,10 +26,10 @@ const Demo = styled.div`
   }
   > p {
     position: absolute;
-    width: 180px;
+    width: 280px;
     height: 80px;
     margin: auto;
-    top: 0;
+    top: 20px;
     left:0;
     right:0;
     bottom:0;
@@ -41,16 +41,15 @@ const Demo = styled.div`
       right: 0;
       border: none;
       color: white;
-      min-width: 200px;
+      width: 280px;
       height: 36px;
       background: #424852;
       border-radius: 10px;
-      
     }
-    > .anticon svg {
+    > a {
       top: 0;
       bottom: 42px;
-      left: 168px;
+      left: 248px;
       right: 0;
       position: absolute;
       margin: auto;
@@ -58,6 +57,12 @@ const Demo = styled.div`
       border-radius: 10px;
       width: 36px;
       height: 36px;
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
     }
   }
 `
@@ -83,7 +88,9 @@ function Write() {
             <p>
                 <Input placeholder="请输入项目名称"/>
                 <NavLink to='show'>
-                    <ArrowRightOutlined style={{fontSize: 22, color: 'white'}} />
+                    <div>
+                        <img src={right}  alt="" />
+                    </div>
                 </NavLink>
             </p>
             {/*<h3>{inputId}</h3>*/}
