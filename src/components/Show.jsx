@@ -10,18 +10,18 @@ import './Show.css'
 
 const Body = styled.div`
   color: white;
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   background: #2b2f38;
 `
 
 const Showing = styled.section`
-  //   position: absolute;
+  position: absolute;
   width: 100%;
   height: 50%;
   bottom: 0;
-
+  overflow: auto;
 `
 
 const TopMessage = styled.div`
@@ -34,8 +34,12 @@ const TopMessage = styled.div`
   }
   
   .videocss {
-    width: 100px;
-    height: 100px;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: flex;
+    width: 200px;
+    height: 50%;
+    margin: 0px auto;
   }
   
 `
