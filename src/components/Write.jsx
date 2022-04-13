@@ -66,16 +66,16 @@ const Demo = styled.div`
     }
   }
 `
-const onChange = (values) => {
-    if(values && values.target) {
-        let value =  values.target.value;
-        if(value == '') {
-            alert('项目名称不能为空')
-        } else {
-            console.log(value);
-        }
-    }
-}
+// const onChange = (values) => {
+//     if(values && values.target) {
+//         let value =  values.target.value;
+//         if(value == '') {
+//             alert('项目名称不能为空')
+//         } else {
+//             console.log(value);
+//         }
+//     }
+// }
 
 
 function Write() {

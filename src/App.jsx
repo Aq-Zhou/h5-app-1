@@ -11,23 +11,11 @@ import Packing from "./components/Packing";
 import Show from "./components/Show";
 
 
-export default function NestingExample() {
+export default function App() {
     return (
         <Router>
             <div>
-
-
-                {/*<ul>*/}
-                {/*    <li>*/}
-                {/*        <Link to="/home">主页</Link>*/}
-                {/*    </li>*/}
-                {/*    <li>*/}
-                {/*        <Link to="/show">请选择表现形式</Link>*/}
-                {/*    </li>*/}
-                {/*</ul>*/}
-
                 <Switch>
-
                     <Route exact path="/home">
                         <Home/>
                     </Route>
@@ -46,14 +34,10 @@ export default function NestingExample() {
                     <Route exact path='/nothing'>
                         <Nothing/>
                     </Route>
-
                     <Redirect exact from="/" to="/home"/>
-
                     <Route path="*">
                         <NoMatch/>
                     </Route>
-
-
                 </Switch>
             </div>
         </Router>

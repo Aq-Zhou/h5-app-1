@@ -22,7 +22,7 @@ const Showing = styled.section`
   bottom: 0;
 `
 
-// const { Panel } = Collapse;
+const { Panel } = Collapse;
 
 // const text = `
 //   A dog is a type of domesticated animal.
@@ -36,15 +36,17 @@ function Show() {
     return (
         <Body>
             <Showing>
-                <Collapse
-                    accordion
-                    bordered={false}
-                    defaultActiveKey={['1']}
-                    className="site-collapse-custom-collapse"
-                >
-                    <Packing />
-                    <Shuttle />
-                    <Nothing />
+                <h3 style={{color: "white"}}>项目鸟瞰</h3>
+                <Collapse accordion>
+                    <Panel key={1} header="视频包装式区位" className="site-collapse-custom-panel" showArrow={false}>
+                        <Packing />
+                    </Panel>
+                    <Panel key={2} header="VR无缝穿梭式区位" key="2" className="site-collapse-custom-panel" showArrow={false}>
+                        <Shuttle />
+                    </Panel>
+                    <Panel key={3} header="不需要区位展示" key="3" className="site-collapse-custom-panel" showArrow={false}>
+                        <Nothing />
+                    </Panel>
                 </Collapse>
             </Showing>
         </Body>
