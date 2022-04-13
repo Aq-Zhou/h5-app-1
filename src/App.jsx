@@ -10,10 +10,6 @@ import Shuttle from "./components/Shuttle";
 import Packing from "./components/Packing";
 import Show from "./components/Show";
 
-import Test from "./components/Test";
-
-
-
 
 export default function NestingExample() {
     return (
@@ -31,10 +27,6 @@ export default function NestingExample() {
                 {/*</ul>*/}
 
                 <Switch>
-
-                    {/* <Route exact path='/test'>
-                        <Test/>
-                    </Route> */}
 
                     <Route exact path="/home">
                         <Home/>
@@ -61,7 +53,7 @@ export default function NestingExample() {
                         <NoMatch/>
                     </Route>
 
-                    
+
                 </Switch>
             </div>
         </Router>
