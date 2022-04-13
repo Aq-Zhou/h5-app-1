@@ -5,9 +5,7 @@ import Redirect from "react-router-dom/es/Redirect";
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
 import Write from "./components/Write";
-import Nothing from "./components/Nothing";
-import Shuttle from "./components/Shuttle";
-import Packing from "./components/Packing";
+import Every from "./components/Every";
 import Show from "./components/Show";
 
 
@@ -26,13 +24,13 @@ export default function App() {
                         <Write/>
                     </Route>
                     <Route exact path='/packing'>
-                        <Packing/>
+                        <Every/>
                     </Route>
                     <Route exact path='/shuttle'>
-                        <Shuttle/>
+                        <Every/>
                     </Route>
                     <Route exact path='/nothing'>
-                        <Nothing/>
+                        <Every/>
                     </Route>
                     <Redirect exact from="/" to="/home"/>
                     <Route path="*">
