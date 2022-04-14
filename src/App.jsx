@@ -1,7 +1,7 @@
 import React from "react";
-import {HashRouter as Router, Switch, Route} from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 // , Link, useParams, useRouteMatch
-import Redirect from "react-router-dom/es/Redirect";
+import { Redirect } from "react-router-dom";
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
 import Write from "./components/Write";
@@ -16,29 +16,29 @@ export default function App() {
             <div>
                 <Switch>
                     <Route exact path="/home">
-                        <Home/>
+                        <Home />
                     </Route>
                     <Route exact path="/show">
-                        <Show/>
+                        <Show />
                     </Route>
                     <Route exact path='/write'>
-                        <Write/>
+                        <Write />
                     </Route>
                     <Route exact path='/packing'>
-                        <Every/>
+                        <Every />
                     </Route>
                     <Route exact path='/shuttle'>
-                        <Every/>
+                        <Every />
                     </Route>
                     <Route exact path='/nothing'>
-                        <Every/>
+                        <Every />
                     </Route>
                     <Route exact path="/sandtable">
-                        <Sandtable/>
+                        <Sandtable />
                     </Route>
-                    <Redirect exact from="/" to="/home"/>
+                    <Redirect exact from="/" to="/home" />
                     <Route path="*">
-                        <NoMatch/>
+                        <NoMatch />
                     </Route>
                 </Switch>
             </div>
