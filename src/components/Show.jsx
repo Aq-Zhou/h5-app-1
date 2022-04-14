@@ -35,14 +35,17 @@ const Showing = styled.div`
       color: white;
     }
     .ant-collapse-item {
-      color: white;
       background: #434752;
       border-radius: 32px;
       border: 22px solid #2b2f38;
-    } 
-    .ant-collapse-content-box {
+    }
+    .ant-collapse-content {
       border: none;
       background: #2b2f38;
+      .ant-radio-wrapper, .ant-checkbox-wrapper{
+        color: white;
+      }
+      
     }
   }
   
