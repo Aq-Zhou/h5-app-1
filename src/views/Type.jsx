@@ -43,18 +43,24 @@ const Demo = styled.div`
       background: #424852;
       border-radius: 10px;
     }
-
   }
 `
-
+const Price = styled.div`
+    color:white;
+`
 
 function Type() {
     return (
         <Demo>
             <TopMessage>
                 <div className='textCss' >
-                    <div>文字框</div>
-                    <div>价钱</div>
+                    <div>模块名称-形式名称</div>
+
+                    <Price>
+                        <h3 style={{color:"white"}}>含税总价</h3>
+                        <h2 style={{color:"#ffb520"}}>￥xxx,xxx</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥xxx,xxx</h4>
+                    </Price>
                 </div>
 
                 <video

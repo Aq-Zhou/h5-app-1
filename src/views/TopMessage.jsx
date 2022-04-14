@@ -12,11 +12,10 @@ const TopMessage = styled.div`
   }
   
   .videoCss {
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 10px;
     display: flex;
     width: 230px;
-    height: 50%;
     margin: 0 auto;
   }
 `
