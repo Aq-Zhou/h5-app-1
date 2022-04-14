@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
 import {Input} from 'antd';
 import styled from "styled-components";
@@ -83,9 +83,8 @@ const Demo = styled.div`
 // }
 
 
-function Write() {
+function Write(props) {
 
-  const [state, setState] = useState(null)
 
     const inputRef = useRef()
 
@@ -93,14 +92,15 @@ function Write() {
 
     const inputValue = () => {
       // console.log(inputRef.current.input.value);
-      setState(inputRef.current.input.value)
+      
       dispatch(changeName(inputRef.current.input.value))
+
+      if(inputRef.current.input.value !== '') {
+        props.history.push('/show')
+        console.log('props', props)
+      }
     }
 
-    useEffect(() => {
-      // console.log(typeof(inputRef.current.input.value));
-      setState(inputRef.current.input.value)
-    },[])
 
     return (
         <Demo>
@@ -120,4 +120,4 @@ function Write() {
     );
 }
 
-export default Write;
+export default withRouter(Write);
