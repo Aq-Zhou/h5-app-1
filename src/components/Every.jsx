@@ -1,5 +1,5 @@
 import React from "react";
-import '../index.css'
+import '../index.less'
 import { Collapse } from "antd";
 import Day from './Day'
 import ShowTime from "./Showtime";
@@ -26,12 +26,12 @@ function Every() {
                 <ShowTime />
             </Panel>
 
-            <Panel  header="CIM孪生城市" >
-                <p>3</p>
+            <Panel  header="CIM孪生城市"  >
+                <p>跳转中</p>
             </Panel>
 
             <Panel header="不需要项目鸟瞰" >
-                <p>4</p>
+                <p>跳转中</p>
             </Panel>
 
         </Collapse>

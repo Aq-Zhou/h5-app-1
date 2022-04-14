@@ -5,19 +5,14 @@ import '../index.less'
 import Every from "./Every";
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
+import Sand from "./Sand";
 
-
-// import './Show.css'
-
-
-const Body = styled.div`
-  color: white;
+const Table = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   background: #2b2f38;
 `
-
 
 const Showing = styled.div`
   position: absolute;
@@ -25,35 +20,13 @@ const Showing = styled.div`
   height: 50%;
   bottom: 0;
   overflow: auto;
-  
-  .ant-collapse {
-    border: none;
-    background: #282c34;
-    
-    .ant-collapse-header{
-      border: none;
-      color: white;
-    }
-    .ant-collapse-item {
-      color: white;
-      background: #434752;
-      border-radius: 32px;
-      border: 22px solid #2b2f38;
-    } 
-    .ant-collapse-content-box {
-      border: none;
-      background: #2b2f38;
-    }
-  }
-  
 `
 
-const {Panel} = Collapse;
+const { Panel } = Collapse;
 
-
-function Show() {
+function Trim() {
     return (
-        <Body>
+        <Table>
             <TopMessage>
                 <div className='textCss' >
                     <div>文字框</div>
@@ -74,16 +47,13 @@ function Show() {
             </TopMessage>
 
             <Showing>
-                <h3 style={{color: "white"}}>项目鸟瞰</h3>
+                <h3 style={{color: "white"}}>景观漫游</h3>
                 <Collapse accordion>
-                    <Panel key={1} header="视频包装式区位">
-                        <Every/>
+                    <Panel key={1} header="360°项目沙盘" className="site-collapse-custom-panel">
+                        <Sand/>
                     </Panel>
-                    <Panel key={2} header="VR无缝穿梭式区位">
-                        <Every/>
-                    </Panel>
-                    <Panel key={3} header="不需要区位展示">
-                        <Every/>
+                    <Panel key={2} header="VR项目沙盘" className="site-collapse-custom-panel">
+                        <Sand/>
                     </Panel>
                 </Collapse>
             </Showing>
@@ -93,9 +63,8 @@ function Show() {
                 <div className="line" />
                 <button className='next'>下一步</button>
             </Footer>
-
-        </Body>
+        </Table>
     );
 }
 
-export default Show;
+export default Trim;

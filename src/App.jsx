@@ -7,6 +7,7 @@ import Home from "./views/Home";
 import Write from "./components/Write";
 import Every from "./components/Every";
 import Show from "./components/Show";
+import Sandtable from "./components/Sandtable";
 
 
 export default function App() {
@@ -31,6 +32,9 @@ export default function App() {
                     </Route>
                     <Route exact path='/nothing'>
                         <Every/>
+                    </Route>
+                    <Route exact path="/sandtable">
+                        <Sandtable/>
                     </Route>
                     <Redirect exact from="/" to="/home"/>
                     <Route path="*">
