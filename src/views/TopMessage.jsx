@@ -4,6 +4,7 @@ const TopMessage = styled.div`
   width: 100%;
   
   .textCss {
+    color: white;
     display: flex;
     height: 110px;
     width: 100%;

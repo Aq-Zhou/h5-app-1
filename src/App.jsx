@@ -8,6 +8,7 @@ import Write from "./components/Write";
 import Every from "./components/Every";
 import Show from "./components/Show";
 import Sandtable from "./components/Sandtable";
+import Type from "./views/Type";
 
 
 export default function App() {
@@ -38,6 +39,9 @@ export default function App() {
                     </Route>
                     <Route exact path="/total">
                         {/*<Total/>*/}
+                    </Route>
+                    <Route exact path="/type">
+                        <Type />
                     </Route>
                     <Redirect exact from="/" to="/home"/>
                     <Route path="*">
