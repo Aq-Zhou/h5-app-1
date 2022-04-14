@@ -48,7 +48,6 @@ const Showing = styled.div`
       
     }
   }
-  
 `
 
 const {Panel} = Collapse;

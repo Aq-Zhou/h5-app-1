@@ -2,10 +2,10 @@ import React, {Component} from "react";
 import {Collapse} from 'antd';
 import styled from "styled-components";
 import '../index.less'
-import Every from "./Every";
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import Sand from "./Sand";
+
 
 const Table = styled.div`
   position: absolute;
