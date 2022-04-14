@@ -97,7 +97,7 @@ function Write(props) {
 
       if(inputRef.current.input.value !== '') {
         props.history.push('/show')
-        console.log('props', props)
+        // console.log('props', props)
       }
     }
 
