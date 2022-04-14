@@ -3,7 +3,7 @@ import {Collapse} from 'antd';
 import styled from "styled-components";
 import '../index.css'
 import Every from "./Every";
-
+import Footer from "../views/Footer";
 
 import './Show.css'
 
@@ -15,8 +15,27 @@ const Body = styled.div`
   height: 100%;
   background: #2b2f38;
 `
+const TopMessage = styled.div`
+  width: 100%;
+  
+  .textCss {
+    display: flex;
+    height: 110px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .videoCss {
+    border: 1px solid white;
+    border-radius: 10px;
+    display: flex;
+    width: 230px;
+    height: 50%;
+    margin: 0 auto;
+  }
+`
 
-const Showing = styled.section`
+const Showing = styled.div`
   position: absolute;
   width: 100%;
   height: 50%;
@@ -24,46 +43,19 @@ const Showing = styled.section`
   overflow: auto;
 `
 
-const TopMessage = styled.div`
-  width: 100%;
-  
-  .textCss {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .videocss {
-    border: 1px solid white;
-    border-radius: 10px;
-    display: flex;
-    width: 200px;
-    height: 50%;
-    margin: 0px auto;
-  }
-  
-`
-
 const {Panel} = Collapse;
-
-// const text = `
-//   A dog is a type of domesticated animal.
-//   Known for its loyalty and faithfulness,
-//   it can be found as a welcome guest in many households across the world.
-// `;
 
 
 function Show() {
     return (
         <Body>
             <TopMessage>
-
                 <div className='textCss' >
                     <div>文字框</div>
                     <div>价钱</div>
                 </div>
                 <video
-                    className='videocss'
+                    className='videoCss'
                     muted={true}
                     controls
                     webkit-playsinline="true"   //禁止全螢幕播放
@@ -74,9 +66,7 @@ function Show() {
                     loop={true}>
                     <source type='video/mp4' src={require('../video/rzf.mp4')} />
                 </video>
-
             </TopMessage>
-
 
             <Showing>
                 <h3 style={{color: "white"}}>项目鸟瞰</h3>
@@ -92,6 +82,13 @@ function Show() {
                     </Panel>
                 </Collapse>
             </Showing>
+
+            <Footer>
+                <button className='back'>上一步</button>
+                <div className="line" />
+                <button className='next'>下一步</button>
+            </Footer>
+
         </Body>
     );
 }

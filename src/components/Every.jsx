@@ -26,7 +26,7 @@ function Every() {
                 <ShowTime />
             </Panel>
 
-            <Panel  header="VR无缝穿梭式区位" >
+            <Panel  header="CIM孪生城市" >
                 <p>3</p>
             </Panel>
 
