@@ -12,16 +12,16 @@ function Sand() {
         <Collapse
             accordion
         >
-            <Panel header="三维渲染全景鸟瞰" >
-                {/*<Input placeholder="请填写漫游点数">请填写漫游点数</Input>*/}
+            <Panel header="720°全景漫游" showArrow={false}>
+
             </Panel>
 
-            <Panel header="虚实结合全景鸟瞰">
-                {/*<Input placeholder="请填写需要漫游的条数（一条100米）">请填写需要漫游的条数（一条100米）</Input>*/}
+            <Panel header="全景路径漫游" showArrow={false}>
+
             </Panel>
 
-            <Panel header="不需要景观漫游" >
-                <p>跳转中</p>
+            <Panel header="不需要景观漫游" showArrow={false}>
+                <p style={{color: "white"}}>跳转中</p>
             </Panel>
 
         </Collapse>

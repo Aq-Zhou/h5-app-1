@@ -24,6 +24,24 @@ const Demo = styled.div`
     color: white;
     font-size: 22px;
   }
+  > a {
+    top: 0;
+    bottom: 24px;
+    left: 243px;
+    right: 0;
+    position: absolute;
+    margin: auto;
+    background: #4faf89;
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
   > p {
     position: absolute;
     width: 280px;
@@ -46,24 +64,7 @@ const Demo = styled.div`
       background: #424852;
       border-radius: 10px;
     }
-    > a {
-      top: 0;
-      bottom: 42px;
-      left: 248px;
-      right: 0;
-      position: absolute;
-      margin: auto;
-      background: #4faf89;
-      border-radius: 10px;
-      width: 36px;
-      height: 36px;
-      img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-      }
-    }
+    
   }
 `
 // const onChange = (values) => {
@@ -87,13 +88,13 @@ function Write() {
             </span>
             <p>
                 <Input placeholder="请输入项目名称"/>
-                <NavLink to='show'>
-                    <div>
-                        <img src={right}  alt="" />
-                    </div>
-                </NavLink>
             </p>
-            {/*<h3>{inputId}</h3>*/}
+            <NavLink to='show'>
+                <div>
+                    <img src={right}  alt="" />
+                </div>
+            </NavLink>
+
         </Demo>
     );
 }
