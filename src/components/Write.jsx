@@ -1,8 +1,12 @@
 import {NavLink} from "react-router-dom";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {Input} from 'antd';
 import styled from "styled-components";
 import right from '../icons/right.svg'
+
+import {changeName} from '../store/actionCreators.js'
+
+import { useDispatch } from "react-redux";
 
 const Demo = styled.div`
   position: absolute;
@@ -23,6 +27,24 @@ const Demo = styled.div`
     text-align: center;
     color: white;
     font-size: 22px;
+  }
+  > a {
+    top: 0;
+    bottom: 24px;
+    left: 243px;
+    right: 0;
+    position: absolute;
+    margin: auto;
+    background: #4faf89;
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
   }
   > p {
     position: absolute;
@@ -46,24 +68,7 @@ const Demo = styled.div`
       background: #424852;
       border-radius: 10px;
     }
-    > a {
-      top: 0;
-      bottom: 42px;
-      left: 248px;
-      right: 0;
-      position: absolute;
-      margin: auto;
-      background: #4faf89;
-      border-radius: 10px;
-      width: 36px;
-      height: 36px;
-      img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-      }
-    }
+    
   }
 `
 // const onChange = (values) => {
@@ -79,21 +84,38 @@ const Demo = styled.div`
 
 
 function Write() {
-    // let {inputId} = useParams();
+
+  const [state, setState] = useState(null)
+
+    const inputRef = useRef()
+
+    const dispatch = useDispatch()
+
+    const inputValue = () => {
+      // console.log(inputRef.current.input.value);
+      setState(inputRef.current.input.value)
+      dispatch(changeName(inputRef.current.input.value))
+    }
+
+    useEffect(() => {
+      // console.log(typeof(inputRef.current.input.value));
+      setState(inputRef.current.input.value)
+    },[])
+
     return (
         <Demo>
             <span>
                 请输入项目名称
             </span>
             <p>
-                <Input placeholder="请输入项目名称"/>
-                <NavLink to='show'>
-                    <div>
-                        <img src={right}  alt="" />
-                    </div>
-                </NavLink>
+                <Input placeholder="请输入项目名称" ref={inputRef} />
             </p>
-            {/*<h3>{inputId}</h3>*/}
+            <div onClick={()=> inputValue()}>
+                <div>
+                    <img src={right}  alt="" />
+                </div>
+            </div>
+
         </Demo>
     );
 }
