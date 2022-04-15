@@ -23,6 +23,11 @@ const Showing = styled.div`
   height: 40%;
   bottom: 70px;
   overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   //.ant-btn-round.ant-btn-lg {
   //  background: #434752;
   //  border: none;
@@ -36,7 +41,7 @@ const Showing = styled.div`
     border-radius: 12px;
     background: #434752;
     display: block;
-    margin:  30px 20px 60px 20px;
+    margin:  30px 0px 60px 0px;
     
   }
   .changeButton {

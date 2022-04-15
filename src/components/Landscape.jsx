@@ -10,6 +10,51 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeSandPrices } from "../store/actionCreators";
 import { Modal, Button, InputNumber } from 'antd';
 
+import 'antd/dist/antd.css';
+
+
+const Table = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #2b2f38;
+`
+
+const Showing = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  bottom: 70px;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  
+  .ant-btn {
+    width: 316px;
+    height: 46px;
+    background: rgb(67,71,82);
+    margin: 10px 0 10px 0;
+    border-radius: 12px;
+    border: 1px solid white;
+  }
+
+  .ant-modal {
+   
+    position: absolute;
+    top: 50%;
+    
+  }
+  
+  
+  
+
+  
+
+`
+
 const Landscape = memo(() => {
   const projectName = useSelector(state => state.projectName)
 
@@ -30,7 +75,7 @@ const Landscape = memo(() => {
   }
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-  
+
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -79,35 +124,35 @@ const Landscape = memo(() => {
         <h3 style={{ color: "white" }}>景观漫游</h3>
 
         <>
-          <Button type="primary" onClick={() => {showModal(); setState(1)}}>
+          <Button type="primary" onClick={() => { showModal(); setState(1) }}>
             720°全景漫游
           </Button>
-          <Button type="primary" onClick={() => {showModal(); setState(2)}}>
+          <Button type="primary" onClick={() => { showModal(); setState(2) }}>
             全景路径漫游
           </Button>
           <Button type="primary" >
             不需要景观漫游
           </Button>
           {
-            state===1?(
-              <Modal title="输入720°全景漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+            state === 1 ? (
+              <Modal title="输入720°全景漫游条数" className='modalClass' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <InputNumber min={0} defaultValue={0} onChange={onChange} />
               </Modal>)
-              :null
+              : null
           }
           {
-            state===2?(
+            state === 2 ? (
               <Modal title="输入全景路径漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <InputNumber min={0} defaultValue={0} onChange={onChange} />
               </Modal>)
-              :null
+              : null
           }
         </>
 
       </Showing>
 
       <Footer>
-        <button className='back'><NavLink to="/show">上一步</NavLink></button>
+        <button className='back'><NavLink to="/Sandtable">上一步</NavLink></button>
         <div className="line" />
         <button className='next'><NavLink to="/Landscape">下一步</NavLink></button>
       </Footer>
@@ -119,44 +164,3 @@ export default Landscape
 
 
 
-
-
-const Table = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #2b2f38;
-`
-
-const Showing = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 40%;
-  bottom: 70px;
-  overflow: auto;
-
-  .ant-collapse {
-    border: none;
-    background: #282c34;
-
-    .ant-collapse-header {
-      border: none;
-      color: white;
-    }
-
-    .ant-collapse-item {
-      background: #434752;
-      border-radius: 32px;
-      border: 22px solid #2b2f38;
-    }
-
-    .ant-collapse-content {
-      border: none;
-      background: #2b2f38;
-
-      .ant-radio-wrapper, .ant-checkbox-wrapper {
-        color: white;
-      }
-    }
-  }
-`
