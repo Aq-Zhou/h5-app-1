@@ -30,12 +30,9 @@ function Every() {
         }
         if(evt === '3' ){
             setState('3')
-            dispatch(changeNiaoPrices(16000))
-        }
-        if(evt === '4' ){
-            setState('4')
             dispatch(changeNiaoPrices(0))
         }
+        
 
     }
 
@@ -56,12 +53,12 @@ function Every() {
                 {state ==='2' ? <ShowTime /> : null}
             </Panel>
 
-            <Panel  key={3} header="CIM孪生城市" showArrow={false}>
+            {/* <Panel  key={3} header="CIM孪生城市" showArrow={false}>
                 <p style={{color:"white"}}>跳转中</p>
-            </Panel>
+            </Panel> */}
 
-            <Panel key={4} header="不需要项目鸟瞰" showArrow={false}>
-                <p style={{color:"white"}}>跳转中</p>
+            <Panel key={3} header="不需要项目鸟瞰" showArrow={false}>
+                <p style={{color:"white"}}>无</p>
             </Panel>
 
         </Collapse>
