@@ -23,13 +23,18 @@ const Showing = styled.div`
   height: 40%;
   bottom: 70px;
   overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   //.ant-btn-round.ant-btn-lg {
   //  background: #434752;
   //  border: none;
   //}
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
   
   
   .-button, .changeButton {
@@ -40,6 +45,7 @@ const Showing = styled.div`
     border-radius: 12px;
     background: #434752;
     margin: 30px 0 60px 0;
+
   }
   .changeButton {
     border: 1px solid;
@@ -129,7 +135,7 @@ const Trim = () => {
             <Footer>
                 <button className='back'><NavLink to="/show">上一步</NavLink></button>
                 <div className="line"/>
-                <button className='next'><NavLink to="/type">下一步</NavLink></button>
+                <button className='next'><NavLink to="/Landscape">下一步</NavLink></button>
             </Footer>
         </Table>
     );

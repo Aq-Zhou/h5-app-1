@@ -8,3 +8,6 @@ export const changeNiaoPrices = (res) => ({type: actionTypes.CHANGE_NIAOPRICES,v
 
 export const changeSandPrices = (res) => ({type: actionTypes.CHANGE_SANDPRICES,value: res})
 
+export const changeQuanPrices = (res) => ({type: actionTypes.CHANGE_QUANPRICES,value: res})
+
+
