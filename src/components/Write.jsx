@@ -28,7 +28,7 @@ const Demo = styled.div`
     color: white;
     font-size: 22px;
   }
-  > a {
+   .piece {
     top: 0;
     bottom: 24px;
     left: 243px;
@@ -111,7 +111,7 @@ function Write(props) {
                 <Input placeholder="请输入项目名称" ref={inputRef} />
             </p>
             <div onClick={()=> inputValue()}>
-                <div>
+                <div className="piece">
                     <img src={right}  alt="" />
                 </div>
             </div>
