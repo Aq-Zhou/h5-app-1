@@ -24,8 +24,8 @@ const Body = styled.div`
 const Showing = styled.div`
   position: absolute;
   width: 100%;
-  height: 50%;
-  bottom: 0;
+  bottom: 70px;
+  height: 40%;
   overflow: auto;
 
   .ant-collapse {
