@@ -105,9 +105,17 @@ function Show() {
             </Showing>
 
             <Footer>
-                <button className='back'><NavLink to='write'>上一步</NavLink></button>
+                <button className='back'>
+                    <NavLink to='write'>
+                        上一步
+                    </NavLink>
+                </button>
                 <div className="line"/>
-                <button className='next'><NavLink to='sandtable'>下一步</NavLink></button>
+                <button className='next'>
+                    <NavLink to='sandtable'>
+                        下一步
+                    </NavLink>
+                </button>
             </Footer>
 
         </Body>

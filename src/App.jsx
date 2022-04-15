@@ -1,9 +1,8 @@
-import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import React, {useEffect} from "react";
+import {Switch, Route} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
-import { Provider } from "react-redux";
-import store from "./store";
+import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from 'react-keepalive-router'
 
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
@@ -11,47 +10,50 @@ import Write from "./components/Write";
 import Every from "./components/Every";
 import Show from "./components/Show";
 import Sandtable from "./components/Sandtable";
-import Type from "./views/Type";
 
 
 export default function App() {
+
+    useEffect(()=>{
+        /* 增加缓存监听器 */
+        addKeeperListener((history,cacheKey)=>{
+            if(history)console.log('当前激活状态缓存组件：'+ cacheKey )
+        })
+    },[])
+
     return (
-        <Provider store={store} >
-            <Router>
-                <div>
-                    <Switch>
-                        <Route exact path="/home">
-                            <Home />
-                        </Route>
-                        <Route exact path="/show">
-                            <Show />
-                        </Route>
-                        <Route exact path='/write'>
-                            <Write />
-                        </Route>
-                        <Route exact path='/packing'>
-                            <Every />
-                        </Route>
-                        <Route exact path='/shuttle'>
-                            <Every />
-                        </Route>
-                        <Route exact path='/nothing'>
-                            <Every />
-                        </Route>
-                        <Route exact path="/sandtable">
-                            <Sandtable />
-                        </Route>
-                        <Route exact path="/total">
-                            {/*<Total/>*/}
-                        </Route>
-                        <Redirect exact from="/" to="/home" />
-                        <Route path="*">
-                            <NoMatch />
-                        </Route>
-                    </Switch>
-                </div>
-            </Router>
-        </Provider>
+
+        <div>
+            <KeepaliveRouterSwitch>
+                <Route exact path="/home">
+                    <Home/>
+                </Route>
+
+                <KeepaliveRoute exact path="/show" component={Show} />
+
+                <KeepaliveRoute exact path='/write' component={Write} />
+
+                <Route exact path='/packing'>
+                    <Every/>
+                </Route>
+                <Route exact path='/shuttle'>
+                    <Every/>
+                </Route>
+                <Route exact path='/nothing'>
+                    <Every/>
+                </Route>
+                <Route exact path="/sandtable">
+                    <Sandtable/>
+                </Route>
+                <Route exact path="/total">
+                    {/*<Total/>*/}
+                </Route>
+                <Redirect exact from="/" to="/home"/>
+                <Route path="*">
+                    <NoMatch/>
+                </Route>
+            </KeepaliveRouterSwitch>
+        </div>
     );
 }
 

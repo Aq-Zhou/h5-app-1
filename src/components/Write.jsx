@@ -8,6 +8,8 @@ import {changeName} from '../store/actionCreators.js'
 
 import { useDispatch } from "react-redux";
 
+
+
 const Demo = styled.div`
   position: absolute;
   width: 100%;
@@ -92,6 +94,7 @@ function Write(props) {
 
     const inputValue = () => {
       // console.log(inputRef.current.input.value);
+      //   console.log('111111')
       
       dispatch(changeName(inputRef.current.input.value))
 
