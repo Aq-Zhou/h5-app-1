@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {Button } from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../views/Footer";
@@ -24,31 +23,28 @@ const Showing = styled.div`
   height: 40%;
   bottom: 70px;
   overflow: auto;
-
-  .ant-collapse {
+  //.ant-btn-round.ant-btn-lg {
+  //  background: #434752;
+  //  border: none;
+  //}
+  
+  .-button, .changeButton {
+    color: white;
+    width: 316px;
+    height: 46px;
     border: none;
-    background: #282c34;
-
-    .ant-collapse-header {
-      border: none;
-      color: white;
-    }
-
-    .ant-collapse-item {
-      background: #434752;
-      border-radius: 32px;
-      border: 22px solid #2b2f38;
-    }
-
-    .ant-collapse-content {
-      border: none;
-      background: #2b2f38;
-
-      .ant-radio-wrapper, .ant-checkbox-wrapper {
-        color: white;
-      }
-    }
+    border-radius: 12px;
+    background: #434752;
+    display: block;
+    margin:  30px 20px 60px 20px;
+    
   }
+  .changeButton {
+    border: 1px solid;
+  }
+  .-button {
+  }
+  
 `
 
 
@@ -62,14 +58,13 @@ const Trim = () => {
 
     //1点击了
     // 0就是未点击
-    const [state, setState] =useState({but1:0,but2:0})
+    const [state, setState] = useState({btn1: true, btn2: false})
 
 
     const changePrices = (param) => {
         // 360报价8000
         // VR报价 16000
         dispatch(changeSandPrices(param))
-
 
     }
 
@@ -81,9 +76,9 @@ const Trim = () => {
                     <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
-                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥{totalPrices}</h4>
+                        <h3 style={{color: "white"}}>含税总价(13%)</h3>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrices}</h4>
                     </PriceCss>
                 </div>
                 <video
@@ -103,14 +98,28 @@ const Trim = () => {
             <Showing>
                 <h3 style={{color: "white"}}>项目沙盘</h3>
 
-                    <Button
-                        className={(state.but1 === 1)?(''):null}
-                        type="primary" shape="round"
-                        onClick={() => {changePrices(8000); setState({...state, but1: 1}) }}
-                        size={"large"}>
-                            360°项目沙盘
-                    </Button>
-                    <Button className={(state.but2 === 1)?(''):('')} type="primary" shape="round" onClick={() => {changePrices(16000)}}  size={"large"}>VR项目沙盘</Button>
+                <button
+                    className={(state.btn1 === true) ? ('changeButton') : ('-button')}
+                    onClick={() => {
+                        changePrices(8000);
+                        if (state.btn1) {
+
+                        }
+                        setState({...state, btn1: !(state.btn1), btn2: state.btn1})
+                    }}
+                >
+                    360°项目沙盘
+                </button>
+
+                <button
+                    className={(state.btn2 === true) ? ('changeButton') : ('-button')}
+                    onClick={() => {
+                        changePrices(16000);
+                        setState({...state, btn2: !(state.btn2), btn1: state.btn2});
+                    }}
+                >
+                    VR项目沙盘
+                </button>
 
 
             </Showing>
