@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 const FontCss = styled.div`
-  font-size: 20px;
+  font-size: 22px;
   width: 200px;
-  text-align: center;
+  text-align: left;
+  left: 20px;
   line-height: 100px;
-  word-wrap: break-word;
+  position: absolute;
+  font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
 `
 
 

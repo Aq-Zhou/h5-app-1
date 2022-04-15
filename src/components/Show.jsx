@@ -65,7 +65,7 @@ const Show = () => {
     <Body>
       <TopMessage>
         <div className='textCss'>
-          <div>{projectName}</div>
+          <FontCss>{projectName}</FontCss>
 
           <PriceCss>
             <h3 style={{ color: "white" }}>含税总价(13%)</h3>
