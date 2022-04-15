@@ -1,14 +1,14 @@
-import React from "react";
-import {Collapse} from 'antd';
+import React, {useState} from "react";
+import {Button } from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
-import Sand from "./Sand";
 import {NavLink} from "react-router-dom";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {changeSandPrices} from "../store/actionCreators";
 
 
 const Table = styled.div`
@@ -51,13 +51,27 @@ const Showing = styled.div`
   }
 `
 
-const {Panel} = Collapse;
 
-function Trim() {
+const Trim = () => {
 
     const projectName = useSelector(state => state.projectName)
 
     const totalPrices = useSelector(state => state.totalPrices)
+
+    const dispatch = useDispatch()
+
+    //1点击了
+    // 0就是未点击
+    const [state, setState] =useState({but1:0,but2:0})
+
+
+    const changePrices = (param) => {
+        // 360报价8000
+        // VR报价 16000
+        dispatch(changeSandPrices(param))
+
+
+    }
 
 
     return (
@@ -87,15 +101,18 @@ function Trim() {
             </TopMessage>
 
             <Showing>
-                <h3 style={{color: "white"}}>景观漫游</h3>
-                <Collapse accordion>
-                    <Panel key={1} header="360°项目沙盘" className="site-collapse-custom-panel">
-                        <Sand/>
-                    </Panel>
-                    <Panel key={2} header="VR项目沙盘" className="site-collapse-custom-panel">
-                        <Sand/>
-                    </Panel>
-                </Collapse>
+                <h3 style={{color: "white"}}>项目沙盘</h3>
+
+                    <Button
+                        className={(state.but1 === 1)?(''):null}
+                        type="primary" shape="round"
+                        onClick={() => {changePrices(8000); setState({...state, but1: 1}) }}
+                        size={"large"}>
+                            360°项目沙盘
+                    </Button>
+                    <Button className={(state.but2 === 1)?(''):('')} type="primary" shape="round" onClick={() => {changePrices(16000)}}  size={"large"}>VR项目沙盘</Button>
+
+
             </Showing>
 
             <Footer>
