@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Collapse} from 'antd';
 import styled from "styled-components";
 import '../index.less'
@@ -6,6 +6,7 @@ import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import Sand from "./Sand";
 import {NavLink} from "react-router-dom";
+import PriceCss from "../views/Price";
 
 
 const Table = styled.div`
@@ -18,43 +19,51 @@ const Table = styled.div`
 const Showing = styled.div`
   position: absolute;
   width: 100%;
-  height: 50%;
-  bottom: 0;
+  height: 40%;
+  bottom: 70px;
   overflow: auto;
 
   .ant-collapse {
     border: none;
     background: #282c34;
 
-    .ant-collapse-header{
+    .ant-collapse-header {
       border: none;
       color: white;
     }
+
     .ant-collapse-item {
       background: #434752;
       border-radius: 32px;
       border: 22px solid #2b2f38;
     }
+
     .ant-collapse-content {
       border: none;
       background: #2b2f38;
-      .ant-radio-wrapper, .ant-checkbox-wrapper{
+
+      .ant-radio-wrapper, .ant-checkbox-wrapper {
         color: white;
       }
-
     }
   }
 `
 
-const { Panel } = Collapse;
+const {Panel} = Collapse;
 
 function Trim() {
     return (
         <Table>
             <TopMessage>
-                <div className='textCss' >
+                <div className='textCss'>
                     <div>文字框</div>
-                    <div>价钱</div>
+
+
+                    <PriceCss>
+                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
+                        <h2 style={{color:"#ffb520"}}>￥23132332</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥222222</h4>
+                    </PriceCss>
                 </div>
                 <video
                     className='videoCss'
@@ -66,7 +75,7 @@ function Trim() {
                     x5-video-player-type='h5'
                     x5-video-player-fullscreen='true'
                     loop={true}>
-                    <source type='video/mp4' src={require('../video/rzf.mp4')} />
+                    <source type='video/mp4' src={require('../video/rzf.mp4')}/>
                 </video>
             </TopMessage>
 
@@ -83,8 +92,8 @@ function Trim() {
             </Showing>
 
             <Footer>
-                <button className='back' ><NavLink to="/show">上一步</NavLink></button>
-                <div className="line" />
+                <button className='back'><NavLink to="/show">上一步</NavLink></button>
+                <div className="line"/>
                 <button className='next'><NavLink to="/type">下一步</NavLink></button>
             </Footer>
         </Table>

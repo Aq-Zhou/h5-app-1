@@ -1,4 +1,3 @@
-// import {NavLink} from "react-router-dom";
 import React from "react";
 import {Input} from 'antd';
 import styled from "styled-components";
@@ -51,10 +50,11 @@ function Type() {
                     <div>模块名称-形式名称</div>
 
                     <PriceCss>
-                        <h3 style={{color:"white"}}>含税总价</h3>
-                        <h2 style={{color:"#ffb520"}}>￥xxx,xxx</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥xxx,xxx</h4>
+                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
+                        <h2 style={{color:"#ffb520"}}>￥23132332</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥222222</h4>
                     </PriceCss>
+
                 </div>
 
                 <video

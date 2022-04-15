@@ -11,6 +11,8 @@ import { changePrices } from "../store/actionCreators";
 
 
 // import './Show.css'
+import ShowCss from "./ShowCss";
+import PriceCss from "../views/Price";
 
 
 const Body = styled.div`
@@ -22,39 +24,7 @@ const Body = styled.div`
 `
 
 
-const Showing = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  bottom: 0;
-  overflow: auto;
 
-  .ant-collapse {
-    border: none;
-    background: #282c34;
-
-    .ant-collapse-header {
-      border: none;
-      color: white;
-    }
-
-    .ant-collapse-item {
-      background: #434752;
-      border-radius: 32px;
-      border: 22px solid #2b2f38;
-    }
-
-    .ant-collapse-content {
-      border: none;
-      background: #2b2f38;
-
-      .ant-radio-wrapper, .ant-checkbox-wrapper {
-        color: white;
-      }
-
-    }
-  }
-`
 
 const { Panel } = Collapse;
 
@@ -89,6 +59,15 @@ const Show = () => {
     
     const addPrices = (evt) => {
       console.log(evt);
+
+      // 视频包装
+      if(evt === '1') {
+        dispacth(changePrices(42000))
+      }else if (evt === '2') {
+        dispacth(changePrices(48000))
+      }else if (evt === '3') {
+        dispacth(changePrices(0))
+      }
       
   
     }
@@ -102,7 +81,11 @@ const Show = () => {
                 <div className='textCss'>
                     <div>{projectName}</div>
 
-                    <div>{totalPrices}</div>
+                    <PriceCss>
+                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
+                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥{totalPrices}</h4>
+                    </PriceCss>
                 </div>
                 <video
                     className='videoCss'
@@ -118,11 +101,10 @@ const Show = () => {
                 </video>
             </TopMessage>
 
-            <Showing>
+            <ShowCss>
                 <h3 style={{color: "white"}}>区位模块</h3>
-                <Collapse accordion onChange={(evt) => {addPrices(evt)}}>
-                    {/* 四万二 */}
-                    <Panel key={1} header="视频包装式区位" collapsible={'header'} onChange={() => {console.log('1111');}} >
+                <Collapse accordion onChange={(evt) => {addPrices(evt)}} >
+                    <Panel key={1} header="视频包装式区位" onClick={() => {console.log('111111');}} >
                         <Every/>
                     </Panel>
                     {/* 四万八 */}
@@ -134,7 +116,7 @@ const Show = () => {
                         <Every/>
                     </Panel>
                 </Collapse>
-            </Showing>
+            </ShowCss>
 
             <Footer>
                 <button className='back'>
