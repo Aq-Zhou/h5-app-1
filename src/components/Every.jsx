@@ -12,10 +12,11 @@ function Every() {
 
 
     return (
-
+        
         <Collapse
             accordion
         >
+            <h3 style={{color: 'white'}} >项目鸟瞰</h3>
             <Panel header="三维渲染全景鸟瞰" showArrow={false}>
                 <p style={{color:"white"}}>是否需要日夜景切换</p>
                 <Day />
