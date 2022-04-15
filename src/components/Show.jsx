@@ -112,9 +112,9 @@ const Show = () => {
         </button>
         <div className="line" />
         <button className='next'>
-          {/* <NavLink to='sandtable'> */}
+          <NavLink to='sandtable'>
           下一步
-          {/* </NavLink> */}
+          </NavLink>
         </button>
       </Footer>
 
