@@ -2,6 +2,11 @@ import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
+import {
+    Provider as KeepAliveProvider,
+    KeepAlive
+} from 'react-keep-alive';
+
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -17,40 +22,52 @@ import Type from "./views/Type";
 export default function App() {
     return (
         <Provider store={store} >
-            <Router>
-                <div>
-                    <Switch>
-                        <Route exact path="/home">
-                            <Home />
-                        </Route>
-                        <Route exact path="/show">
-                            <Show />
-                        </Route>
-                        <Route exact path='/write'>
-                            <Write />
-                        </Route>
-                        <Route exact path='/packing'>
-                            <Every />
-                        </Route>
-                        <Route exact path='/shuttle'>
-                            <Every />
-                        </Route>
-                        <Route exact path='/nothing'>
-                            <Every />
-                        </Route>
-                        <Route exact path="/sandtable">
-                            <Sandtable />
-                        </Route>
-                        <Route exact path="/total">
-                            {/*<Total/>*/}
-                        </Route>
-                        <Redirect exact from="/" to="/home" />
-                        <Route path="*">
-                            <NoMatch />
-                        </Route>
-                    </Switch>
-                </div>
-            </Router>
+            <KeepAliveProvider>
+                <Router>
+                    <div>
+                        <Switch>
+                            <Route exact path="/home">
+                                <KeepAlive><Home /></KeepAlive>
+                            </Route>
+                            
+                            <Route exact path="/show">
+                                <KeepAlive><Show /></KeepAlive>
+                            </Route>
+
+                            <Route exact path='/write'>
+                                <KeepAlive><Write /></KeepAlive>
+                            </Route>
+                            
+                            <Route exact path='/packing'>
+                                <KeepAlive><Every /></KeepAlive>
+                            </Route>
+
+                            <Route exact path='/shuttle'>
+                                <KeepAlive><Every /></KeepAlive>
+                            </Route>
+
+                            <Route exact path='/nothing'>
+                                <KeepAlive><Every /></KeepAlive>
+                            </Route>
+
+                            <Route exact path="/sandtable">
+                                <KeepAlive><Sandtable /></KeepAlive>
+                            </Route>
+
+                            <Route exact path="/total">
+                                <KeepAlive>{/*<Total/>*/}</KeepAlive>
+                            </Route>
+
+                            <Redirect exact from="/" to="/home" />
+
+                            <Route path="*">
+                                <KeepAlive><NoMatch /></KeepAlive>
+                            </Route>
+                        </Switch>
+                    </div>
+                </Router>
+            </KeepAliveProvider>
+
         </Provider>
     );
 }
