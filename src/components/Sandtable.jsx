@@ -6,6 +6,7 @@ import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import Sand from "./Sand";
 import {NavLink} from "react-router-dom";
+import PriceCss from "../views/Price";
 
 
 const Table = styled.div`
@@ -56,7 +57,13 @@ function Trim() {
             <TopMessage>
                 <div className='textCss'>
                     <div>文字框</div>
-                    <div>价钱</div>
+
+
+                    <PriceCss>
+                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
+                        <h2 style={{color:"#ffb520"}}>￥23132332</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥222222</h4>
+                    </PriceCss>
                 </div>
                 <video
                     className='videoCss'

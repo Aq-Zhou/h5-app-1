@@ -11,6 +11,7 @@ const PriceCss = styled.div`
     height: 22px;
     border: 1px solid white;
     border-radius: 6px;
+    text-align: center;
   }
 
   h2 {

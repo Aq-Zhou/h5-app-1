@@ -8,6 +8,7 @@ import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import {useSelector} from "react-redux";
 import ShowCss from "./ShowCss";
+import PriceCss from "../views/Price";
 
 
 const Body = styled.div`
@@ -41,7 +42,11 @@ function Show() {
                 <div className='textCss'>
                     <div>{projectName}</div>
 
-                    <div>价钱</div>
+                    <PriceCss>
+                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
+                        <h2 style={{color:"#ffb520"}}>￥23132332</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥222222</h4>
+                    </PriceCss>
                 </div>
                 <video
                     className='videoCss'
