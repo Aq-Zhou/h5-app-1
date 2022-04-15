@@ -7,9 +7,7 @@ import Every from "./Every";
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import {useSelector} from "react-redux";
-
-
-// import './Show.css'
+import ShowCss from "./ShowCss";
 
 
 const Body = styled.div`
@@ -21,39 +19,7 @@ const Body = styled.div`
 `
 
 
-const Showing = styled.div`
-  position: absolute;
-  width: 100%;
-  bottom: 70px;
-  height: 40%;
-  overflow: auto;
 
-  .ant-collapse {
-    border: none;
-    background: #282c34;
-
-    .ant-collapse-header {
-      border: none;
-      color: white;
-    }
-
-    .ant-collapse-item {
-      background: #434752;
-      border-radius: 32px;
-      border: 22px solid #2b2f38;
-    }
-
-    .ant-collapse-content {
-      border: none;
-      background: #2b2f38;
-
-      .ant-radio-wrapper, .ant-checkbox-wrapper {
-        color: white;
-      }
-
-    }
-  }
-`
 
 const {Panel} = Collapse;
 
@@ -91,7 +57,7 @@ function Show() {
                 </video>
             </TopMessage>
 
-            <Showing>
+            <ShowCss>
                 <h3 style={{color: "white"}}>项目鸟瞰</h3>
                 <Collapse accordion>
                     <Panel key={1} header="视频包装式区位" >
@@ -104,7 +70,7 @@ function Show() {
                         <Every/>
                     </Panel>
                 </Collapse>
-            </Showing>
+            </ShowCss>
 
             <Footer>
                 <button className='back'>
