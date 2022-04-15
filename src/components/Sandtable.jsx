@@ -1,5 +1,5 @@
 import React from "react";
-import {Collapse} from 'antd';
+import {Collapse, Button} from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../views/Footer";
@@ -53,6 +53,10 @@ const Showing = styled.div`
 const {Panel} = Collapse;
 
 function Trim() {
+
+  const changePrice =(e) => {
+    console.log(e);
+  }
     return (
         <Table>
             <TopMessage>
@@ -82,14 +86,17 @@ function Trim() {
 
             <Showing>
                 <h3 style={{color: "white"}}>景观漫游</h3>
-                <Collapse accordion>
+
+                <Button type="primary" shape="round" onClick={(e) => {changePrice(e)}} size={'large'}>360°项目沙盘</Button>
+                <Button type="primary" shape="round"  size={'large'}>VR项目沙盘</Button>
+                {/* <Collapse accordion>
                     <Panel key={1} header="360°项目沙盘" className="site-collapse-custom-panel">
                         <Sand/>
                     </Panel>
                     <Panel key={2} header="VR项目沙盘" className="site-collapse-custom-panel">
                         <Sand/>
                     </Panel>
-                </Collapse>
+                </Collapse> */}
             </Showing>
 
             <Footer>
