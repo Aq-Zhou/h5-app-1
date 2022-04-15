@@ -1,29 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import {Radio, Space} from "antd";
+import { useDispatch } from "react-redux";
+import { changeNiaoPrices } from "../store/actionCreators";
 
-class Day extends React.Component {
-    state= {
-        value: 1
-    }
+const Day = () =>  {
+    
+    const [value, setValue] = useState(0)
+    const disptach = useDispatch()
 
-    onChange= e => {
+    const onChange = (e) => {
         console.log('radio checked', e.target.value);
-        this.setState({
-            value: e.target.value
-        });
+        setValue(
+            e.target.value
+        );
+
+        if(e.target.value === 1) {
+            disptach(changeNiaoPrices(20000))
+        }
+
+        if(e.target.value === 2) {
+            disptach(changeNiaoPrices(12000))
+        }
+
+
+
     };
 
-    render() {
-        const {value} = this.state;
+        
         return (
-            <Radio.Group onChange={this.onChange} value={value}>
+            <Radio.Group onChange={(e) => onChange(e)} value={value}>
                 <Space direction="vertical">
                     <Radio value={1}>是</Radio>
                     <Radio value={2}>否</Radio>
                 </Space>
             </Radio.Group>
         )
-    }
 }
 
 export default Day;

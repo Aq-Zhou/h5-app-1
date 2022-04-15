@@ -2,6 +2,13 @@ import * as actionTypes from './constants';
 
 const defaultState = {
   projectName: '',
+  // 区位模块价格
+  quWeiPrices: 0,
+  // 鸟瞰渲染价格
+  niaoPrices: 0,
+
+
+
   totalPrices: 0
 };
 
@@ -13,9 +20,13 @@ function reducer(state = defaultState, action) {
       return {
         ...state, projectName: action.value
       };
-    case actionTypes.CHANGE_PRICES:
+    case actionTypes.CHANGE_QUWEIPRICES:
       return {
-        ...state, totalPrices: action.value
+        ...state, quWeiPrices: action.value, totalPrices: action.value + state.niaoPrices
+      };
+    case actionTypes.CHANGE_NIAOPRICES:
+      return {
+        ...state, niaoPrices: action.value, totalPrices: action.value + state.quWeiPrices
       };
     default:
       return state;
