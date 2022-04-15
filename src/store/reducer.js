@@ -6,9 +6,13 @@ const defaultState = {
   quWeiPrices: 0,
   // 鸟瞰渲染价格
   niaoPrices: 0,
+  //项目沙盘价格
+  sandPrices: 0,
+  // 景观漫游价格
+  quanPrices: 0,
 
 
-
+  //总价
   totalPrices: 0
 };
 
@@ -22,11 +26,19 @@ function reducer(state = defaultState, action) {
       };
     case actionTypes.CHANGE_QUWEIPRICES:
       return {
-        ...state, quWeiPrices: action.value, totalPrices: action.value + state.niaoPrices
+        ...state, quWeiPrices: action.value, totalPrices: action.value + state.niaoPrices + state.sandPrices + state.quWeiPrices
       };
     case actionTypes.CHANGE_NIAOPRICES:
       return {
-        ...state, niaoPrices: action.value, totalPrices: action.value + state.quWeiPrices
+        ...state, niaoPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.sandPrices + state.quWeiPrices
+      };
+    case actionTypes.CHANGE_SANDPRICES:
+      return {
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quWeiPrices
+      };
+    case actionTypes.CHANGE_QUANPRICES:
+      return {
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + + state.sandPrices
       };
     default:
       return state;

@@ -1,13 +1,14 @@
-import React from "react";
-import {Collapse, Button} from 'antd';
+import React, {useState} from "react";
+import {Button } from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
-import Sand from "./Sand";
 import {NavLink} from "react-router-dom";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
+import {useDispatch, useSelector} from "react-redux";
+import {changeSandPrices} from "../store/actionCreators";
 
 
 const Table = styled.div`
@@ -50,24 +51,39 @@ const Showing = styled.div`
   }
 `
 
-const {Panel} = Collapse;
 
-function Trim() {
+const Trim = () => {
 
-  const changePrice =(e) => {
-    console.log(e);
-  }
+    const projectName = useSelector(state => state.projectName)
+
+    const totalPrices = useSelector(state => state.totalPrices)
+
+    const dispatch = useDispatch()
+
+    //1点击了
+    // 0就是未点击
+    const [state, setState] =useState({but1:0,but2:0})
+
+
+    const changePrices = (param) => {
+        // 360报价8000
+        // VR报价 16000
+        dispatch(changeSandPrices(param))
+
+
+    }
+
+
     return (
         <Table>
             <TopMessage>
                 <div className='textCss'>
-                    <FontCss>文字框</FontCss>
-
+                    <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
                         <h3 style={{color:"white"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥23132332</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥222222</h4>
+                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥{totalPrices}</h4>
                     </PriceCss>
                 </div>
                 <video
@@ -85,24 +101,24 @@ function Trim() {
             </TopMessage>
 
             <Showing>
-                <h3 style={{color: "white"}}>景观漫游</h3>
+                <h3 style={{color: "white"}}>项目沙盘</h3>
 
-                <Button type="primary" shape="round" onClick={(e) => {changePrice(e)}} size={'large'}>360°项目沙盘</Button>
-                <Button type="primary" shape="round"  size={'large'}>VR项目沙盘</Button>
-                {/* <Collapse accordion>
-                    <Panel key={1} header="360°项目沙盘" className="site-collapse-custom-panel">
-                        <Sand/>
-                    </Panel>
-                    <Panel key={2} header="VR项目沙盘" className="site-collapse-custom-panel">
-                        <Sand/>
-                    </Panel>
-                </Collapse> */}
+                    <Button
+                        className={(state.but1 === 1)?(''):null}
+                        type="primary" shape="round"
+                        onClick={() => {changePrices(8000); setState({...state, but1: 1}) }}
+                        size={"large"}>
+                            360°项目沙盘
+                    </Button>
+                    <Button className={(state.but2 === 1)?(''):('')} type="primary" shape="round" onClick={() => {changePrices(16000)}}  size={"large"}>VR项目沙盘</Button>
+
+
             </Showing>
 
             <Footer>
                 <button className='back'><NavLink to="/show">上一步</NavLink></button>
                 <div className="line"/>
-                <button className='next'><NavLink to="/type">下一步</NavLink></button>
+                <button className='next'><NavLink to="/Landscape">下一步</NavLink></button>
             </Footer>
         </Table>
     );

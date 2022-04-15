@@ -13,7 +13,7 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
     <Provider store={store} >
-        <Router>
+        <Router basename='xsgj'>
             <App/>
         </Router>
     </Provider>,

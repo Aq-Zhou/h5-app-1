@@ -18,7 +18,6 @@ const Body = styled.div`
   background: #2b2f38;
 `
 
-
 const {Panel} = Collapse;
 
 

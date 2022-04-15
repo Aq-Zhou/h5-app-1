@@ -12,6 +12,9 @@ import Show from "./components/Show";
 import Sandtable from "./components/Sandtable";
 import Type from "./views/Type";
 import Housetype from "./views/Housetype";
+import Final from "./views/Final";
+import Landscape from "./components/Landscape";
+
 
 
 export default function App() {
@@ -53,6 +56,14 @@ export default function App() {
                 </KeepaliveRoute>
                 <KeepaliveRoute exact path="/housetype">
                     <Housetype/>
+                </KeepaliveRoute>
+
+                <KeepaliveRoute exact path="/final">
+                    <Final/>
+                </KeepaliveRoute>
+
+                <KeepaliveRoute exact path="/Landscape">
+                    <Landscape/>
                 </KeepaliveRoute>
 
                 <Route exact path="/total">
