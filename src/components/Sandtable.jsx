@@ -27,6 +27,10 @@ const Showing = styled.div`
   //  background: #434752;
   //  border: none;
   //}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
   
   .-button, .changeButton {
     color: white;
@@ -35,9 +39,7 @@ const Showing = styled.div`
     border: none;
     border-radius: 12px;
     background: #434752;
-    display: block;
-    margin:  30px 20px 60px 20px;
-    
+    margin: 30px 0 60px 0;
   }
   .changeButton {
     border: 1px solid;
