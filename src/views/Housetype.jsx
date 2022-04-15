@@ -8,6 +8,7 @@ import TopMessage from "../views/TopMessage";
 import {useSelector} from "react-redux";
 import ShowCss from "../components/ShowCss";
 import PriceCss from "./Price";
+import FontCss from "./FontCss";
 
 const Body = styled.div`
   color: white;
@@ -16,8 +17,6 @@ const Body = styled.div`
   height: 100%;
   background: #2b2f38;
 `
-
-
 
 
 const {Panel} = Collapse;
@@ -38,12 +37,12 @@ function HouseType() {
         <Body>
             <TopMessage>
                 <div className='textCss'>
-                    <div>{projectName}</div>
+                    <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
                         <h3 style={{color:"white"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥23132332</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥222222</h4>
+                        <h2 style={{color:"#ffb520"}}>￥23132</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥2222</h4>
                     </PriceCss>
                 </div>
                 <video

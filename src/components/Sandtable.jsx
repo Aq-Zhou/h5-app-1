@@ -7,6 +7,7 @@ import TopMessage from "../views/TopMessage";
 import Sand from "./Sand";
 import {NavLink} from "react-router-dom";
 import PriceCss from "../views/Price";
+import FontCss from "../views/FontCss";
 
 
 const Table = styled.div`
@@ -56,7 +57,7 @@ function Trim() {
         <Table>
             <TopMessage>
                 <div className='textCss'>
-                    <div>文字框</div>
+                    <FontCss>文字框</FontCss>
 
 
                     <PriceCss>
