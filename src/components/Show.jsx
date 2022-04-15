@@ -8,11 +8,9 @@ import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { changePrices } from "../store/actionCreators";
-
-
-// import './Show.css'
 import ShowCss from "./ShowCss";
 import PriceCss from "../views/Price";
+import FontCss from "../views/FontCss";
 
 
 const Body = styled.div`
@@ -22,7 +20,6 @@ const Body = styled.div`
   height: 100%;
   background: #2b2f38;
 `
-
 
 
 
@@ -73,13 +70,11 @@ const Show = () => {
     }
 
 
-
-
     return (
         <Body>
             <TopMessage>
                 <div className='textCss'>
-                    <div>{projectName}</div>
+                    <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
                         <h3 style={{color:"white"}}>含税总价(13%)</h3>

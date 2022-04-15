@@ -96,7 +96,7 @@ function Type() {
             <Footer>
                 <button className='back' ><NavLink to="/sandtable">上一步</NavLink></button>
                 <div className="line" />
-                <button className='next'>下一步</button>
+                <button className='next'><NavLink to="/housetype">下一步</NavLink></button>
             </Footer>
         </Demo>
     );

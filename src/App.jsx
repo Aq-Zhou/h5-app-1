@@ -11,6 +11,7 @@ import Every from "./components/Every";
 import Show from "./components/Show";
 import Sandtable from "./components/Sandtable";
 import Type from "./views/Type";
+import Housetype from "./views/Housetype";
 
 
 export default function App() {
@@ -49,6 +50,9 @@ export default function App() {
 
                 <KeepaliveRoute exact path="/type">
                     <Type/>
+                </KeepaliveRoute>
+                <KeepaliveRoute exact path="/housetype">
+                    <Housetype/>
                 </KeepaliveRoute>
 
                 <Route exact path="/total">
