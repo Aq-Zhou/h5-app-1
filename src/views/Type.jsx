@@ -4,6 +4,7 @@ import {Input} from 'antd';
 import styled from "styled-components";
 import Footer from "./Footer";
 import TopMessage from "./TopMessage";
+import {NavLink} from "react-router-dom";
 
 
 const Demo = styled.div`
@@ -100,7 +101,7 @@ function Type() {
             {/*    </div>*/}
             {/*</NavLink>*/}
             <Footer>
-                <button className='back' >上一步</button>
+                <button className='back' ><NavLink to="/sandtable">上一步</NavLink></button>
                 <div className="line" />
                 <button className='next'>下一步</button>
             </Footer>

@@ -3,6 +3,9 @@ import '../index.less'
 import { Collapse } from "antd";
 import Day from './Day'
 import ShowTime from "./Showtime";
+import {useCacheDispatch} from "react-keepalive-router";
+
+
 
 
 const { Panel } = Collapse;
@@ -10,18 +13,19 @@ const { Panel } = Collapse;
 
 function Every() {
 
+    const cacheDispatch = useCacheDispatch();
 
     return (
 
         <Collapse
             accordion
         >
-            <Panel header="三维渲染全景鸟瞰" showArrow={false}>
+            <Panel header="三维渲染全景鸟瞰" showArrow={false} onClick={()=> cacheDispatch({ type:'reset' })}>
                 <p style={{color:"white"}}>是否需要日夜景切换</p>
                 <Day />
             </Panel>
 
-            <Panel header="虚实结合全景鸟瞰" showArrow={false}>
+            <Panel header="虚实结合全景鸟瞰" showArrow={false} onClick={()=> cacheDispatch({ type:'reset' })}>
                 <p style={{color:"white"}}>请选择展示时段</p>
                 <ShowTime />
             </Panel>

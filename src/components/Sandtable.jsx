@@ -5,6 +5,7 @@ import '../index.less'
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import Sand from "./Sand";
+import {NavLink} from "react-router-dom";
 
 
 const Table = styled.div`
@@ -82,9 +83,9 @@ function Trim() {
             </Showing>
 
             <Footer>
-                <button className='back' >上一步</button>
+                <button className='back' ><NavLink to="/show">上一步</NavLink></button>
                 <div className="line" />
-                <button className='next'>下一步</button>
+                <button className='next'><NavLink to="/type">下一步</NavLink></button>
             </Footer>
         </Table>
     );

@@ -67,6 +67,8 @@ function Show() {
 
     const projectName = useSelector(state => state.projectName)
 
+
+
     return (
         <Body>
             <TopMessage>
@@ -92,7 +94,7 @@ function Show() {
             <Showing>
                 <h3 style={{color: "white"}}>项目鸟瞰</h3>
                 <Collapse accordion>
-                    <Panel key={1} header="视频包装式区位">
+                    <Panel key={1} header="视频包装式区位" >
                         <Every/>
                     </Panel>
                     <Panel key={2} header="VR无缝穿梭式区位">
