@@ -6,6 +6,7 @@ import TopMessage from "./TopMessage";
 import {NavLink} from "react-router-dom";
 import PriceCss from "./Price";
 import FontCss from "./FontCss";
+import {useSelector} from "react-redux";
 
 
 const Demo = styled.div`
@@ -44,18 +45,22 @@ const Demo = styled.div`
 
 
 function Type() {
+    const projectName = useSelector(state => state.projectName)
+
+    const totalPrices = useSelector(state => state.totalPrices)
+
+
     return (
         <Demo>
             <TopMessage>
                 <div className='textCss' >
-                    <FontCss>项目名称</FontCss>
+                    <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
                         <h3 style={{color:"white"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥231322</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥2222</h4>
+                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥{totalPrices}</h4>
                     </PriceCss>
-
                 </div>
 
                 <video
@@ -88,12 +93,6 @@ function Type() {
                 </div>
             </div>
 
-
-            {/*<NavLink to='show'>*/}
-            {/*    <div>*/}
-            {/*        <img src={right}  alt="" />*/}
-            {/*    </div>*/}
-            {/*</NavLink>*/}
             <Footer>
                 <button className='back' ><NavLink to="/sandtable">上一步</NavLink></button>
                 <div className="line" />

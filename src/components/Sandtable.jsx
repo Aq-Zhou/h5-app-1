@@ -8,6 +8,7 @@ import Sand from "./Sand";
 import {NavLink} from "react-router-dom";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
+import {useSelector} from "react-redux";
 
 
 const Table = styled.div`
@@ -53,17 +54,22 @@ const Showing = styled.div`
 const {Panel} = Collapse;
 
 function Trim() {
+
+    const projectName = useSelector(state => state.projectName)
+
+    const totalPrices = useSelector(state => state.totalPrices)
+
+
     return (
         <Table>
             <TopMessage>
                 <div className='textCss'>
-                    <FontCss>文字框</FontCss>
-
+                    <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
                         <h3 style={{color:"white"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥23132332</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥222222</h4>
+                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥{totalPrices}</h4>
                     </PriceCss>
                 </div>
                 <video
