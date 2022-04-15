@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Collapse } from 'antd';
 import styled from "styled-components";
@@ -6,7 +6,8 @@ import '../index.less'
 import Every from "./Every";
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector, useStore } from "react-redux";
+import { changePrices } from "../store/actionCreators";
 
 
 // import './Show.css'
@@ -58,7 +59,11 @@ const Showing = styled.div`
 const { Panel } = Collapse;
 
 
-function Show() {
+const Show = () => {
+
+  const [videoPirces, setVideoPirces] = useState(0)
+  const [vrPirces, setVrPirces] = useState(0)
+  const [nonePirces, setNonePirces] = useState(0)
 
     // const projectName = useSelector((state) => {
     //     console.log("state", state)
@@ -68,6 +73,28 @@ function Show() {
     const projectName = useSelector(state => state.projectName)
 
     const totalPrices = useSelector(state => state.totalPrices)
+
+    const dispacth = useDispatch()
+
+
+    // const addPrices = (videoPircesParams, vrPircesParams, nonePircesParams) => {
+    //   console.log('点击addPrices');
+    //   setVideoPirces(videoPircesParams);
+    //   setVrPirces(vrPircesParams);
+    //   setNonePirces(nonePircesParams);
+
+    //   dispacth(changePrices(videoPirces + vrPirces + nonePirces))
+  
+    // }
+    
+    const addPrices = (evt) => {
+      console.log(evt);
+      
+  
+    }
+
+
+
 
     return (
         <Body>
@@ -93,14 +120,17 @@ function Show() {
 
             <Showing>
                 <h3 style={{color: "white"}}>区位模块</h3>
-                <Collapse accordion>
-                    <Panel key={1} header="视频包装式区位">
+                <Collapse accordion onChange={(evt) => {addPrices(evt)}}>
+                    {/* 四万二 */}
+                    <Panel key={1} header="视频包装式区位" collapsible={'header'} onChange={() => {console.log('1111');}} >
                         <Every/>
                     </Panel>
-                    <Panel key={2} header="VR无缝穿梭式区位">
+                    {/* 四万八 */}
+                    <Panel key={2} header="VR无缝穿梭式区位" onClick={() => {addPrices(48000, 0, 0)}} >
                         <Every/>
                     </Panel>
-                    <Panel key={3} header="不需要区位展示">
+                    {/* 0 */}
+                    <Panel key={3} header="不需要区位展示" onClick={() => {addPrices(0, 0, 0)}} >
                         <Every/>
                     </Panel>
                 </Collapse>

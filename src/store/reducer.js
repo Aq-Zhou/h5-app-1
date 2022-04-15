@@ -10,7 +10,13 @@ function reducer(state = defaultState, action) {
   // console.log(action)
   switch (action.type) {
     case actionTypes.CHANGE_NAME:
-      return {...state, projectName: action.value}
+      return {
+        ...state, projectName: action.value
+      };
+    case actionTypes.CHANGE_PRICES:
+      return {
+        ...state, totalPrices: action.value
+      };
     default:
       return state;
   }

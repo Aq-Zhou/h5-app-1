@@ -10,6 +10,7 @@ import Write from "./components/Write";
 import Every from "./components/Every";
 import Show from "./components/Show";
 import Sandtable from "./components/Sandtable";
+import Type from "./views/Type";
 
 
 export default function App() {
@@ -29,22 +30,27 @@ export default function App() {
                     <Home/>
                 </Route>
 
-                <KeepaliveRoute exact path="/show" component={Show} />
-
                 <KeepaliveRoute exact path='/write' component={Write} />
 
-                <Route exact path='/packing'>
-                    <Every/>
-                </Route>
-                <Route exact path='/shuttle'>
-                    <Every/>
-                </Route>
-                <Route exact path='/nothing'>
-                    <Every/>
-                </Route>
-                <Route exact path="/sandtable">
+                <KeepaliveRoute exact path="/show" component={Show} />
+
+                {/*<Route exact path='/packing'>*/}
+                {/*    <Every/>*/}
+                {/*</Route>*/}
+                {/*<Route exact path='/shuttle'>*/}
+                {/*    <Every/>*/}
+                {/*</Route>*/}
+                {/*<Route exact path='/nothing'>*/}
+                {/*    <Every/>*/}
+                {/*</Route>*/}
+                <KeepaliveRoute exact path="/sandtable">
                     <Sandtable/>
-                </Route>
+                </KeepaliveRoute>
+
+                <KeepaliveRoute exact path="/type">
+                    <Type/>
+                </KeepaliveRoute>
+
                 <Route exact path="/total">
                     {/*<Total/>*/}
                 </Route>

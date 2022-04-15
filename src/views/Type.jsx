@@ -4,6 +4,8 @@ import {Input} from 'antd';
 import styled from "styled-components";
 import Footer from "./Footer";
 import TopMessage from "./TopMessage";
+import {NavLink} from "react-router-dom";
+import PriceCss from "./Price";
 
 
 const Demo = styled.div`
@@ -21,14 +23,8 @@ const Demo = styled.div`
   
   
    .types, .numbers {
-    //position: absolute;
     width: 280px;
     height: 80px;
-    //margin: auto;
-    //top: 20px;
-    //left:0;
-    //right:0;
-    //bottom:0;
      
      .ant-input {
       margin: auto;
@@ -45,9 +41,7 @@ const Demo = styled.div`
     }
   }
 `
-const Price = styled.div`
-    color:white;
-`
+
 
 function Type() {
     return (
@@ -56,11 +50,11 @@ function Type() {
                 <div className='textCss' >
                     <div>模块名称-形式名称</div>
 
-                    <Price>
+                    <PriceCss>
                         <h3 style={{color:"white"}}>含税总价</h3>
                         <h2 style={{color:"#ffb520"}}>￥xxx,xxx</h2>
                         <h4 style={{color:"white"}}>不含税总价：￥xxx,xxx</h4>
-                    </Price>
+                    </PriceCss>
                 </div>
 
                 <video
@@ -100,7 +94,7 @@ function Type() {
             {/*    </div>*/}
             {/*</NavLink>*/}
             <Footer>
-                <button className='back' >上一步</button>
+                <button className='back' ><NavLink to="/sandtable">上一步</NavLink></button>
                 <div className="line" />
                 <button className='next'>下一步</button>
             </Footer>
