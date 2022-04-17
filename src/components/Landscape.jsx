@@ -40,17 +40,14 @@ const Showing = styled.div`
     border-radius: 12px;
     border: 1px solid white;
   }
-
-  .ant-modal {
-   
-    position: absolute;
-    top: 50%;
-    
-  }
   
-  
-  
-
+    @media (max-width: 767px)
+    .ant-modal {
+      margin: 8px auto;
+      max-width: calc(100vw - 16px);
+      border: 1px solid red;
+      margin-top: 150px;
+    }
   
 
 `

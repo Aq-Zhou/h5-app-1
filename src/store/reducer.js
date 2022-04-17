@@ -38,7 +38,7 @@ function reducer(state = defaultState, action) {
       };
     case actionTypes.CHANGE_QUANPRICES:
       return {
-        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + + state.sandPrices
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices
       };
     default:
       return state;
