@@ -3,26 +3,26 @@ import {Radio, Space} from "antd";
 import { useDispatch } from "react-redux";
 import { changeNiaoPrices } from "../store/actionCreators";
 
+import * as prices from '../store/prices'
+
 const Day = () =>  {
     
     const [value, setValue] = useState(0)
-    const disptach = useDispatch()
+    const dispatch = useDispatch()
 
     const onChange = (e) => {
+        // 日夜景交替20000
         console.log('radio checked', e.target.value);
         setValue(
             e.target.value
         );
-
         if(e.target.value === 1) {
-            disptach(changeNiaoPrices(20000))
+            dispatch(changeNiaoPrices(prices.xuShiPrice))
         }
 
         if(e.target.value === 2) {
-            disptach(changeNiaoPrices(12000))
+            dispatch(changeNiaoPrices(prices.noXuShiPrice))
         }
-
-
 
     };
 

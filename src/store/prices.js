@@ -20,6 +20,9 @@ export const shaPanPrice = 8000
 // VR沙盘
 export const vrShaPanPrice = 16000
 
+// CIM
+export const cimPrice = 16000
+
 // 720三维全景户型漫游
 export const quanJingHousePrice = 4000
 // 720全景实拍户型漫游

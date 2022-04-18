@@ -1,5 +1,5 @@
 import {Checkbox, Row, Col} from 'antd';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeNiaoPrices } from '../store/actionCreators';
 
@@ -8,7 +8,7 @@ import { changeNiaoPrices } from '../store/actionCreators';
 
 function ShowTime() {
 
-    const [state, setState] = useState(null)
+    // const [state, setState] = useState(null)
     
     const dispatch = useDispatch()
 

@@ -8,6 +8,8 @@ import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
 import {useDispatch, useSelector} from "react-redux";
 import {changeSandPrices} from "../store/actionCreators";
+import {Button} from "antd";
+import ShowCss from "./ShowCss";
 
 
 const Table = styled.div`
@@ -16,43 +18,29 @@ const Table = styled.div`
   height: 100%;
   background: #2b2f38;
 `
-
 const Showing = styled.div`
   position: absolute;
   width: 100%;
   height: 40%;
   bottom: 70px;
   overflow: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  //.ant-btn-round.ant-btn-lg {
-  //  background: #434752;
-  //  border: none;
-  //}
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-  
-  
-  .-button, .changeButton {
+  .ant-btn {
+    border: none;
     color: white;
     width: 316px;
     height: 46px;
-    border: none;
+    background: rgb(67, 71, 82);
+    margin: 10px 0 10px 0;
     border-radius: 12px;
-    background: #434752;
-    margin: 30px 0 60px 0;
-
   }
+
   .changeButton {
     border: 1px solid;
   }
-  .-button {
-  }
-  
 `
 
 
@@ -64,9 +52,9 @@ const Trim = () => {
 
     const dispatch = useDispatch()
 
-    // 1点击了
-    // 0就是未点击
-    const [state, setState] = useState({btn1: true, btn2: false})
+
+    // 0: 360项目沙盘   1：VR项目沙盘  2：不需要项目沙盘
+    const [state, setState] = useState(2)
 
 
     const changePrices = (param) => {
@@ -106,34 +94,39 @@ const Trim = () => {
             <Showing>
                 <h3 style={{color: "white"}}>项目沙盘</h3>
 
-                <button
-                    className={(state.btn1 === true) ? ('changeButton') : ('-button')}
+                <Button
+                    className={(state === 0) ? ('changeButton') : null}
                     onClick={() => {
                         changePrices(8000);
-                        if (state.btn1) {
-
-                        }
-                        setState({...state, btn1: !(state.btn1), btn2: state.btn1})
+                        setState(0)
                     }}
                 >
                     360°项目沙盘
-                </button>
-
-                <button
-                    className={(state.btn2 === true) ? ('changeButton') : ('-button')}
+                </Button>
+                <Button
+                    className={(state === 1) ? ('changeButton') : null}
                     onClick={() => {
                         changePrices(16000);
-                        setState({...state, btn2: !(state.btn2), btn1: state.btn2});
+                        setState(1);
                     }}
                 >
                     VR项目沙盘
-                </button>
+                </Button>
+                <Button
+                    className={(state === 2) ? ('changeButton') : null}
+                    onClick={() => {
+                        changePrices(0);
+                        setState(2);
+                    }}
+                >
+                    不需要项目沙盘
+                </Button>
 
 
             </Showing>
 
             <Footer>
-                <button className='back'><NavLink to="/show">上一步</NavLink></button>
+                <button className='back'><NavLink to="/viewbird">上一步</NavLink></button>
                 <div className="line"/>
                 <button className='next'><NavLink to="/Landscape">下一步</NavLink></button>
             </Footer>

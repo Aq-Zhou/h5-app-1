@@ -14,7 +14,7 @@ import Type from "./views/Type";
 import Housetype from "./views/Housetype";
 import Final from "./views/Final";
 import Landscape from "./components/Landscape";
-// import Viewbird from "./views/Viewbird";
+import Viewbird from "./views/Viewbird";
 
 
 
@@ -40,7 +40,7 @@ export default function App() {
                 <KeepaliveRoute exact path="/show" component={Show} />
 
                 <KeepaliveRoute exact path="/viewbird">
-                    {/* <Viewbird/> */}
+                    <Viewbird/>
                 </KeepaliveRoute>
 
                 <KeepaliveRoute exact path="/sandtable">
