@@ -14,6 +14,7 @@ import Type from "./views/Type";
 import Housetype from "./views/Housetype";
 import Final from "./views/Final";
 import Landscape from "./components/Landscape";
+import Viewbird from "./views/Viewbird";
 
 
 
@@ -38,15 +39,10 @@ export default function App() {
 
                 <KeepaliveRoute exact path="/show" component={Show} />
 
-                {/*<Route exact path='/packing'>*/}
-                {/*    <Every/>*/}
-                {/*</Route>*/}
-                {/*<Route exact path='/shuttle'>*/}
-                {/*    <Every/>*/}
-                {/*</Route>*/}
-                {/*<Route exact path='/nothing'>*/}
-                {/*    <Every/>*/}
-                {/*</Route>*/}
+                <KeepaliveRoute exact path="/viewbird">
+                    <Viewbird/>
+                </KeepaliveRoute>
+
                 <KeepaliveRoute exact path="/sandtable">
                     <Sandtable/>
                 </KeepaliveRoute>
@@ -54,6 +50,7 @@ export default function App() {
                 <KeepaliveRoute exact path="/type">
                     <Type/>
                 </KeepaliveRoute>
+
                 <KeepaliveRoute exact path="/housetype">
                     <Housetype/>
                 </KeepaliveRoute>
@@ -62,13 +59,14 @@ export default function App() {
                     <Final/>
                 </KeepaliveRoute>
 
-                <KeepaliveRoute exact path="/Landscape">
+                <KeepaliveRoute exact path="/landscape">
                     <Landscape/>
                 </KeepaliveRoute>
 
-                <Route exact path="/total">
-                    {/*<Total/>*/}
-                </Route>
+
+                {/*<Route exact path="/total">*/}
+                {/*    /!*<Total/>*!/*/}
+                {/*</Route>*/}
                 <Redirect exact from="/" to="/home"/>
                 <Route path="*">
                     <NoMatch/>
