@@ -7,9 +7,6 @@ import { useDispatch } from "react-redux";
 import { changeNiaoPrices } from "../store/actionCreators";
 
 
-
-
-
 const { Panel } = Collapse;
 
 
