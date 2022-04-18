@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
-import {Collapse} from 'antd';
+import {Button, Collapse, InputNumber, Modal} from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../views/Footer";
@@ -10,6 +10,7 @@ import ShowCss from "../components/ShowCss";
 import PriceCss from "./Price";
 import FontCss from "./FontCss";
 
+
 const Body = styled.div`
   color: white;
   position: absolute;
@@ -18,7 +19,6 @@ const Body = styled.div`
   background: #2b2f38;
 `
 
-const {Panel} = Collapse;
 
 
 function HouseType() {
@@ -28,8 +28,33 @@ function HouseType() {
     //     return state.projectName
     // })
 
+
+    const [state,setState] = useState()
+
     const projectName = useSelector(state => state.projectName)
 
+    const totalPrices = useSelector(state => state.totalPrices)
+
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleOk = () => {
+        setIsModalVisible(false);
+        // dispatch();
+
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
+    function onChange(value) {
+        console.log('changed', value);
+    }
 
 
     return (
@@ -40,8 +65,8 @@ function HouseType() {
 
                     <PriceCss>
                         <h3 style={{color:"white"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥23132</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥2222</h4>
+                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h4 style={{color:"white"}}>不含税总价：￥{totalPrices}</h4>
                     </PriceCss>
                 </div>
                 <video
@@ -60,17 +85,54 @@ function HouseType() {
 
             <ShowCss>
                 <h3 style={{color: "white"}}>户型鉴赏</h3>
-                <Collapse accordion>
-                    <Panel key={1} header="720°三维全景户型漫游" />
-
-                    <Panel key={2} header="720°全景实拍户型漫游" />
-
-                    <Panel key={3} header="VR户型套餐" />
-
-                    <Panel key={4} header="不需要户型展示" />
-
-                </Collapse>
+                <>
+                    <Button type="primary" onClick={() => { showModal(); setState(1) }}>
+                        720°三维全景户型漫游
+                    </Button>
+                    <Button type="prmary" onClick={()=> {showModal(); setState(2)}}>
+                        720°全景实拍户型漫游
+                    </Button>
+                    <Button type="primary" onClick={() => { showModal(); setState(2) }}>
+                        VR户型套装
+                    </Button>
+                    <Button type="primary" >
+                        不需要户型展示
+                    </Button>
+                    {
+                        state === 1 ? (
+                                <Modal title="输入720°三维漫游点数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                                    <InputNumber
+                                        min={0}
+                                        defaultValue={0}
+                                        onChange={onChange}/> 点
+                                </Modal>)
+                            : null
+                    }
+                    {
+                        state === 2 ? (
+                                <Modal title="输入720°全景实拍漫游点数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                                    <InputNumber
+                                        min={0}
+                                        defaultValue={0}
+                                        onChange={onChange} /> 点
+                                </Modal>)
+                            : null
+                    }
+                    {
+                        state === 3 ? (
+                                <Modal title="输入VR户型平米数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                                    <InputNumber
+                                        min={0}
+                                        defaultValue={0}
+                                        onChange={onChange} /> ㎡
+                                </Modal>)
+                            : null
+                    }
+                </>
+                
             </ShowCss>
+
+
 
             <Footer>
                 <button className='back'>
@@ -80,7 +142,7 @@ function HouseType() {
                 </button>
                 <div className="line"/>
                 <button className='next'>
-                    <NavLink to='type-1'>
+                    <NavLink to='final'>
                         下一步
                     </NavLink>
                 </button>
