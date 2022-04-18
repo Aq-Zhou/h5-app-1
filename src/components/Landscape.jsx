@@ -41,12 +41,16 @@ const Showing = styled.div`
     border: 1px solid white;
   }
   
-    @media (max-width: 767px)
+    
     .ant-modal {
       margin: 8px auto;
       max-width: calc(100vw - 16px);
       border: 1px solid red;
       margin-top: 150px;
+    }
+
+    .modalClass {
+      position: absolute;
     }
   
 
@@ -130,20 +134,24 @@ const Landscape = memo(() => {
           <Button type="primary" >
             不需要景观漫游
           </Button>
-          {
-            state === 1 ? (
-              <Modal title="输入720°全景漫游条数" className='modalClass' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <InputNumber min={0} defaultValue={0} onChange={onChange} />
-              </Modal>)
-              : null
-          }
-          {
-            state === 2 ? (
-              <Modal title="输入全景路径漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <InputNumber min={0} defaultValue={0} onChange={onChange} />
-              </Modal>)
-              : null
-          }
+
+          <div className='modalClass'>
+            {
+              state === 1 ? (
+                <Modal title="输入720°全景漫游条数" className='modalClass' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                  <InputNumber min={0} defaultValue={0} onChange={onChange} />
+                </Modal>)
+                : null
+            }
+            {
+              state === 2 ? (
+                <Modal title="输入全景路径漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                  <InputNumber min={0} defaultValue={0} onChange={onChange} />
+                </Modal>)
+                : null
+            }
+          </div>
+
         </>
 
       </Showing>
