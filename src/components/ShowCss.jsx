@@ -11,6 +11,7 @@ const ShowCss = styled.div`
   
   .ant-collapse > .ant-collapse-item:last-child > .ant-collapse-header {
     border-radius: 12px;
+    
   }
 
   .ant-collapse {
@@ -25,18 +26,22 @@ const ShowCss = styled.div`
       border: none;
       border-radius: 12px;
       color: white;
+      
     }
 
     .ant-collapse-item {
       background: #434752;
       border-radius: 32px;
       border: 22px solid #2b2f38;
+      
     }
 
     .ant-collapse-content {
       border: none;
       background: #2b2f38;
 
+      
+      
       .ant-radio-wrapper, .ant-checkbox-wrapper {
         color: white;
         

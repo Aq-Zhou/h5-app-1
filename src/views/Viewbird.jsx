@@ -20,7 +20,6 @@ const Table = styled.div`
   width: 100%;
   height: 100%;
   background: #2b2f38;
-
   
 
 `
@@ -35,7 +34,7 @@ const Viewbird = () => {
 
     const dispatch = useDispatch()
 
-    const [state, setState] = useState(4)
+    const [state, setState] = useState(1)
 
     const changePrices = (param) => {
         dispatch(changeNiaoPrices(param))
