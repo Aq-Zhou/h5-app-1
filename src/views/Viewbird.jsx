@@ -10,9 +10,11 @@ import Day from "../components/Day";
 import ShowTime from "../components/Showtime";
 import {Collapse} from "antd";
 import ShowCss from "../components/ShowCss";
-import {changeNiaoPrices} from "../store/actionCreators";
+// import {changeNiaoPrices} from "../store/actionCreators";
 
 import * as prices from '../store/prices'
+import {changeNiaoPrices} from "../store/actionCreators";
+import {cimPrice} from "../store/prices";
 
 const Table = styled.div`
   position: absolute;
@@ -43,9 +45,17 @@ const Viewbird = () => {
 
         // 项目鸟瞰
         if (evt === '0') {
+            setState('0')
+            dispatch(changeNiaoPrices(0))
         } else if (evt === '1') {
+            setState('1')
+            dispatch(changeNiaoPrices(0))
         } else if (evt === '2') {
+            setState('2')
+            dispatch(changeNiaoPrices(0))
         } else if (evt === '3') {
+            setState('3')
+            dispatch(changeNiaoPrices(0))
         }
     }
 
@@ -122,6 +132,8 @@ const Viewbird = () => {
                     </Panel>
 
                 </Collapse>
+
+                }
 
             </ShowCss>
 

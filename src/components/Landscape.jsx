@@ -127,7 +127,6 @@ const Landscape = memo(() => {
                 <InputNumber
                     min={0}
                     defaultValue={0}
-                    price={8000}
                     onChange={onChange}/> 条
               </Modal>)
               : null
@@ -138,7 +137,6 @@ const Landscape = memo(() => {
                 <InputNumber
                     min={0}
                     defaultValue={0}
-                    price={6000}
                     onChange={onChange} /> 条
               </Modal>)
               : null

@@ -23,7 +23,6 @@ const Day = () =>  {
         if(e.target.value === 2) {
             dispatch(changeNiaoPrices(prices.noXuShiPrice))
         }
-
     };
 
         
