@@ -10,6 +10,7 @@ import Day from "../components/Day";
 import ShowTime from "../components/Showtime";
 import {Collapse} from "antd";
 import ShowCss from "../components/ShowCss";
+import {changeNiaoPrices} from "../store/actionCreators";
 
 
 const Table = styled.div`
@@ -17,11 +18,11 @@ const Table = styled.div`
   width: 100%;
   height: 100%;
   background: #2b2f38;
-  
+
   .change {
     border: 1px solid;
   }
-  
+
 `
 
 const Viewbird = () => {
@@ -38,6 +39,13 @@ const Viewbird = () => {
 
     const changeCollapse = (evt) => {
         console.log(evt)
+
+        // 项目鸟瞰
+        if (evt === '0') {
+        } else if (evt === '1') {
+        } else if (evt === '2') {
+        } else if (evt === '3') {
+        }
     }
 
     return (
