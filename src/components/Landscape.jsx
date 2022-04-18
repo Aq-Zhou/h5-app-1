@@ -33,17 +33,15 @@ const Showing = styled.div`
   
   
   .ant-btn {
+    border: none;
     width: 316px;
     height: 46px;
     background: rgb(67,71,82);
     margin: 10px 0 10px 0;
     border-radius: 12px;
-    border: 1px solid white;
+    
   }
   
-  
-  
-
 `
 
 const Landscape = memo(() => {
@@ -74,7 +72,6 @@ const Landscape = memo(() => {
   const handleOk = () => {
     setIsModalVisible(false);
     dispatch(changeQuanPrices);
-    console.log(onChange())
   };
 
   const handleCancel = () => {
@@ -159,7 +156,7 @@ const Landscape = memo(() => {
   )
 })
 
-export default Landscape
+export default Landscape;
 
 
 
