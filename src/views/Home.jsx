@@ -7,14 +7,6 @@ import {NavLink} from "react-router-dom";
 import BackPicture from '../images/backPicture.jpg'
 
 
-// const sectionStyle = styled.div`
-//   display: inline-block;
-//   width: 100%;
-//   height: 100%;
-//   background-image: url("${BackPicture}") center center / cover no-repeat;
-// `
-
-
 
 const Wrapper = styled.div`
   background: #2b2f38;

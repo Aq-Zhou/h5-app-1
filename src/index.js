@@ -4,12 +4,10 @@ import './index.less';
 import App from './App';
 import 'antd/dist/antd.css';
 
-import './index.css'
-
 import { Provider } from "react-redux";
 import store from "./store";
 
-import { HashRouter as Router} from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 
 
