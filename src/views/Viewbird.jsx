@@ -14,7 +14,6 @@ import ShowCss from "../components/ShowCss";
 
 import * as prices from '../store/prices'
 import {changeNiaoPrices} from "../store/actionCreators";
-import {cimPrice} from "../store/prices";
 
 const Table = styled.div`
   position: absolute;
@@ -22,9 +21,7 @@ const Table = styled.div`
   height: 100%;
   background: #2b2f38;
 
-  .change {
-    border: 1px solid;
-  }
+  
 
 `
 
@@ -38,26 +35,32 @@ const Viewbird = () => {
 
     const dispatch = useDispatch()
 
-    const [state, setState] = useState(3)
+    const [state, setState] = useState(4)
+
+    const changePrices = (param) => {
+        dispatch(changeNiaoPrices(param))
+    }
 
     const changeCollapse = (evt) => {
         console.log(evt)
-
         // 项目鸟瞰
-        if (evt === '0') {
-            setState('0')
-            dispatch(changeNiaoPrices(0))
-        } else if (evt === '1') {
-            setState('1')
+        if (evt === '1') {
+            setState(1)
             dispatch(changeNiaoPrices(0))
         } else if (evt === '2') {
-            setState('2')
+
+            setState(2)
             dispatch(changeNiaoPrices(0))
         } else if (evt === '3') {
-            setState('3')
+
+            setState(3)
+            dispatch(changeNiaoPrices(0))
+        } else if (evt === '4') {
+            setState(4)
             dispatch(changeNiaoPrices(0))
         }
     }
+
 
     return (
         <Table>
@@ -85,13 +88,14 @@ const Viewbird = () => {
                 </video>
             </TopMessage>
 
+
             <ShowCss>
                 <h3 style={{color: "white", textAlign: "center"}}>项目鸟瞰</h3>
 
-                <Collapse accordion onChange={changeCollapse}>
+                <Collapse accordion onChange={(evt) => changeCollapse(evt)}>
 
                     <Panel
-                        className={(state === 0 ? ("change") : null)}
+                        className={(state === 1 ? ("btncss") : null)}
                         key={1}
                         header={`三维渲染全景鸟瞰(￥${prices.noXuShiPrice}~${prices.xuShiPrice})`}
                         showArrow={false}
@@ -101,7 +105,7 @@ const Viewbird = () => {
                     </Panel>
 
                     <Panel
-                        className={(state === 1 ? ("change") : null)}
+                        className={(state === 2 ? ("btncss") : null)}
                         key={2}
                         header={`虚实结合全景鸟瞰(￥${prices.niaoKanPrice1}~${prices.niaoKanPrice3})`}
                         showArrow={false}
@@ -112,25 +116,20 @@ const Viewbird = () => {
 
 
                     <Panel
-                        className={(state === 2 ? ("change") : null)}
+                        className={(state === 3 ? ("btncss") : null)}
                         key={3}
                         header={`CIM孪生城市(￥${prices.cimPrice})`}
                         showArrow={false}
-                        collapsible='disabled'
                     >
-
                     </Panel>
 
                     <Panel
-                        className={(state === 3 ? ("change") : null)}
+                        className={(state === 4 ? ("btncss") : null)}
                         key={4}
                         header="不需要项目鸟瞰"
                         showArrow={false}
-                        collapsible='disabled'
                     >
-
                     </Panel>
-
                 </Collapse>
 
                 }

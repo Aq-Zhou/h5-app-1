@@ -7,7 +7,8 @@ const ShowCss = styled.div`
   height: 40%;
   overflow: auto;
 
-
+  
+  
   .ant-collapse > .ant-collapse-item:last-child > .ant-collapse-header {
     border-radius: 12px;
   }
@@ -16,6 +17,10 @@ const ShowCss = styled.div`
     border: none;
     background: #282c34;
 
+    .btncss {
+      border: 1px solid;
+    }
+    
     .ant-collapse-header {
       border: none;
       border-radius: 12px;
