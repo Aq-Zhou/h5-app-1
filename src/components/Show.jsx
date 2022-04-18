@@ -10,6 +10,7 @@ import {changeQuWeiPrices, changeNiaoPrices} from "../store/actionCreators";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
 
+import * as prices from '../store/prices'
 
 const Table = styled.div`
   position: absolute;
@@ -113,21 +114,21 @@ const Show = () => {
                     className={(state ===  0) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
-                        changePrices(42000)
+                        changePrices(prices.videoPrice)
                         setState(0)
                     }}
                 >
-                    视频包装式区位
+                    视频包装式区位(￥{prices.videoPrice})
                 </Button>
                 <Button
                     className={(state === 1) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
-                        changePrices(48000)
+                        changePrices(prices.vrPrice)
                         setState(1)
                     }}
                 >
-                    VR无缝穿梭式区位
+                    VR无缝穿梭式区位(￥{prices.vrPrice})
                 </Button>
                 <Button
                     className={(state === 2) ? ("change-btn") : null}
@@ -143,7 +144,7 @@ const Show = () => {
 
             <Footer>
                 <button className='back'>
-                    <NavLink to='write'>
+                    <NavLink to='write' >
                         上一步
                     </NavLink>
                 </button>

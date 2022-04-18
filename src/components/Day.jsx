@@ -3,6 +3,8 @@ import {Radio, Space} from "antd";
 import { useDispatch } from "react-redux";
 import { changeNiaoPrices } from "../store/actionCreators";
 
+import * as prices from '../store/prices'
+
 const Day = () =>  {
     
     const [value, setValue] = useState(0)
@@ -15,11 +17,11 @@ const Day = () =>  {
             e.target.value
         );
         if(e.target.value === 1) {
-            dispatch(changeNiaoPrices(20000))
+            dispatch(changeNiaoPrices(prices.xuShiPrice))
         }
 
         if(e.target.value === 2) {
-            dispatch(changeNiaoPrices(0))
+            dispatch(changeNiaoPrices(prices.noXuShiPrice))
         }
 
     };

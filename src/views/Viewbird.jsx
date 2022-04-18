@@ -12,6 +12,7 @@ import {Collapse} from "antd";
 import ShowCss from "../components/ShowCss";
 import {changeNiaoPrices} from "../store/actionCreators";
 
+import * as prices from '../store/prices'
 
 const Table = styled.div`
   position: absolute;
@@ -82,7 +83,7 @@ const Viewbird = () => {
                     <Panel
                         className={(state === 0 ? ("change") : null)}
                         key={1}
-                        header="三维渲染全景鸟瞰"
+                        header={`三维渲染全景鸟瞰(￥${prices.noXuShiPrice}~${prices.xuShiPrice})`}
                         showArrow={false}
                     >
                         <p style={{color: "white"}}>是否需要日夜景切换</p>
@@ -92,7 +93,7 @@ const Viewbird = () => {
                     <Panel
                         className={(state === 1 ? ("change") : null)}
                         key={2}
-                        header="虚实结合全景鸟瞰"
+                        header={`虚实结合全景鸟瞰(￥${prices.niaoKanPrice1}~${prices.niaoKanPrice3})`}
                         showArrow={false}
                     >
                         <p style={{color: "white"}}>请选择展示时段</p>
@@ -103,7 +104,7 @@ const Viewbird = () => {
                     <Panel
                         className={(state === 2 ? ("change") : null)}
                         key={3}
-                        header="CIM孪生城市"
+                        header={`CIM孪生城市(￥${prices.cimPrice})`}
                         showArrow={false}
                         collapsible='disabled'
                     >
