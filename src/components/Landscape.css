@@ -3,9 +3,10 @@
     height: 100px;
   }
 
-@media (max-width: 767px)
-  .ant-modal {
-    max-width: calc(100vw - 16px);
-    border: 1px solid red;
-    margin-top: 150px;
-  }
+@media (max-width: 767px) {
+    .ant-modal {
+        max-width: calc(100vw - 16px);
+        border: 1px solid red;
+        margin-top: 150px;
+    }
+}

@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSandPrices } from "../store/actionCreators";
+import {changeQuanPrices} from "../store/actionCreators";
 import { Modal, Button, InputNumber } from 'antd';
 
 import 'antd/dist/antd.css';
@@ -30,7 +30,13 @@ const Showing = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  
+  
+  .ant-modal {
+    max-width: calc(100vw - 16px);
+    margin-top: 127px;
+  }
+  
   
   .ant-btn {
     width: 316px;
@@ -41,17 +47,7 @@ const Showing = styled.div`
     border: 1px solid white;
   }
   
-    
-    .ant-modal {
-      margin: 8px auto;
-      max-width: calc(100vw - 16px);
-      border: 1px solid red;
-      margin-top: 150px;
-    }
-
-    .modalClass {
-      position: absolute;
-    }
+  
   
 
 `
@@ -67,11 +63,10 @@ const Landscape = memo(() => {
   const [state, setState] = useState(0)
 
 
-  const changePrices = (param) => {
-    // 360报价8000
-    // VR报价 16000
-    dispatch(changeSandPrices(param))
-
+  const changePrices = (param ,value) => {
+    // 720°全景8000/条
+    // 全景路径漫游6000/条
+    dispatch(changeQuanPrices(param, value))
 
   }
 
@@ -134,24 +129,26 @@ const Landscape = memo(() => {
           <Button type="primary" >
             不需要景观漫游
           </Button>
-
-          <div className='modalClass'>
-            {
-              state === 1 ? (
-                <Modal title="输入720°全景漫游条数" className='modalClass' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                  <InputNumber min={0} defaultValue={0} onChange={onChange} />
-                </Modal>)
-                : null
-            }
-            {
-              state === 2 ? (
-                <Modal title="输入全景路径漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                  <InputNumber min={0} defaultValue={0} onChange={onChange} />
-                </Modal>)
-                : null
-            }
-          </div>
-
+          {
+            state === 1 ? (
+              <Modal title="输入720°全景漫游条数" className='modalClass' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                <InputNumber
+                    min={0}
+                    defaultValue={0}
+                    onChange={onChange}
+                    changePrices
+                />
+                 条
+              </Modal>)
+              : null
+          }
+          {
+            state === 2 ? (
+              <Modal title="输入全景路径漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                <InputNumber min={0} defaultValue={0} onChange={onChange} />
+              </Modal>)
+              : null
+          }
         </>
 
       </Showing>
