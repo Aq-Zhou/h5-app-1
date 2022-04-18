@@ -32,12 +32,6 @@ const Showing = styled.div`
   align-items: center;
   
   
-  .ant-modal {
-    max-width: calc(100vw - 16px);
-    margin-top: 127px;
-  }
-  
-  
   .ant-btn {
     width: 316px;
     height: 46px;
@@ -63,11 +57,11 @@ const Landscape = memo(() => {
   const [state, setState] = useState(0)
 
 
-  const changePrices = (param ,value) => {
+  const changePrices = (param) => {
     // 720°全景8000/条
     // 全景路径漫游6000/条
-    dispatch(changeQuanPrices(param, value))
 
+    dispatch(changeQuanPrices(param))
   }
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -79,7 +73,8 @@ const Landscape = memo(() => {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    dispatch()
+    dispatch(changeQuanPrices);
+    console.log(onChange())
   };
 
   const handleCancel = () => {
@@ -131,21 +126,23 @@ const Landscape = memo(() => {
           </Button>
           {
             state === 1 ? (
-              <Modal title="输入720°全景漫游条数" className='modalClass' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+              <Modal title="输入720°全景漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <InputNumber
                     min={0}
                     defaultValue={0}
-                    onChange={onChange}
-                    changePrices
-                />
-                 条
+                    price={8000}
+                    onChange={onChange}/> 条
               </Modal>)
               : null
           }
           {
             state === 2 ? (
               <Modal title="输入全景路径漫游条数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <InputNumber min={0} defaultValue={0} onChange={onChange} />
+                <InputNumber
+                    min={0}
+                    defaultValue={0}
+                    price={6000}
+                    onChange={onChange} /> 条
               </Modal>)
               : null
           }
@@ -156,7 +153,7 @@ const Landscape = memo(() => {
       <Footer>
         <button className='back'><NavLink to="/Sandtable">上一步</NavLink></button>
         <div className="line" />
-        <button className='next'><NavLink to="/Landscape">下一步</NavLink></button>
+        <button className='next'><NavLink to="/Housetype">下一步</NavLink></button>
       </Footer>
     </Table>
   )

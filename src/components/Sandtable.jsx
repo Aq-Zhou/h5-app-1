@@ -64,7 +64,7 @@ const Trim = () => {
 
     const dispatch = useDispatch()
 
-    //1点击了
+    // 1点击了
     // 0就是未点击
     const [state, setState] = useState({btn1: true, btn2: false})
 
