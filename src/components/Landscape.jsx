@@ -7,11 +7,13 @@ import { NavLink } from "react-router-dom";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
 import { useDispatch, useSelector } from "react-redux";
-import {changeQuanPrices} from "../store/actionCreators";
+import { changeQuanPrices } from "../store/actionCreators";
 import { Modal, Button, InputNumber } from 'antd';
+import { Collapse } from 'antd';
+
+import * as prices from '../store/prices'
 
 import 'antd/dist/antd.css';
-
 
 const Table = styled.div`
   position: absolute;
@@ -30,7 +32,19 @@ const Showing = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .antCo {
+    .ant-collapse-content-box {
+      display: none;
+    }
+  }
   
+  
+  .ant-collapse-content {
+    background-color: bal;
+    
+    
+  }
   
   .ant-btn {
     border: none;
@@ -44,6 +58,8 @@ const Showing = styled.div`
   
 `
 
+const { Panel } = Collapse;
+
 const Landscape = memo(() => {
   const projectName = useSelector(state => state.projectName)
 
@@ -52,34 +68,34 @@ const Landscape = memo(() => {
   const dispatch = useDispatch()
 
   // 点击的按钮
-  const [state, setState] = useState(0)
+  const [state, setState] = useState(false)
 
 
   const changePrices = (param) => {
-    // 720°全景8000/条
-    // 全景路径漫游6000/条
 
     dispatch(changeQuanPrices(param))
   }
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  
 
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-    dispatch(changeQuanPrices);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
-  function onChange(value) {
+  function onInputNumberManChange(value) {
     console.log('changed', value);
+    dispatch(changeQuanPrices(value * prices.quanJingManYouPrice))
+    
+  }
+
+  function onInputNumberLuChange(value) {
+    console.log('changed', value);
+    
+  }
+
+  function changeCollapse(evt) {
+    console.log('changed', evt);
+    if(evt === '3'){
+      setState(true)
+    }else {
+      setTimeout(() => setState(false), 0)
+    }
   }
 
   return (
@@ -108,10 +124,25 @@ const Landscape = memo(() => {
         </video>
       </TopMessage>
 
-      <Showing>
+      <Showing >
         <h3 style={{ color: "white" }}>景观漫游</h3>
 
-        <>
+        <Collapse accordion onChange={changeCollapse} >
+          <Panel header={`720°全景漫游(￥${prices.quanJingManYouPrice}/条)`} key="1">
+            <p>输入漫游条数</p>
+            <InputNumber min={0} max={20} defaultValue={0} onChange={onInputNumberManChange} />
+          </Panel>
+          <Panel header={`全景路径漫游(￥${prices.quanJingLuJingPrice}/条)`} key="2">
+            <p>输入漫游条数</p>
+            <InputNumber min={0} max={20} defaultValue={0} onChange={onInputNumberLuChange} />
+          </Panel>
+          <Panel header="不需要景观漫游" key="3" className={state ? 'antCo':null} >
+          </Panel>
+        </Collapse>
+
+
+
+        {/* <>
           <Button type="primary" onClick={() => { showModal(); setState(1) }}>
             720°全景漫游
           </Button>
@@ -143,7 +174,7 @@ const Landscape = memo(() => {
               </Modal>)
               : null
           }
-        </>
+        </> */}
 
       </Showing>
 

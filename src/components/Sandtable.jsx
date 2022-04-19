@@ -11,6 +11,8 @@ import {changeSandPrices} from "../store/actionCreators";
 import {Button} from "antd";
 import ShowCss from "./ShowCss";
 
+import * as prices from '../store/prices'
+
 
 const Table = styled.div`
   position: absolute;
@@ -97,20 +99,20 @@ const Trim = () => {
                 <Button
                     className={(state === 0) ? ('changeButton') : null}
                     onClick={() => {
-                        changePrices(8000);
+                        changePrices(prices.shaPanPrice);
                         setState(0)
                     }}
                 >
-                    360°项目沙盘
+                    360°项目沙盘(￥{prices.shaPanPrice})
                 </Button>
                 <Button
                     className={(state === 1) ? ('changeButton') : null}
                     onClick={() => {
-                        changePrices(16000);
+                        changePrices(prices.vrShaPanPrice);
                         setState(1);
                     }}
                 >
-                    VR项目沙盘
+                    VR项目沙盘(￥{prices.vrShaPanPrice})
                 </Button>
                 <Button
                     className={(state === 2) ? ('changeButton') : null}
