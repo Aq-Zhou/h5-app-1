@@ -33,11 +33,57 @@ const Showing = styled.div`
   flex-direction: column;
   align-items: center;
 
-  .antCo {
-    .ant-collapse-content-box {
-      display: none;
+  .collapseClass {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(43,47,56);
+    border: none;
+
+    .ant-collapse-item {
+      border: none;
+      background-color: rgb(67,71,82);
+      border-radius: 12px;
+
+      &.ant-collapse-item-active {
+
+        &.antPanel {
+          border-radius: 12px;
+          border: 1px white solid;
+        }
+
+        &.ant-collapse-no-arrow {
+          &.antCo {
+            border: 1px white solid;
+            .ant-collapse-content-box {
+          display: none;
+        }
+      }
+        }
+      }
+
+      .ant-collapse-header {
+        color: white;
+      }
+      .ant-collapse-content{
+        background-color: rgb(43,47,56);
+        border: none;
+        border-radius: 12px;
+
+        .ant-collapse-content-box {
+          background-color: rgb(67,71,82);
+          border-radius: 0 0 12px 12px;
+          color: white;
+        }
+      }
+      
     }
+    
   }
+
+  
   
   
   .ant-collapse-content {
@@ -70,32 +116,39 @@ const Landscape = memo(() => {
   // 点击的按钮
   const [state, setState] = useState(false)
 
-
-  const changePrices = (param) => {
-
-    dispatch(changeQuanPrices(param))
-  }
-
-  
+  // 
+  const [panel, setPanel] = useState(3)
 
   function onInputNumberManChange(value) {
     console.log('changed', value);
-    dispatch(changeQuanPrices(value * prices.quanJingManYouPrice))
-    
+    let temp = value * prices.quanJingManYouPrice
+    dispatch(changeQuanPrices(temp))
+
   }
 
   function onInputNumberLuChange(value) {
     console.log('changed', value);
-    
+    let temp = value * prices.quanJingLuJingPrice
+    dispatch(changeQuanPrices(temp))
   }
 
   function changeCollapse(evt) {
     console.log('changed', evt);
-    if(evt === '3'){
+    if (evt === '3') {
       setState(true)
-    }else {
+    } else {
       setTimeout(() => setState(false), 0)
     }
+
+    switch(evt){
+      case '1': setPanel(1);break;
+      case '2': setPanel(2);break;
+      case '3': setPanel(3);break;
+      default: break;
+    }
+
+    dispatch(changeQuanPrices(0))
+
   }
 
   return (
@@ -127,16 +180,16 @@ const Landscape = memo(() => {
       <Showing >
         <h3 style={{ color: "white" }}>景观漫游</h3>
 
-        <Collapse accordion onChange={changeCollapse} >
-          <Panel header={`720°全景漫游(￥${prices.quanJingManYouPrice}/条)`} key="1">
+        <Collapse accordion onChange={changeCollapse} className='collapseClass' >
+          <Panel header={`720°全景漫游(￥${prices.quanJingManYouPrice}/条)`} key="1" className={panel === 1 ? 'antPanel' : null}>
             <p>输入漫游条数</p>
-            <InputNumber min={0} max={20} defaultValue={0} onChange={onInputNumberManChange} />
+            {panel === 1 ? <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberManChange} />:null}
           </Panel>
-          <Panel header={`全景路径漫游(￥${prices.quanJingLuJingPrice}/条)`} key="2">
+          <Panel header={`全景路径漫游(￥${prices.quanJingLuJingPrice}/条)`} key="2" className={panel === 2 ? 'antPanel' : null}>
             <p>输入漫游条数</p>
-            <InputNumber min={0} max={20} defaultValue={0} onChange={onInputNumberLuChange} />
+            {panel ===2 ? <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberLuChange} /> : null}
           </Panel>
-          <Panel header="不需要景观漫游" key="3" className={state ? 'antCo':null} >
+          <Panel header="不需要景观漫游" key="3" className={state ? 'antCo' : null} showArrow={false} >
           </Panel>
         </Collapse>
 
