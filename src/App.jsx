@@ -7,7 +7,6 @@ import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from 'react-
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
 import Write from "./views/Write";
-import Every from "./components/Every";
 import Show from "./components/Show";
 import Sandtable from "./views/Sandtable";
 import Type from "./views/Type";

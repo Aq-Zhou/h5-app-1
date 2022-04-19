@@ -9,7 +9,6 @@ import {useDispatch, useSelector} from "react-redux";
 import PriceCss from "../components/Price";
 import FontCss from "../components/FontCss";
 import Showing from "../components/Showing";
-import {quanJingHousePrice, sanWeiPrice, shiPaiHousePrice, vrHpousePrice, xuShiJingPrice} from "../store/prices";
 import * as prices from "../store/prices";
 import {changeJianPrices} from "../store/actionCreators";
 
