@@ -23,10 +23,17 @@ export const vrShaPanPrice = 16000
 // CIM
 export const cimPrice = 16000
 
+// 景观漫游
+// 720全景漫游
+export const quanJingManYouPrice = 6000
+// 全景路径漫游
+export const quanJingLuJingPrice = 12000
+
 // 720三维全景户型漫游
 export const quanJingHousePrice = 4000
 // 720全景实拍户型漫游
 export const shiPaiHousePrice = 1500
+
 // VR户型套装
 export const vrHpousePrice = 300
 
