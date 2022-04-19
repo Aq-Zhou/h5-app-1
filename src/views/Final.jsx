@@ -46,7 +46,7 @@ const Pricecss = styled.div`
   p {
     position: absolute;
     top: 18px;
-    left: 30px;
+    left: 32px;
   }
   h3 {
     position: absolute;
@@ -104,9 +104,9 @@ function Final() {
                 <h3 style={{color: "white", textAlign:"center", borderRadius:"12px", }}>产品明细</h3>
             </Showing>
 
-            {/*<Export>*/}
-            {/*    <button className="-button">导出图片</button>*/}
-            {/*</Export>*/}
+            <Export>
+                <button className="-button">导出图片</button>
+            </Export>
         </Table>
     );
 }
