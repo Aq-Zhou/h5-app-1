@@ -10,7 +10,8 @@ const defaultState = {
   sandPrices: 0,
   // 景观漫游价格
   quanPrices: 0,
-
+  // 户型鉴赏价格
+  jianPrices:0,
 
   //总价
   totalPrices: 0
@@ -26,19 +27,23 @@ function reducer(state = defaultState, action) {
       };
     case actionTypes.CHANGE_QUWEIPRICES:
       return {
-        ...state, quWeiPrices: action.value, totalPrices: action.value + state.niaoPrices + state.sandPrices + state.quanPrices
+        ...state, quWeiPrices: action.value, totalPrices: action.value + state.niaoPrices + state.sandPrices + state.quanPrices + state.jianPrices
       };
     case actionTypes.CHANGE_NIAOPRICES:
       return {
-        ...state, niaoPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.sandPrices + state.quanPrices
+        ...state, niaoPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.sandPrices + state.quanPrices + state.jianPrices
       };
     case actionTypes.CHANGE_SANDPRICES:
       return {
-        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quanPrices
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quanPrices + state.jianPrices
       };
     case actionTypes.CHANGE_QUANPRICES:
       return {
-        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices
+      };
+    case actionTypes.CHANGE_JIANPRICES:
+      return {
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices
       };
     default:
       return state;

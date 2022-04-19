@@ -8,7 +8,7 @@ import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuanPrices} from "../store/actionCreators";
-import {Modal, Button, InputNumber} from 'antd';
+import {InputNumber} from 'antd';
 import {Collapse} from 'antd';
 
 import * as prices from '../store/prices'
@@ -23,8 +23,6 @@ const Table = styled.div`
   background: #2b2f38;
 `
 
-
-
 const {Panel} = Collapse;
 
 const Landscape = memo(() => {
@@ -38,7 +36,7 @@ const Landscape = memo(() => {
     const [state, setState] = useState(false)
 
     //
-    const [panel, setPanel] = useState(3)
+    const [panel, setPanel] = useState(4)
 
     function onInputNumberManChange(value) {
         console.log('changed', value);

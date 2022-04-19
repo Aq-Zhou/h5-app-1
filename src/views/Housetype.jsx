@@ -1,72 +1,88 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import {NavLink} from "react-router-dom";
-import {Button, Collapse, InputNumber, Modal} from 'antd';
+import {Collapse, InputNumber, Modal} from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
-import {useSelector} from "react-redux";
-import ShowCss from "../components/Showing";
+import {useDispatch, useSelector} from "react-redux";
 import PriceCss from "./Price";
 import FontCss from "./FontCss";
 import Showing from "../components/Showing";
+import {quanJingHousePrice, shiPaiHousePrice, vrHpousePrice} from "../store/prices";
+import * as prices from "../store/prices";
+import {changeJianPrices} from "../store/actionCreators";
 
-
-const Body = styled.div`
-  color: white;
+const Table = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   background: #2b2f38;
 `
+const {Panel} = Collapse;
 
-
-function HouseType() {
-
-    // const projectName = useSelector((state) => {
-    //     console.log("state", state)
-    //     return state.projectName
-    // })
-
-
-    const [state,setState] = useState()
+const HouseType = memo(() => {
 
     const projectName = useSelector(state => state.projectName)
 
     const totalPrices = useSelector(state => state.totalPrices)
 
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const dispatch = useDispatch()
 
+    const [state, setState] = useState(false)
 
-    const showModal = () => {
-        setIsModalVisible(true);
-    };
+    const [panel, setPanel] = useState(4);
 
-    const handleOk = () => {
-        setIsModalVisible(false);
-        // dispatch();
-
-    };
-
-    const handleCancel = () => {
-        setIsModalVisible(false);
-    };
-
-    function onChange(value) {
-        console.log('changed', value);
+    function onInputNumberQuanChange(value) {
+        let temp = value * prices.quanJingHousePrice
+        dispatch(changeJianPrices(temp))
     }
 
+    function onInputNumberPaiChange(value) {
+        let temp = value * prices.shiPaiHousePrice
+        dispatch(changeJianPrices(temp))
+    }
+
+    // function onInputNumberMChange(value) {
+    //     let
+    // }
+
+    function changeCollapse(evt) {
+        if (evt === '4') {
+            setState(true)
+        } else {
+            setTimeout(() => setState(false), 0)
+        }
+
+        switch (evt) {
+            case '1':
+                setPanel(1);
+                break;
+            case '2':
+                setPanel(2);
+                break;
+            case '3':
+                setPanel(3);
+                break;
+            case '4':
+                setPanel(4);
+                break;
+            default:
+                break;
+        }
+        dispatch(changeJianPrices(0))
+    }
 
     return (
-        <Body>
+        <Table>
             <TopMessage>
                 <div className='textCss'>
                     <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
-                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
-                        <h4 style={{color:"white"}}>不含税总价：￥{totalPrices}</h4>
+                        <h3 style={{color: "white"}}>含税总价(13%)</h3>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrices}</h4>
                     </PriceCss>
                 </div>
                 <video
@@ -85,58 +101,52 @@ function HouseType() {
 
             <Showing>
                 <h3 style={{color: "white"}}>户型鉴赏</h3>
-                <>
-                    <Button type="primary" onClick={() => { showModal(); setState(1) }}>
-                        720°三维全景户型漫游
-                    </Button>
-                    <Button type="prmary" onClick={()=> {showModal(); setState(2)}}>
-                        720°全景实拍户型漫游
-                    </Button>
-                    <Button type="primary" onClick={() => { showModal(); setState(2) }}>
-                        VR户型套装
-                    </Button>
-                    <Button type="primary" >
-                        不需要户型展示
-                    </Button>
-                    {
-                        state === 1 ? (
-                                <Modal title="输入720°三维漫游点数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                                    <InputNumber
-                                        min={0}
-                                        defaultValue={0}
-                                        onChange={onChange}/> 点
-                                </Modal>)
-                            : null
-                    }
-                    {
-                        state === 2 ? (
-                                <Modal title="输入720°全景实拍漫游点数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                                    <InputNumber
-                                        min={0}
-                                        defaultValue={0}
-                                        onChange={onChange} /> 点
-                                </Modal>)
-                            : null
-                    }
-                    {
-                        state === 3 ? (
-                                <Modal title="输入VR户型平米数" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                                    <InputNumber
-                                        min={0}
-                                        defaultValue={0}
-                                        onChange={onChange} /> ㎡
-                                </Modal>)
-                            : null
-                    }
-                </>
-                
-            </Showing>
 
+                <Collapse accordion onChange={changeCollapse} className='collapseClass'>
+                    <Panel
+                        className={panel === 1 ? 'antPanel' : null}
+                        header={`720°三维全景户型漫游(￥${prices.quanJingHousePrice}/条)`}
+                        key="1"
+                        showArrow={false}
+                    >
+                        <p>请填写点数</p>
+                        {panel === 1 ?
+                            <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberQuanChange}/> : null}
+                    </Panel>
+                    <Panel
+                        className={panel === 2 ? 'antPanel' : null}
+                        header={`720°全景实拍户型漫游(￥${prices.shiPaiHousePrice}/条)`}
+                        key="2"
+                        showArrow={false}
+                    >
+                        <p>请填写点数</p>
+                        {panel === 2 ?
+                        <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberPaiChange}/> :null}
+                    </Panel>
+                    <Panel className={panel === 3 ? 'antPanel' : null}
+                           header={`VR户型套装(￥${prices.vrHpousePrice}/条)`}
+                           key="3"
+                           showArrow={false}
+                    >
+                        <p>请填写平米数</p>
+                        {panel === 3 ? <InputNumber min={1} max={20} defaultValue={0} /> :null}
+                        <p>请填写窗外景观点数</p>
+                    </Panel>
+                    <Panel
+                        className={state ? 'antCo' : null}
+                        header="不需要户型展示"
+                        key="4"
+                        showArrow={false}
+                    >
+
+                    </Panel>
+                </Collapse>
+            </Showing>
 
 
             <Footer>
                 <button className='back'>
-                    <NavLink to='sandtable'>
+                    <NavLink to='landscape'>
                         上一步
                     </NavLink>
                 </button>
@@ -148,8 +158,8 @@ function HouseType() {
                 </button>
             </Footer>
 
-        </Body>
+        </Table>
     );
-}
+})
 
 export default HouseType;

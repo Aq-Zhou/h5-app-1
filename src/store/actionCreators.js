@@ -15,4 +15,7 @@ export const changeSandPrices = (res) => ({type: actionTypes.CHANGE_SANDPRICES,v
 // 景观漫游
 export const changeQuanPrices = (res) => ({type: actionTypes.CHANGE_QUANPRICES,value: res})
 
+//户型鉴赏
+export const changeJianPrices = (res) => ({type:actionTypes.CHANGE_JIANPRICES,value: res})
+
 
