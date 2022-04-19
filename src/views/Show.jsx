@@ -3,12 +3,12 @@ import {NavLink} from "react-router-dom";
 import {Button} from 'antd';
 import styled from "styled-components";
 import '../index.less'
-import Footer from "./Footer";
-import TopMessage from "./TopMessage";
+import Footer from "../components/Footer";
+import TopMessage from "../components/TopMessage";
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuWeiPrices} from "../store/actionCreators";
-import PriceCss from "./Price";
-import FontCss from "./FontCss";
+import PriceCss from "../components/PriceCss";
+import FontCss from "../components/FontCss";
 
 import * as prices from '../store/prices'
 

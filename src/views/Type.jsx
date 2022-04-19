@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Footer from "../components/Footer";
 import TopMessage from "../components/TopMessage";
 import {NavLink} from "react-router-dom";
-import PriceCss from "../components/Price";
+import PriceCss from "../components/PriceCss";
 import FontCss from "../components/FontCss";
 import {useSelector} from "react-redux";
 

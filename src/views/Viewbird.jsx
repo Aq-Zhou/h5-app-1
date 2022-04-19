@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import FontCss from "../components/FontCss";
-import PriceCss from "../components/Price";
+import PriceCss from "../components/PriceCss";
 import TopMessage from "../components/TopMessage";
 import {useDispatch, useSelector} from "react-redux";
 import Footer from "../components/Footer";

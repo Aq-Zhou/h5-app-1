@@ -4,7 +4,7 @@ import '../index.less'
 import Footer from "../components/Footer";
 import TopMessage from "../components/TopMessage";
 import {NavLink} from "react-router-dom";
-import PriceCss from "../components/Price";
+import PriceCss from "../components/PriceCss";
 import FontCss from "../components/FontCss";
 import {useDispatch, useSelector} from "react-redux";
 import {changeYangPrices} from "../store/actionCreators";
