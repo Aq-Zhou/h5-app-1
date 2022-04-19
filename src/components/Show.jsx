@@ -6,7 +6,7 @@ import '../index.less'
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import {useDispatch, useSelector} from "react-redux";
-import {changeQuWeiPrices, changeNiaoPrices} from "../store/actionCreators";
+import {changeQuWeiPrices} from "../store/actionCreators";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
 

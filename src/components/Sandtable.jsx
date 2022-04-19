@@ -9,7 +9,6 @@ import FontCss from "../views/FontCss";
 import {useDispatch, useSelector} from "react-redux";
 import {changeSandPrices} from "../store/actionCreators";
 import {Button} from "antd";
-import ShowCss from "./Showing";
 
 import * as prices from '../store/prices'
 
