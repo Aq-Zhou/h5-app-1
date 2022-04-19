@@ -19,8 +19,87 @@ const Table = styled.div`
   width: 100%;
   height: 100%;
   background: #2b2f38;
-  
 `
+const Showing = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  bottom: 70px;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .collapseClass {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(43, 47, 56);
+    border: none;
+
+    .ant-collapse-item {
+      border: none;
+      background-color: rgb(67, 71, 82);
+      border-radius: 12px;
+
+      &.ant-collapse-item-active {
+
+        &.antPanel {
+          border-radius: 12px;
+          border: 1px solid white;
+        }
+
+        &.ant-collapse-no-arrow {
+          &.antCo {
+            border: 1px white solid;
+
+            .ant-collapse-content-box {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .ant-collapse-header {
+        color: white;
+      }
+
+      .ant-collapse-content {
+        background-color: rgb(43, 47, 56);
+        border: none;
+        border-radius: 12px;
+
+        .ant-collapse-content-box {
+          background-color: rgb(67, 71, 82);
+          border-radius: 0 0 12px 12px;
+          color: white;
+        }
+      }
+
+    }
+
+  }
+
+
+  //.ant-collapse-content {
+  //  background-color: bal;
+  //}
+  //
+  .ant-btn {
+    border: none;
+    width: 316px;
+    height: 46px;
+    background: rgb(67, 71, 82);
+    margin: 10px 0 10px 0;
+    border-radius: 12px;
+
+  }
+
+`
+
 
 const Viewbird = () => {
 
@@ -32,7 +111,9 @@ const Viewbird = () => {
 
     const dispatch = useDispatch()
 
-    const [state, setState] = useState(1)
+    // const [state, setState] = useState(1)
+
+    const [panel,setPanel] = useState(3)
 
     const changePrices = (param) => {
         dispatch(changeNiaoPrices(param))
@@ -42,18 +123,18 @@ const Viewbird = () => {
         console.log(evt)
         // 项目鸟瞰
         if (evt === '1') {
-            setState(1)
+            setPanel(1)
             dispatch(changeNiaoPrices(0))
         } else if (evt === '2') {
 
-            setState(2)
+            setPanel(2)
             dispatch(changeNiaoPrices(0))
         } else if (evt === '3') {
 
-            setState(3)
+            setPanel(3)
             dispatch(changeNiaoPrices(0))
         } else if (evt === '4') {
-            setState(4)
+            setPanel(4)
             dispatch(changeNiaoPrices(0))
         }
     }
@@ -92,7 +173,7 @@ const Viewbird = () => {
                 <Collapse accordion onChange={(evt) => changeCollapse(evt)}>
 
                     <Panel
-                        className={(state === 1 ? ("btncss") : null)}
+                        className={(panel === 1 ? ("btncss") : null)}
                         key={1}
                         header={`三维渲染全景鸟瞰(￥${prices.noXuShiPrice}~${prices.xuShiPrice})`}
                         showArrow={false}
@@ -102,7 +183,7 @@ const Viewbird = () => {
                     </Panel>
 
                     <Panel
-                        className={(state === 2 ? ("btncss") : null)}
+                        className={(panel === 2 ? ("btncss") : null)}
                         key={2}
                         header={`虚实结合全景鸟瞰(￥${prices.niaoKanPrice1}~${prices.niaoKanPrice3})`}
                         showArrow={false}
@@ -113,7 +194,7 @@ const Viewbird = () => {
 
 
                     <Panel
-                        className={(state === 3 ? ("btncss") : null)}
+                        className={(panel === 3 ? ("btncss") : null)}
                         key={3}
                         header={`CIM孪生城市(￥${prices.cimPrice})`}
                         showArrow={false}
@@ -121,7 +202,7 @@ const Viewbird = () => {
                     </Panel>
 
                     <Panel
-                        className={(state === 4 ? ("btncss") : null)}
+                        className={(panel === 4 ? ("btncss") : null)}
                         key={4}
                         header="不需要项目鸟瞰"
                         showArrow={false}

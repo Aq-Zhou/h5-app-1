@@ -36,6 +36,23 @@ const ShowCss = styled.div`
       margin: 20px;
       border-radius: 12px;
       border: none;
+      &.ant-collapse-item-active {
+
+        &.antPanel {
+          border-radius: 12px;
+          border: 1px solid white;
+        }
+
+        &.ant-collapse-no-arrow {
+          &.antCo {
+            border: 1px white solid;
+            .ant-collapse-content-box {
+              display: none;
+            }
+          }
+        }
+      }
+      
     }
     
     
