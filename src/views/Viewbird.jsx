@@ -131,7 +131,6 @@ const Viewbird = () => {
                     </Panel>
                 </Collapse>
 
-                }
 
             </ShowCss>
 

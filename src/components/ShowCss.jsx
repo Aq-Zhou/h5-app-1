@@ -31,11 +31,14 @@ const ShowCss = styled.div`
 
     .ant-collapse-item {
       background: #434752;
-      border-radius: 32px;
-      border: 22px solid #2b2f38;
-      
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+      border-radius: 12px;
+      border: none;
     }
-
+    
+    
     .ant-collapse-content {
       border: none;
       background: #2b2f38;
@@ -48,8 +51,6 @@ const ShowCss = styled.div`
       }
     }
   }
-
-  
 `
 
 export default ShowCss;
