@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
-import H1 from "./H1";
-import H2 from "./H2"
 import {NavLink} from "react-router-dom";
-import BackPicture from '../images/backPicture.jpg'
+
 
 
 
@@ -17,6 +15,24 @@ const Wrapper = styled.div`
   height: 100%;
   overflow-x: hidden;
 `;
+
+const H1 = styled.h1`
+  margin-left: 20px;
+  display: flex;
+  align-items: flex-end;
+  height: 130px;
+  color: white;
+`;
+
+const H2 = styled.h2`
+  margin-left: 20px;
+  display: flex;
+  top: 40px;
+  left: 20px;
+  width: 100%;
+  height: 40%;
+  color: white;
+`
 
 
 function Home (){
