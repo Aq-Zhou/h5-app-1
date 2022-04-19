@@ -1,11 +1,11 @@
 import React, {memo, useState} from 'react'
 import styled from "styled-components";
 import '../index.less'
-import Footer from "../views/Footer";
-import TopMessage from "../views/TopMessage";
+import Footer from "../components/Footer";
+import TopMessage from "../components/TopMessage";
 import {NavLink} from "react-router-dom";
-import PriceCss from "../views/Price";
-import FontCss from "../views/FontCss";
+import PriceCss from "../components/Price";
+import FontCss from "../components/FontCss";
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuanPrices} from "../store/actionCreators";
 import {InputNumber} from 'antd';
@@ -14,7 +14,7 @@ import {Collapse} from 'antd';
 import * as prices from '../store/prices'
 
 import 'antd/dist/antd.css';
-import Showing from "./Showing";
+import Showing from "../components/Showing";
 
 const Table = styled.div`
   position: absolute;

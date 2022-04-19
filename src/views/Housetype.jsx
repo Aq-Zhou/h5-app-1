@@ -3,11 +3,11 @@ import {NavLink} from "react-router-dom";
 import {Collapse, InputNumber, Modal} from 'antd';
 import styled from "styled-components";
 import '../index.less'
-import Footer from "../views/Footer";
-import TopMessage from "../views/TopMessage";
+import Footer from "../components/Footer";
+import TopMessage from "../components/TopMessage";
 import {useDispatch, useSelector} from "react-redux";
-import PriceCss from "./Price";
-import FontCss from "./FontCss";
+import PriceCss from "../components/Price";
+import FontCss from "../components/FontCss";
 import Showing from "../components/Showing";
 import {quanJingHousePrice, sanWeiPrice, shiPaiHousePrice, vrHpousePrice, xuShiJingPrice} from "../store/prices";
 import * as prices from "../store/prices";
@@ -47,6 +47,7 @@ const HouseType = memo(() => {
         let temp = value * prices.vrHpousePrice  // 平米数单价
         dispatch(changeJianPrices(temp))
     }
+
     function onInputNumberVrChange(value) {
         let temp = value * prices.xuShiJingPrice // 窗外景观点数单价
         dispatch(changeJianPrices(temp))
@@ -126,7 +127,7 @@ const HouseType = memo(() => {
                     >
                         <p>请填写点数</p>
                         {panel === 2 ?
-                        <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberPaiChange}/> :null}
+                            <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberPaiChange}/> : null}
                     </Panel>
                     <Panel className={panel === 3 ? 'antPanel' : null}
                            header={`VR户型套装(￥${prices.vrHpousePrice}/㎡) / (￥${prices.xuShiJingPrice}/张)`}
@@ -134,9 +135,10 @@ const HouseType = memo(() => {
                            showArrow={false}
                     >
                         <p>请填写平米数</p>
-                        {panel === 3 ? <InputNumber min={1} defaultValue={0} onChange={onInputNumberVrmChange} /> :null}
+                        {panel === 3 ? <InputNumber min={1} defaultValue={0} onChange={onInputNumberVrmChange}/> : null}
                         <p>请填写窗外景观点数</p>
-                        {panel === 3 ? <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberVrChange} /> :null}
+                        {panel === 3 ?
+                            <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberVrChange}/> : null}
                     </Panel>
                     <Panel
                         className={state ? 'antCo' : null}
@@ -148,7 +150,6 @@ const HouseType = memo(() => {
                     </Panel>
                 </Collapse>
             </Showing>
-
 
             <Footer>
                 <button className='back'>

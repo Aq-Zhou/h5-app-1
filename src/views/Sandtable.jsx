@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import '../index.less'
-import Footer from "../views/Footer";
-import TopMessage from "../views/TopMessage";
+import Footer from "../components/Footer";
+import TopMessage from "../components/TopMessage";
 import {NavLink} from "react-router-dom";
-import PriceCss from "../views/Price";
-import FontCss from "../views/FontCss";
+import PriceCss from "../components/Price";
+import FontCss from "../components/FontCss";
 import {useDispatch, useSelector} from "react-redux";
 import {changeSandPrices} from "../store/actionCreators";
 import {Button} from "antd";

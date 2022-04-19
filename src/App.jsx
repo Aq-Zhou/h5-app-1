@@ -6,14 +6,14 @@ import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from 'react-
 
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
-import Write from "./components/Write";
+import Write from "./views/Write";
 import Every from "./components/Every";
 import Show from "./components/Show";
-import Sandtable from "./components/Sandtable";
+import Sandtable from "./views/Sandtable";
 import Type from "./views/Type";
 import Housetype from "./views/Housetype";
 import Final from "./views/Final";
-import Landscape from "./components/Landscape";
+import Landscape from "./views/Landscape";
 import Viewbird from "./views/Viewbird";
 import Gallery from "./views/Gallery";
 

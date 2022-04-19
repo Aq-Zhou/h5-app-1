@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import '../index.less'
-import TopMessage from "../views/TopMessage";
+import TopMessage from "../components/TopMessage";
 
 
 

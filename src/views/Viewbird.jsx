@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import FontCss from "./FontCss";
-import PriceCss from "./Price";
-import TopMessage from "./TopMessage";
+import FontCss from "../components/FontCss";
+import PriceCss from "../components/Price";
+import TopMessage from "../components/TopMessage";
 import {useDispatch, useSelector} from "react-redux";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 import {NavLink} from "react-router-dom";
 import styled from "styled-components";
 import Day from "../components/Day";
