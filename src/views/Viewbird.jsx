@@ -9,10 +9,10 @@ import styled from "styled-components";
 import Day from "../components/Day";
 import ShowTime from "../components/Showtime";
 import {Collapse} from "antd";
-import ShowCss from "../components/ShowCss";
+// import ShowCss from "../components/ShowCss";
 
 import * as prices from '../store/prices'
-import {changeNiaoPrices} from "../store/actionCreators";
+import {changeNiaoPrices, changeQuanPrices} from "../store/actionCreators";
 
 const Table = styled.div`
   position: absolute;
@@ -83,11 +83,7 @@ const Showing = styled.div`
 
   }
 
-
-  //.ant-collapse-content {
-  //  background-color: bal;
-  //}
-  //
+  
   .ant-btn {
     border: none;
     width: 316px;
@@ -111,32 +107,58 @@ const Viewbird = () => {
 
     const dispatch = useDispatch()
 
-    // const [state, setState] = useState(1)
+    const [state, setState] = useState(false)
 
     const [panel,setPanel] = useState(3)
 
-    const changePrices = (param) => {
-        dispatch(changeNiaoPrices(param))
-    }
+    // const changePrices = (param) => {
+    //     dispatch(changeNiaoPrices(param))
+    // }
 
     const changeCollapse = (evt) => {
-        console.log(evt)
-        // 项目鸟瞰
-        if (evt === '1') {
-            setPanel(1)
-            dispatch(changeNiaoPrices(0))
-        } else if (evt === '2') {
+        console.log('changed',evt)
 
-            setPanel(2)
-            dispatch(changeNiaoPrices(0))
-        } else if (evt === '3') {
+        // if (evt === '1') {
+        //     setPanel(1)
+        //     dispatch(changeNiaoPrices(0))
+        // } else if (evt === '2') {
+        //
+        //     setPanel(2)
+        //     dispatch(changeNiaoPrices(0))
+        // } else if (evt === '3') {
+        //
+        //     setPanel(3)
+        //     dispatch(changeNiaoPrices(0))
+        // } else if (evt === '4') {
+        //     setPanel(4)
+        //     dispatch(changeNiaoPrices(0))
+        // }
 
-            setPanel(3)
-            dispatch(changeNiaoPrices(0))
-        } else if (evt === '4') {
-            setPanel(4)
-            dispatch(changeNiaoPrices(0))
+        if (evt === '3' || '4') {
+            setState(true)
+        } else {
+            setTimeout(() => setState(false), 0)
         }
+
+        switch (evt) {
+            case '1':
+                setPanel(1);
+                break;
+            case '2':
+                setPanel(2);
+                break;
+            case '3':
+                setPanel(3);
+                break;
+            case '4':
+                setPanel(4);
+                break;
+            default:
+                break;
+        }
+
+        dispatch(changeQuanPrices(0))
+
     }
 
 
@@ -167,13 +189,13 @@ const Viewbird = () => {
             </TopMessage>
 
 
-            <ShowCss>
+            <Showing>
                 <h3 style={{color: "white", textAlign: "center"}}>项目鸟瞰</h3>
 
-                <Collapse accordion onChange={(evt) => changeCollapse(evt)}>
+                <Collapse accordion onChange={changeCollapse} className='collapseClass'>
 
                     <Panel
-                        className={(panel === 1 ? ("btncss") : null)}
+                        className={(panel === 1 ? ("antPanel") : null)}
                         key={1}
                         header={`三维渲染全景鸟瞰(￥${prices.noXuShiPrice}~${prices.xuShiPrice})`}
                         showArrow={false}
@@ -183,7 +205,7 @@ const Viewbird = () => {
                     </Panel>
 
                     <Panel
-                        className={(panel === 2 ? ("btncss") : null)}
+                        className={(panel === 2 ? ("antPanel") : null)}
                         key={2}
                         header={`虚实结合全景鸟瞰(￥${prices.niaoKanPrice1}~${prices.niaoKanPrice3})`}
                         showArrow={false}
@@ -194,7 +216,7 @@ const Viewbird = () => {
 
 
                     <Panel
-                        className={(panel === 3 ? ("btncss") : null)}
+                        className={(state ? ("antCo") : null)}
                         key={3}
                         header={`CIM孪生城市(￥${prices.cimPrice})`}
                         showArrow={false}
@@ -202,7 +224,7 @@ const Viewbird = () => {
                     </Panel>
 
                     <Panel
-                        className={(panel === 4 ? ("btncss") : null)}
+                        className={(state ? ("antCo") : null)}
                         key={4}
                         header="不需要项目鸟瞰"
                         showArrow={false}
@@ -211,7 +233,7 @@ const Viewbird = () => {
                 </Collapse>
 
 
-            </ShowCss>
+            </Showing>
 
             <Footer>
                 <button className='back'><NavLink to="/show">上一步</NavLink></button>

@@ -6,9 +6,10 @@ import '../index.less'
 import Footer from "../views/Footer";
 import TopMessage from "../views/TopMessage";
 import {useSelector} from "react-redux";
-import ShowCss from "../components/ShowCss";
+import ShowCss from "../components/Showing";
 import PriceCss from "./Price";
 import FontCss from "./FontCss";
+import Showing from "../components/Showing";
 
 
 const Body = styled.div`
@@ -82,7 +83,7 @@ function HouseType() {
                 </video>
             </TopMessage>
 
-            <ShowCss>
+            <Showing>
                 <h3 style={{color: "white"}}>户型鉴赏</h3>
                 <>
                     <Button type="primary" onClick={() => { showModal(); setState(1) }}>
@@ -129,7 +130,7 @@ function HouseType() {
                     }
                 </>
                 
-            </ShowCss>
+            </Showing>
 
 
 
