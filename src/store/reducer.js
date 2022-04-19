@@ -2,6 +2,7 @@ import * as actionTypes from './constants';
 
 const defaultState = {
   projectName: '测试',
+
   // 区位模块价格
   quWeiPrices: 0,
   // 鸟瞰渲染价格
@@ -12,6 +13,8 @@ const defaultState = {
   quanPrices: 0,
   // 户型鉴赏价格
   jianPrices:0,
+  // 阳台景观价格
+  yangPrices:0,
 
   //总价
   totalPrices: 0
@@ -27,23 +30,27 @@ function reducer(state = defaultState, action) {
       };
     case actionTypes.CHANGE_QUWEIPRICES:
       return {
-        ...state, quWeiPrices: action.value, totalPrices: action.value + state.niaoPrices + state.sandPrices + state.quanPrices + state.jianPrices
+        ...state, quWeiPrices: action.value, totalPrices: action.value + state.niaoPrices + state.sandPrices + state.quanPrices + state.jianPrices + state.yangPrices
       };
     case actionTypes.CHANGE_NIAOPRICES:
       return {
-        ...state, niaoPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.sandPrices + state.quanPrices + state.jianPrices
+        ...state, niaoPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.sandPrices + state.quanPrices + state.jianPrices + state.yangPrices
       };
     case actionTypes.CHANGE_SANDPRICES:
       return {
-        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quanPrices + state.jianPrices
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quanPrices + state.jianPrices + state.yangPrices
       };
     case actionTypes.CHANGE_QUANPRICES:
       return {
-        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices + state.yangPrices
       };
     case actionTypes.CHANGE_JIANPRICES:
       return {
-        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices + state.yangPrices
+      };
+    case actionTypes.CHANGE_YANGPRICES:
+      return {
+        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices + state.yangPrices
       };
     default:
       return state;

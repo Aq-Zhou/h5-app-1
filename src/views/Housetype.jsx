@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import PriceCss from "./Price";
 import FontCss from "./FontCss";
 import Showing from "../components/Showing";
-import {quanJingHousePrice, shiPaiHousePrice, vrHpousePrice} from "../store/prices";
+import {quanJingHousePrice, sanWeiPrice, shiPaiHousePrice, vrHpousePrice, xuShiJingPrice} from "../store/prices";
 import * as prices from "../store/prices";
 import {changeJianPrices} from "../store/actionCreators";
 
@@ -43,9 +43,14 @@ const HouseType = memo(() => {
         dispatch(changeJianPrices(temp))
     }
 
-    // function onInputNumberMChange(value) {
-    //     let
-    // }
+    function onInputNumberVrmChange(value) {
+        let temp = value * prices.vrHpousePrice  // 平米数单价
+        dispatch(changeJianPrices(temp))
+    }
+    function onInputNumberVrChange(value) {
+        let temp = value * prices.xuShiJingPrice // 窗外景观点数单价
+        dispatch(changeJianPrices(temp))
+    }
 
     function changeCollapse(evt) {
         if (evt === '4') {
@@ -124,13 +129,14 @@ const HouseType = memo(() => {
                         <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberPaiChange}/> :null}
                     </Panel>
                     <Panel className={panel === 3 ? 'antPanel' : null}
-                           header={`VR户型套装(￥${prices.vrHpousePrice}/条)`}
+                           header={`VR户型套装(￥${prices.vrHpousePrice}/㎡) / (￥${prices.xuShiJingPrice}/张)`}
                            key="3"
                            showArrow={false}
                     >
                         <p>请填写平米数</p>
-                        {panel === 3 ? <InputNumber min={1} max={20} defaultValue={0} /> :null}
+                        {panel === 3 ? <InputNumber min={1} defaultValue={0} onChange={onInputNumberVrmChange} /> :null}
                         <p>请填写窗外景观点数</p>
+                        {panel === 3 ? <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberVrChange} /> :null}
                     </Panel>
                     <Panel
                         className={state ? 'antCo' : null}
@@ -152,7 +158,7 @@ const HouseType = memo(() => {
                 </button>
                 <div className="line"/>
                 <button className='next'>
-                    <NavLink to='final'>
+                    <NavLink to='gallery'>
                         下一步
                     </NavLink>
                 </button>

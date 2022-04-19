@@ -15,6 +15,7 @@ import Housetype from "./views/Housetype";
 import Final from "./views/Final";
 import Landscape from "./components/Landscape";
 import Viewbird from "./views/Viewbird";
+import Gallery from "./views/Gallery";
 
 
 
@@ -55,14 +56,17 @@ export default function App() {
                     <Housetype/>
                 </KeepaliveRoute>
 
-                <KeepaliveRoute exact path="/final">
-                    <Final/>
-                </KeepaliveRoute>
-
                 <KeepaliveRoute exact path="/landscape">
                     <Landscape/>
                 </KeepaliveRoute>
 
+                <KeepaliveRoute exact path="/gallery">
+                    <Gallery/>
+                </KeepaliveRoute>
+
+                <KeepaliveRoute exact path="/final">
+                    <Final/>
+                </KeepaliveRoute>
 
                 {/*<Route exact path="/total">*/}
                 {/*    /!*<Total/>*!/*/}

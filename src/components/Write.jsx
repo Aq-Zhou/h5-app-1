@@ -1,5 +1,5 @@
-import {NavLink, withRouter} from "react-router-dom";
-import React, { useEffect, useRef, useState } from "react";
+import {withRouter} from "react-router-dom";
+import React, { useRef } from "react";
 import {Input} from 'antd';
 import styled from "styled-components";
 import right from '../icons/right.svg'
@@ -73,16 +73,6 @@ const Demo = styled.div`
     
   }
 `
-// const onChange = (values) => {
-//     if(values && values.target) {
-//         let value =  values.target.value;
-//         if(value == '') {
-//             alert('项目名称不能为空')
-//         } else {
-//             console.log(value);
-//         }
-//     }
-// }
 
 
 function Write(props) {
@@ -93,14 +83,11 @@ function Write(props) {
     const dispatch = useDispatch()
 
     const inputValue = () => {
-      // console.log(inputRef.current.input.value);
-      //   console.log('111111')
-      
+
       dispatch(changeName(inputRef.current.input.value))
 
       if(inputRef.current.input.value !== '') {
         props.history.push('/show')
-        // console.log('props', props)
       }
     }
 

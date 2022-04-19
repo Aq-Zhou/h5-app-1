@@ -11,3 +11,5 @@ export const CHANGE_SANDPRICES = "change_sandprices"
 export const CHANGE_QUANPRICES = "change_quanprices"
 
 export const CHANGE_JIANPRICES = "change_jianprices"
+
+export const CHANGE_YANGPRICES = "change_yangprices"

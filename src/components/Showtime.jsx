@@ -1,9 +1,6 @@
 import {Checkbox, Row, Col} from 'antd';
-// import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeNiaoPrices } from '../store/actionCreators';
-
-
 
 
 function ShowTime() {

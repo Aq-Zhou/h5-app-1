@@ -1,6 +1,6 @@
 import React from "react";
 import '../index.less'
-import { Collapse, Input } from "antd";
+import { Collapse } from "antd";
 
 const { Panel } = Collapse;
 

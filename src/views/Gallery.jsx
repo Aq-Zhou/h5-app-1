@@ -7,14 +7,13 @@ import {NavLink} from "react-router-dom";
 import PriceCss from "../views/Price";
 import FontCss from "../views/FontCss";
 import {useDispatch, useSelector} from "react-redux";
-import {changeQuanPrices} from "../store/actionCreators";
+import {changeYangPrices} from "../store/actionCreators";
 import {InputNumber} from 'antd';
 import {Collapse} from 'antd';
-
 import * as prices from '../store/prices'
-
 import 'antd/dist/antd.css';
-import Showing from "./Showing";
+import Showing from "../components/Showing";
+
 
 const Table = styled.div`
   position: absolute;
@@ -25,7 +24,7 @@ const Table = styled.div`
 
 const {Panel} = Collapse;
 
-const Landscape = memo(() => {
+const Gallery = memo(() => {
     const projectName = useSelector(state => state.projectName)
 
     const totalPrices = useSelector(state => state.totalPrices)
@@ -38,17 +37,17 @@ const Landscape = memo(() => {
     //
     const [panel, setPanel] = useState(4)
 
-    function onInputNumberManChange(value) {
+    function onInputNumberSdChange(value) {
         console.log('changed', value);
-        let temp = value * prices.quanJingManYouPrice
-        dispatch(changeQuanPrices(temp))
+        let temp = value * prices.sanWeiPrice
+        dispatch(changeYangPrices(temp))
 
     }
 
-    function onInputNumberLuChange(value) {
+    function onInputNumberXsChange(value) {
         console.log('changed', value);
-        let temp = value * prices.quanJingLuJingPrice
-        dispatch(changeQuanPrices(temp))
+        let temp = value * prices.xuShiJingPrice
+        dispatch(changeYangPrices(temp))
     }
 
     function changeCollapse(evt) {
@@ -73,7 +72,7 @@ const Landscape = memo(() => {
                 break;
         }
 
-        dispatch(changeQuanPrices(0))
+        dispatch(changeYangPrices(0))
 
     }
 
@@ -104,33 +103,33 @@ const Landscape = memo(() => {
             </TopMessage>
 
             <Showing>
-                <h3 style={{color: "white"}}>景观漫游</h3>
+                <h3 style={{color: "white"}}>阳台景观</h3>
 
                 <Collapse accordion onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
-                        header={`720°全景漫游(￥${prices.quanJingManYouPrice}/点)`}
+                        header={`三维渲染景观(￥${prices.sanWeiPrice}/点)`}
                         key="1"
                         showArrow={false}
                     >
-                        <p>请填写漫游点数</p>
+                        <p>请填写景观点数</p>
                         {panel === 1 ?
-                            <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberManChange}/> : null}
+                            <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberSdChange}/> : null}
                     </Panel>
 
                     <Panel
                         className={panel === 2 ? 'antPanel' : null}
-                        header={`全景路径漫游(￥${prices.quanJingLuJingPrice}/条)`}
+                        header={`虚实结合景观(￥${prices.xuShiJingPrice}/点)`}
                         key="2"
                         showArrow={false}
                     >
-                        <p>请填写漫游条数(一条100米)</p>
+                        <p>请填写景观点数</p>
                         {panel === 2 ?
-                            <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberLuChange}/> : null}
+                            <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberXsChange}/> : null}
                     </Panel>
                     <Panel
                         className={state ? 'antCo' : null}
-                        header="不需要景观漫游"
+                        header="不需要展示窗外景观"
                         key="3"
                         showArrow={false}
                     >
@@ -140,15 +139,15 @@ const Landscape = memo(() => {
             </Showing>
 
             <Footer>
-                <button className='back'><NavLink to="/Sandtable">上一步</NavLink></button>
+                <button className='back'><NavLink to="/landscape">上一步</NavLink></button>
                 <div className="line"/>
-                <button className='next'><NavLink to="/Housetype">下一步</NavLink></button>
+                <button className='next'><NavLink to="/total">下一步</NavLink></button>
             </Footer>
         </Table>
     )
 })
 
-export default Landscape;
+export default Gallery;
 
 
 
