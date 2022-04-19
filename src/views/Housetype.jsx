@@ -20,7 +20,6 @@ const Body = styled.div`
 `
 
 
-
 function HouseType() {
 
     // const projectName = useSelector((state) => {
@@ -136,7 +135,7 @@ function HouseType() {
 
             <Footer>
                 <button className='back'>
-                    <NavLink to='type'>
+                    <NavLink to='sandtable'>
                         上一步
                     </NavLink>
                 </button>

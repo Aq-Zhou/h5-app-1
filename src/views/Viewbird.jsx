@@ -10,7 +10,6 @@ import Day from "../components/Day";
 import ShowTime from "../components/Showtime";
 import {Collapse} from "antd";
 import ShowCss from "../components/ShowCss";
-// import {changeNiaoPrices} from "../store/actionCreators";
 
 import * as prices from '../store/prices'
 import {changeNiaoPrices} from "../store/actionCreators";
@@ -21,7 +20,6 @@ const Table = styled.div`
   height: 100%;
   background: #2b2f38;
   
-
 `
 
 const Viewbird = () => {
