@@ -49,7 +49,6 @@ const Pricecss = styled.div`
     left: 30px;
   }
   h3 {
-    color:#a7aab3;
     position: absolute;
     top: 88px;
     left: 24px;
@@ -69,14 +68,20 @@ const Pricecss = styled.div`
   }
 
   h4 {
-    color:#a7aab3;
+    color: white;
     text-align: left;
-    font-size: 13px;
-    -webkit-transform: scale(0.8);
     height: 30px;
     position: absolute;
+    top: 67px;
+    left: 29px;
+  }
+  
+  h5 {
+    font-size: 13px;
+    -webkit-transform: scale(0.7);
     top: 50px;
-    left: 25px;
+    left: 23px;
+    position: absolute;
   }
 `
 
@@ -86,9 +91,10 @@ function Final() {
             <TopMessage>
                 <div className='textCss'>
                     <Pricecss>
-                        <p>产品总价及明细</p>
-                        <h4 style={{color:"white"}}>不含税总价<br/>￥XXX,XXX</h4>
-                        <h3 style={{color:"white"}}>含税总价(13%)</h3>
+                        <p style={{color:"#edeef0"}}>产品总价及明细</p>
+                        <h5 style={{color:"#b0b4bc"}}>不含税总价</h5>
+                        <h4 style={{color:"#feffff"}}>￥XXX,XXX</h4>
+                        <h3 style={{color:"#b0b4bc"}}>含税总价(13%)</h3>
                         <h2 style={{color:"#ffb520"}}>￥XXX,XXX</h2>
                     </Pricecss>
                 </div>
