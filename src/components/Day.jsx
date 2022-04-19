@@ -8,6 +8,7 @@ import * as prices from '../store/prices'
 const Day = () =>  {
     
     const [value, setValue] = useState(0)
+
     const dispatch = useDispatch()
 
     const onChange = (e) => {

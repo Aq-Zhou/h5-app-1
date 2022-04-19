@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import '../index.less'
 import TopMessage from "../components/TopMessage";
+import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 
@@ -26,20 +28,40 @@ const Showing = styled.div`
   height: 50%;
   overflow: auto;
 `
-const Export = styled.div`
+const Back = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
+  justify-content: space-between;
   display: flex;
   height: 38px;
   font-size: 18px;
-  .-button {
-    border: none ;
-    background: #ffb522;
+  
+  .back {
     width: 100%;
-    font-weight: bold;
+    background: #70747f;
+    border: none;
+    a{
+      color: white;
+    }
   }
+  
+  //position: absolute;
+  //bottom: 0;
+  //width: 100%;
+  //display: flex;
+  //height: 38px;
+  //font-size: 18px;
+  //.-button {
+  //  color: white;
+  //  border: none ;
+  //  background: #70747f;
+  //  //background: #ffb522;
+  //  width: 100%;
+  //  font-weight: bold;
+  //}
 `
+
 
 const Pricecss = styled.div`
   width: 200px;
@@ -86,6 +108,9 @@ const Pricecss = styled.div`
 `
 
 function Final() {
+
+    const totalPrices = useSelector(state => state.totalPrices)
+
     return (
         <Table>
             <TopMessage>
@@ -93,20 +118,31 @@ function Final() {
                     <Pricecss>
                         <p style={{color:"#edeef0"}}>产品总价及明细</p>
                         <h5 style={{color:"#b0b4bc"}}>不含税总价</h5>
-                        <h4 style={{color:"#feffff"}}>￥XXX,XXX</h4>
+                        <h4 style={{color:"#feffff"}}>￥{totalPrices}</h4>
                         <h3 style={{color:"#b0b4bc"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥XXX,XXX</h2>
+                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
                     </Pricecss>
                 </div>
             </TopMessage>
 
             <Showing>
-                <h3 style={{color: "white", textAlign:"center", borderRadius:"12px", }}>产品明细</h3>
+                <h3 style={{color: "white", textAlign:"center", borderRadius:"12px"}}>产品明细</h3>
+                <hr/>
+                <h5>区位优势</h5>
+                <span>VR无缝穿梭式区位</span>
+                <h5>项目鸟瞰</h5>
+                <span>虚实结合全景鸟瞰</span>
+                <h5>户型鉴赏</h5>
+                <span>VR户型套装</span>
             </Showing>
 
-            <Export>
-                <button className="-button">导出图片</button>
-            </Export>
+            <Back>
+                <button className='back'><NavLink to="/total">返回上一步</NavLink></button>
+            </Back>
+
+            {/*<Export>*/}
+            {/*    <button className="-button">导出图片</button>*/}
+            {/*</Export>*/}
         </Table>
     );
 }

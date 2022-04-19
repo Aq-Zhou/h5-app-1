@@ -1,9 +1,7 @@
 import React, {useEffect} from "react";
-import {Switch, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import {Redirect} from "react-router-dom";
-
 import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from 'react-keepalive-router'
-
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
 import Write from "./views/Write";
@@ -15,6 +13,7 @@ import Final from "./views/Final";
 import Landscape from "./views/Landscape";
 import Viewbird from "./views/Viewbird";
 import Gallery from "./views/Gallery";
+import Total from "./views/Total";
 
 
 
@@ -67,9 +66,9 @@ export default function App() {
                     <Final/>
                 </KeepaliveRoute>
 
-                {/*<Route exact path="/total">*/}
-                {/*    /!*<Total/>*!/*/}
-                {/*</Route>*/}
+                <KeepaliveRoute exact path="/total">
+                    <Total/>
+                </KeepaliveRoute>
                 <Redirect exact from="/" to="/home"/>
                 <Route path="*">
                     <NoMatch/>

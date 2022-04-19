@@ -157,7 +157,13 @@ const Viewbird = () => {
                 break;
         }
 
-        dispatch(changeQuanPrices(0))
+        if(evt === '3') {
+            dispatch(changeNiaoPrices(16000))
+        }else {
+            dispatch(changeNiaoPrices(0))
+        }
+
+
 
     }
 
