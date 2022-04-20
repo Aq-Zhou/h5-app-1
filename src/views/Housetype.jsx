@@ -28,7 +28,7 @@ const HouseType = memo(() => {
 
     const dispatch = useDispatch()
 
-    const [state, setState] = useState(false)
+    // const [state, setState] = useState(false)
 
     const [panel, setPanel] = useState(4);
 
@@ -53,11 +53,11 @@ const HouseType = memo(() => {
     }
 
     function changeCollapse(evt) {
-        if (evt === '4') {
-            setState(true)
-        } else {
-            setTimeout(() => setState(false), 0)
-        }
+        // if (evt === '4') {
+        //     setState(true)
+        // } else {
+        //     setTimeout(() => setState(false), 0)
+        // }
 
         switch (evt) {
             case '1':
@@ -107,7 +107,7 @@ const HouseType = memo(() => {
             <Showing>
                 <h3 style={{color: "white"}}>户型鉴赏</h3>
 
-                <Collapse accordion onChange={changeCollapse} className='collapseClass'>
+                <Collapse accordion defaultActiveKey={4} onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
                         header={`720°三维全景户型漫游(￥${prices.quanJingHousePrice}/条)`}
@@ -140,7 +140,7 @@ const HouseType = memo(() => {
                             <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberVrChange}/> : null}
                     </Panel>
                     <Panel
-                        className={state ? 'antCo' : null}
+                        className={panel === 4 ? 'antCo' : null}
                         header="不需要户型展示"
                         key="4"
                         showArrow={false}
