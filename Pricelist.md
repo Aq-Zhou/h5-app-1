@@ -1,70 +1,40 @@
-# Getting Started with Create React App
++ 区位模块
++ 视频包装 42000
++ VR无缝穿梭式区位 48000
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
++ 项目鸟瞰
++ 是否日夜景切换 20000/12000
 
-## Available Scripts
++ 虚实结合全景鸟瞰
++ 一个: 12000
++ 两个：20000
++ 三个：26000
 
-In the project directory, you can run:
++ 项目沙盘
++ 360沙盘: 8000
++ VR沙盘: 16000
 
-### `npm start`
++ CIM孪生城市
++ 16000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
++ 景观漫游
++ 720全景漫游 6000
++ 全景路径漫游 12000
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
++ 户型鉴赏
++ 720三维全景户型漫游 4000 一个
++ 720全景实拍户型漫游 1500 一个
++ VR户型套装 300 一平米 虚实结合景观 8000 一张图
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++ 阳台景观
++ 三维渲染景观 6000
++ 虚实结合景观 8000
 
-### `npm run build`
+<!-- 打折：
+最后价格 -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
++ 区位模块 -> 文案居中 ，点击前后有提示 -> 默认state不选
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+home -> write -> 
