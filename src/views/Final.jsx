@@ -6,27 +6,31 @@ import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 
-
 const Table = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   background: #2b2f38;
-  
+
 `
 
 const Showing = styled.div`
+  color: white;
   background: #414852;
   border-radius: 12px;
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
+  //top: 0;
+  bottom: 130px;
   margin: auto;
-  width: 300px;
+  width: 280px;
   height: 50%;
   overflow: auto;
+  h5 {
+    color: #9fa3ac;
+  }
+  
 `
 const Back = styled.div`
   position: absolute;
@@ -36,16 +40,17 @@ const Back = styled.div`
   display: flex;
   height: 38px;
   font-size: 18px;
-  
+
   .back {
     width: 100%;
     background: #70747f;
     border: none;
-    a{
+
+    a {
       color: white;
     }
   }
-  
+
   //position: absolute;
   //bottom: 0;
   //width: 100%;
@@ -65,16 +70,19 @@ const Back = styled.div`
 
 const Pricecss = styled.div`
   width: 200px;
+
   p {
     position: absolute;
-    top: 18px;
-    left: 32px;
+    top: 37px;
+    left: 39px;
   }
+
   h3 {
     position: absolute;
-    top: 88px;
-    left: 24px;
+    top: 145px;
+    left: 26px;
     font-size: 13px;
+    -webkit-transform: scale(0.8);
     width: 100px;
     height: 22px;
     border-radius: 6px;
@@ -83,9 +91,9 @@ const Pricecss = styled.div`
 
   h2 {
     position: absolute;
-    top: 100px;
-    left: 23px;
-    font-size: 32px;
+    top: 160px;
+    left: 34px;
+    font-size: 36px;
     text-align: left;
   }
 
@@ -94,15 +102,15 @@ const Pricecss = styled.div`
     text-align: left;
     height: 30px;
     position: absolute;
-    top: 67px;
-    left: 29px;
+    top: 110px;
+    left: 40px;
   }
-  
+
   h5 {
     font-size: 13px;
-    -webkit-transform: scale(0.7);
-    top: 50px;
-    left: 23px;
+    -webkit-transform: scale(0.8);
+    top: 92px;
+    left: 32px;
     position: absolute;
   }
 `
@@ -116,24 +124,33 @@ function Final() {
             <TopMessage>
                 <div className='textCss'>
                     <Pricecss>
-                        <p style={{color:"#edeef0"}}>产品总价及明细</p>
-                        <h5 style={{color:"#b0b4bc"}}>不含税总价</h5>
-                        <h4 style={{color:"#feffff"}}>￥{totalPrices}</h4>
-                        <h3 style={{color:"#b0b4bc"}}>含税总价(13%)</h3>
-                        <h2 style={{color:"#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <p style={{color: "#edeef0"}}>产品总价及明细</p>
+                        <h5 style={{color: "#b0b4bc"}}>不含税总价</h5>
+                        <h4 style={{color: "#feffff"}}>￥{totalPrices}</h4>
+                        <h3 style={{color: "#b0b4bc"}}>含税总价(13%)</h3>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.3}</h2>
                     </Pricecss>
                 </div>
             </TopMessage>
 
             <Showing>
-                <h3 style={{color: "white", textAlign:"center", borderRadius:"12px"}}>产品明细</h3>
+                <h3 style={{color: "white", textAlign: "center", borderRadius: "12px",}}>产品明细</h3>
                 <hr/>
-                <h5>区位优势</h5>
+                <h5 style={{color: "#9fa3ac"}}>区位优势</h5>
                 <span>VR无缝穿梭式区位</span>
+
                 <h5>项目鸟瞰</h5>
                 <span>虚实结合全景鸟瞰</span>
+                <h6 style={{color: "#f3f2f3"}}>时段订制: <br/>1.白天 <br/>2.夜晚 </h6>
+                <h5>项目沙盘</h5>
+                <span>VR项目沙盘</span>
+                <h5>景观漫游</h5>
+                <span>全景路径漫游</span>
                 <h5>户型鉴赏</h5>
                 <span>VR户型套装</span>
+                <h5>阳台景观</h5>
+                <span>三维渲染景观</span>
+
             </Showing>
 
             <Back>

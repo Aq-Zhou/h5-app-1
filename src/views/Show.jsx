@@ -25,7 +25,6 @@ const Showing = styled.div`
   height: 40%;
   bottom: 70px;
   overflow: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,7 +54,7 @@ const Show = () => {
     const dispatch = useDispatch()
 
     //0：视频  1：VR  2：不需要
-    const [state, setState] = useState(2)
+    const [state, setState] = useState(3)
 
     const changePrices = (param) => {
         dispatch(changeQuWeiPrices(param))
@@ -111,31 +110,31 @@ const Show = () => {
                 <h3 style={{color: "white"}}>区位模块</h3>
 
                 <Button
-                    className={(state ===  0) ? ("change-btn") : null}
+                    className={(state ===  1) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
                         changePrices(prices.videoPrice)
-                        setState(0)
+                        setState(1)
                     }}
                 >
                     视频包装式区位(￥{prices.videoPrice})
                 </Button>
                 <Button
-                    className={(state === 1) ? ("change-btn") : null}
+                    className={(state === 2) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
                         changePrices(prices.vrPrice)
-                        setState(1)
+                        setState(2)
                     }}
                 >
                     VR无缝穿梭式区位(￥{prices.vrPrice})
                 </Button>
                 <Button
-                    className={(state === 2) ? ("change-btn") : null}
+                    className={(state === 3) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
                         changePrices(0)
-                        setState(2)
+                        setState(3)
                     }}
                 >
                     不需要区位展示
