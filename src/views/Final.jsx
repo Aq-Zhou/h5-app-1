@@ -74,12 +74,12 @@ const Pricecss = styled.div`
   p {
     position: absolute;
     top: 37px;
-    left: 39px;
+    left: 42px;
   }
 
   h3 {
     position: absolute;
-    top: 145px;
+    top: 149px;
     left: 26px;
     font-size: 13px;
     -webkit-transform: scale(0.8);
@@ -98,19 +98,20 @@ const Pricecss = styled.div`
   }
 
   h4 {
+    font-size: 20px;
     color: white;
     text-align: left;
     height: 30px;
     position: absolute;
     top: 110px;
-    left: 40px;
+    left: 38px;
   }
 
   h5 {
     font-size: 13px;
     -webkit-transform: scale(0.8);
-    top: 92px;
-    left: 32px;
+    top: 90px;
+    left: 36px;
     position: absolute;
   }
 `

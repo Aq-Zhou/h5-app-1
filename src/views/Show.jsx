@@ -110,7 +110,7 @@ const Show = () => {
                 <h3 style={{color: "white"}}>区位模块</h3>
 
                 <Button
-                    className={(state ===  1) ? ("change-btn") : null}
+                    className={(state === 1) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
                         changePrices(prices.videoPrice)
@@ -143,7 +143,7 @@ const Show = () => {
 
             <Footer>
                 <button className='back'>
-                    <NavLink to='write' >
+                    <NavLink to='write'>
                         上一步
                     </NavLink>
                 </button>

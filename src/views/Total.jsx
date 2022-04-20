@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
-import {Checkbox,Button} from 'antd';
+import {Checkbox, Button} from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../components/Footer";
@@ -52,7 +52,7 @@ const Total = () => {
 
     const totalPrices = useSelector(state => state.totalPrices)
 
-   // const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     //0：视频  1：VR  2：不需要
     const [state, setState] = useState(1)
@@ -60,7 +60,6 @@ const Total = () => {
     // const changePrices = (param) => {
     //     dispatch(changeQuWeiPrices(param))
     // }
-
 
 
     return (
@@ -94,7 +93,7 @@ const Total = () => {
 
                 <Checkbox defaultChecked={true}>
                     <Button
-                        className={(state ===  1) ? ("change-btn") : null}
+                        className={(state === 1) ? ("change-btn") : null}
                         type="primary"
                         onClick={() => {
                             // changePrices(prices.videoPrice)
@@ -135,7 +134,7 @@ const Total = () => {
 
             <Footer>
                 <button className='back'>
-                    <NavLink to='gallery' >
+                    <NavLink to='gallery'>
                         上一步
                     </NavLink>
                 </button>

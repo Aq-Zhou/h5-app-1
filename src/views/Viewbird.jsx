@@ -12,7 +12,7 @@ import {Collapse} from "antd";
 // import ShowCss from "../components/ShowCss";
 
 import * as prices from '../store/prices'
-import {changeNiaoPrices, changeQuanPrices} from "../store/actionCreators";
+import {changeNiaoPrices} from "../store/actionCreators";
 
 const Table = styled.div`
   position: absolute;
@@ -53,8 +53,9 @@ const Showing = styled.div`
         }
 
         &.ant-collapse-no-arrow {
+          
           &.antCo {
-            border: 1px white solid;
+            border: 1px solid white;
 
             .ant-collapse-content-box {
               display: none;
@@ -78,12 +79,9 @@ const Showing = styled.div`
           color: white;
         }
       }
-
     }
-
   }
 
-  
   .ant-btn {
     border: none;
     width: 316px;
@@ -109,14 +107,14 @@ const Viewbird = () => {
 
     const [state, setState] = useState(false)
 
-    const [panel,setPanel] = useState(3)
+    const [panel, setPanel] = useState(4)
 
     // const changePrices = (param) => {
     //     dispatch(changeNiaoPrices(param))
     // }
 
     const changeCollapse = (evt) => {
-        console.log('changed',evt)
+        console.log('changed', evt)
 
         // if (evt === '1') {
         //     setPanel(1)
@@ -157,14 +155,11 @@ const Viewbird = () => {
                 break;
         }
 
-        if(evt === '3') {
+        if (evt === '3') {
             dispatch(changeNiaoPrices(16000))
-        }else {
+        } else {
             dispatch(changeNiaoPrices(0))
         }
-
-
-
     }
 
 
@@ -198,7 +193,7 @@ const Viewbird = () => {
             <Showing>
                 <h3 style={{color: "white", textAlign: "center"}}>项目鸟瞰</h3>
 
-                <Collapse accordion onChange={changeCollapse} className='collapseClass'>
+                <Collapse defaultActiveKey={4} accordion onChange={changeCollapse} className='collapseClass'>
 
                     <Panel
                         className={(panel === 1 ? ("antPanel") : null)}
@@ -220,7 +215,6 @@ const Viewbird = () => {
                         <ShowTime/>
                     </Panel>
 
-
                     <Panel
                         className={(state ? ("antCo") : null)}
                         key={3}
@@ -230,7 +224,7 @@ const Viewbird = () => {
                     </Panel>
 
                     <Panel
-                        className={(state ? ("antCo") : null)}
+                        className={(panel === 4 ? ("antCo") : null)}
                         key={4}
                         header="不需要项目鸟瞰"
                         showArrow={false}

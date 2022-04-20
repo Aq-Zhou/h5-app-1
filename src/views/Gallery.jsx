@@ -35,7 +35,7 @@ const Gallery = memo(() => {
     const [state, setState] = useState(false)
 
     //
-    const [panel, setPanel] = useState(4)
+    const [panel, setPanel] = useState(3)
 
     function onInputNumberSdChange(value) {
         console.log('changed', value);
@@ -105,7 +105,7 @@ const Gallery = memo(() => {
             <Showing>
                 <h3 style={{color: "white"}}>阳台景观</h3>
 
-                <Collapse accordion onChange={changeCollapse} className='collapseClass'>
+                <Collapse accordion defaultActiveKey={3} onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
                         header={`三维渲染景观(￥${prices.sanWeiPrice}/点)`}
@@ -128,7 +128,7 @@ const Gallery = memo(() => {
                             <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberXsChange}/> : null}
                     </Panel>
                     <Panel
-                        className={state ? 'antCo' : null}
+                        className={panel === 3 ? 'antCo' : null}
                         header="不需要展示窗外景观"
                         key="3"
                         showArrow={false}
@@ -139,7 +139,7 @@ const Gallery = memo(() => {
             </Showing>
 
             <Footer>
-                <button className='back'><NavLink to="/landscape">上一步</NavLink></button>
+                <button className='back'><NavLink to="/Housetype">上一步</NavLink></button>
                 <div className="line"/>
                 <button className='next'><NavLink to="/total">下一步</NavLink></button>
             </Footer>

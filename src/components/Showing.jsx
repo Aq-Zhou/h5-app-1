@@ -20,6 +20,7 @@ const Showing = styled.div`
     background-color: rgb(43, 47, 56);
     border: none;
 
+
     .ant-collapse-item {
       border: none;
       background-color: rgb(67, 71, 82);
@@ -33,8 +34,9 @@ const Showing = styled.div`
         }
 
         &.ant-collapse-no-arrow {
+
           &.antCo {
-            border: 1px white solid;
+            border: 1px solid white;
 
             .ant-collapse-content-box {
               display: none;
@@ -58,13 +60,53 @@ const Showing = styled.div`
           color: white;
         }
       }
-
     }
 
+    //.ant-collapse-item {
+    //  border: none;
+    //  background-color: rgb(67, 71, 82);
+    //  border-radius: 12px;
+    //
+    //  &.ant-collapse-item-active {
+    //
+    //    &.antPanel {
+    //      border-radius: 12px;
+    //      border: 1px solid white;
+    //    }
+    //
+    //    &.ant-collapse-no-arrow {
+    //      &.antCo {
+    //        border: 1px white solid;
+    //
+    //        .ant-collapse-content-box {
+    //          display: none;
+    //        }
+    //      }
+    //    }
+    //  }
+    //
+    //  .ant-collapse-header {
+    //    color: white;
+    //  }
+    //
+    //  .ant-collapse-content {
+    //    background-color: rgb(43, 47, 56);
+    //    border: none;
+    //    border-radius: 12px;
+    //
+    //    .ant-collapse-content-box {
+    //      background-color: rgb(67, 71, 82);
+    //      border-radius: 0 0 12px 12px;
+    //      color: white;
+    //    }
+    //  }
+    //
+    //}
+
   }
-  
+
   .ant-btn {
-    color:white;
+    color: white;
     border: none;
     width: 316px;
     height: 46px;

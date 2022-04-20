@@ -36,7 +36,7 @@ const Landscape = memo(() => {
     const [state, setState] = useState(false)
 
     //
-    const [panel, setPanel] = useState(4)
+    const [panel, setPanel] = useState(3)
 
     function onInputNumberManChange(value) {
         console.log('changed', value);
@@ -106,11 +106,11 @@ const Landscape = memo(() => {
             <Showing>
                 <h3 style={{color: "white"}}>景观漫游</h3>
 
-                <Collapse accordion onChange={changeCollapse} className='collapseClass'>
+                <Collapse accordion defaultActiveKey={3} onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
                         header={`720°全景漫游(￥${prices.quanJingManYouPrice}/点)`}
-                        key="1"
+                        key={1}
                         showArrow={false}
                     >
                         <p>请填写漫游点数</p>
@@ -121,7 +121,7 @@ const Landscape = memo(() => {
                     <Panel
                         className={panel === 2 ? 'antPanel' : null}
                         header={`全景路径漫游(￥${prices.quanJingLuJingPrice}/条)`}
-                        key="2"
+                        key={2}
                         showArrow={false}
                     >
                         <p>请填写漫游条数(一条100米)</p>
@@ -129,9 +129,9 @@ const Landscape = memo(() => {
                             <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberLuChange}/> : null}
                     </Panel>
                     <Panel
-                        className={state ? 'antCo' : null}
+                        className={panel === 3 ? 'antCo' : null}
                         header="不需要景观漫游"
-                        key="3"
+                        key={3}
                         showArrow={false}
                     >
                     </Panel>

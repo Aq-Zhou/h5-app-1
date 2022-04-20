@@ -1,6 +1,6 @@
 import React, {memo, useState} from "react";
 import {NavLink} from "react-router-dom";
-import {Collapse, InputNumber, Modal} from 'antd';
+import {Collapse, InputNumber} from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../components/Footer";
@@ -11,6 +11,7 @@ import FontCss from "../components/FontCss";
 import Showing from "../components/Showing";
 import * as prices from "../store/prices";
 import {changeJianPrices} from "../store/actionCreators";
+import total from "./Total";
 
 const Table = styled.div`
   position: absolute;
@@ -28,7 +29,7 @@ const HouseType = memo(() => {
 
     const dispatch = useDispatch()
 
-    const [state, setState] = useState(false)
+    // const [state, setState] = useState(false)
 
     const [panel, setPanel] = useState(4);
 
@@ -53,11 +54,11 @@ const HouseType = memo(() => {
     }
 
     function changeCollapse(evt) {
-        if (evt === '4') {
-            setState(true)
-        } else {
-            setTimeout(() => setState(false), 0)
-        }
+        // if (evt === '4') {
+        //     setState(true)
+        // } else {
+        //     setTimeout(() => setState(false), 0)
+        // }
 
         switch (evt) {
             case '1':
@@ -78,7 +79,9 @@ const HouseType = memo(() => {
         dispatch(changeJianPrices(0))
     }
 
+
     return (
+
         <Table>
             <TopMessage>
                 <div className='textCss'>
@@ -107,7 +110,7 @@ const HouseType = memo(() => {
             <Showing>
                 <h3 style={{color: "white"}}>户型鉴赏</h3>
 
-                <Collapse accordion onChange={changeCollapse} className='collapseClass'>
+                <Collapse accordion defaultActiveKey={4} onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
                         header={`720°三维全景户型漫游(￥${prices.quanJingHousePrice}/条)`}
@@ -134,13 +137,14 @@ const HouseType = memo(() => {
                            showArrow={false}
                     >
                         <p>请填写平米数</p>
-                        {panel === 3 ? <InputNumber min={1} defaultValue={0} onChange={onInputNumberVrmChange}/> : null}
+                        {panel === 3 ?
+                            <InputNumber min={1} defaultValue={0} onChange={onInputNumberVrmChange}/> : null}
                         <p>请填写窗外景观点数</p>
                         {panel === 3 ?
                             <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberVrChange}/> : null}
                     </Panel>
                     <Panel
-                        className={state ? 'antCo' : null}
+                        className={panel === 4 ? 'antCo' : null}
                         header="不需要户型展示"
                         key="4"
                         showArrow={false}
@@ -158,7 +162,7 @@ const HouseType = memo(() => {
                 </button>
                 <div className="line"/>
                 <button className='next'>
-                    <NavLink to='gallery'>
+                    <NavLink to={panel === 3 ? 'total' : 'gallery'}>
                         下一步
                     </NavLink>
                 </button>

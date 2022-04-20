@@ -1,13 +1,12 @@
 import {withRouter} from "react-router-dom";
-import React, { useRef } from "react";
+import React, {useRef} from "react";
 import {Input} from 'antd';
 import styled from "styled-components";
 import right from '../icons/right.svg'
 
 import {changeName} from '../store/actionCreators.js'
 
-import { useDispatch } from "react-redux";
-
+import {useDispatch} from "react-redux";
 
 
 const Demo = styled.div`
@@ -17,20 +16,21 @@ const Demo = styled.div`
   background: #2b2f38;
 
   > span {
-    display:block;
-    position:absolute;
-    width:50%;
-    height:160px;
-    margin:auto;
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 160px;
+    margin: auto;
     top: 0;
-    left:0;
-    right:0;
-    bottom:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     text-align: center;
     color: white;
     font-size: 22px;
   }
-   .piece {
+
+  .piece {
     top: 0;
     bottom: 24px;
     left: 243px;
@@ -41,22 +41,25 @@ const Demo = styled.div`
     border-radius: 10px;
     width: 36px;
     height: 36px;
+
     img {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
     }
   }
+
   > p {
     position: absolute;
     width: 280px;
     height: 80px;
     margin: auto;
     top: 20px;
-    left:0;
-    right:0;
-    bottom:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
     > .ant-input {
       margin: auto;
       top: 0;
@@ -70,7 +73,7 @@ const Demo = styled.div`
       background: #424852;
       border-radius: 10px;
     }
-    
+
   }
 `
 
@@ -83,11 +86,11 @@ function Write(props) {
 
     const inputValue = () => {
 
-      dispatch(changeName(inputRef.current.input.value))
+        dispatch(changeName(inputRef.current.input.value))
 
-      if(inputRef.current.input.value !== '') {
-        props.history.push('/show')
-      }
+        if (inputRef.current.input.value !== '') {
+            props.history.push('/show')
+        }
     }
 
 
@@ -97,11 +100,11 @@ function Write(props) {
                 请输入项目名称
             </span>
             <p>
-                <Input placeholder="请输入项目名称" ref={inputRef} />
+                <Input placeholder="请输入项目名称" ref={inputRef}/>
             </p>
-            <div onClick={()=> inputValue()}>
+            <div onClick={() => inputValue()}>
                 <div className="piece">
-                    <img src={right}  alt="" />
+                    <img src={right} alt=""/>
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {Route} from "react-router-dom";
 import {Redirect} from "react-router-dom";
-import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from 'react-keepalive-router'
+import {KeepaliveRouterSwitch, KeepaliveRoute, addKeeperListener} from 'react-keepalive-router'
 import NoMatch from "./views/Nomatch";
 import Home from "./views/Home";
 import Write from "./views/Write";
@@ -16,15 +16,14 @@ import Gallery from "./views/Gallery";
 import Total from "./views/Total";
 
 
-
 export default function App() {
 
-    useEffect(()=>{
+    useEffect(() => {
         /* 增加缓存监听器 */
-        addKeeperListener((history,cacheKey)=>{
-            if(history)console.log('当前激活状态缓存组件：'+ cacheKey )
+        addKeeperListener((history, cacheKey) => {
+            if (history) console.log('当前激活状态缓存组件：' + cacheKey)
         })
-    },[])
+    }, [])
 
     return (
 
@@ -34,9 +33,9 @@ export default function App() {
                     <Home/>
                 </Route>
 
-                <KeepaliveRoute exact path='/write' component={Write} />
+                <KeepaliveRoute exact path='/write' component={Write}/>
 
-                <KeepaliveRoute exact path="/show" component={Show} />
+                <KeepaliveRoute exact path="/show" component={Show}/>
 
                 <KeepaliveRoute exact path="/viewbird">
                     <Viewbird/>
