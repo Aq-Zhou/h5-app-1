@@ -62,9 +62,9 @@ const Showing = styled.div`
     }
 
   }
-  
+
   .ant-btn {
-    color:white;
+    color: white;
     border: none;
     width: 316px;
     height: 46px;

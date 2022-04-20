@@ -83,7 +83,7 @@ const Showing = styled.div`
 
   }
 
-  
+
   .ant-btn {
     border: none;
     width: 316px;
@@ -109,14 +109,14 @@ const Viewbird = () => {
 
     const [state, setState] = useState(false)
 
-    const [panel,setPanel] = useState(3)
+    const [panel, setPanel] = useState(4)
 
     // const changePrices = (param) => {
     //     dispatch(changeNiaoPrices(param))
     // }
 
     const changeCollapse = (evt) => {
-        console.log('changed',evt)
+        console.log('changed', evt)
 
         // if (evt === '1') {
         //     setPanel(1)
@@ -157,14 +157,11 @@ const Viewbird = () => {
                 break;
         }
 
-        if(evt === '3') {
+        if (evt === '3') {
             dispatch(changeNiaoPrices(16000))
-        }else {
+        } else {
             dispatch(changeNiaoPrices(0))
         }
-
-
-
     }
 
 

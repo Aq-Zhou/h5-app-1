@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const PriceCss = styled.div`
   width: 200px;
+
   h3 {
     position: absolute;
     top: 15px;

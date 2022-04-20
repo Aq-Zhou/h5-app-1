@@ -1,12 +1,12 @@
 import {Checkbox, Row, Col} from 'antd';
-import { useDispatch } from 'react-redux';
-import { changeNiaoPrices } from '../store/actionCreators';
+import {useDispatch} from 'react-redux';
+import {changeNiaoPrices} from '../store/actionCreators';
 
 
 function ShowTime() {
 
     // const [state, setState] = useState(null)
-    
+
     const dispatch = useDispatch()
 
     const onChange = (checkedValues) => {
@@ -21,7 +21,7 @@ function ShowTime() {
         }
         if (checkedValues.length === 2) {
             dispatch(changeNiaoPrices(20000))
-            
+
         }
         if (checkedValues.length === 3) {
             dispatch(changeNiaoPrices(26000))

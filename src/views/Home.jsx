@@ -38,14 +38,15 @@ const Button = styled.button`
   border: 2px solid white;
   margin-left: auto;
   margin-right: auto;
+
   > a {
     text-decoration: none;
     color: white;
   }
-  
+
 `
 
-function Home (){
+function Home() {
     return (
         <Wrapper>
             <H1>你好！</H1>
