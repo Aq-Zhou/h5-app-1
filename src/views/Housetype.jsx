@@ -1,6 +1,6 @@
 import React, {memo, useState} from "react";
 import {NavLink} from "react-router-dom";
-import {Collapse, InputNumber, Modal} from 'antd';
+import {Collapse, InputNumber} from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../components/Footer";
@@ -11,6 +11,7 @@ import FontCss from "../components/FontCss";
 import Showing from "../components/Showing";
 import * as prices from "../store/prices";
 import {changeJianPrices} from "../store/actionCreators";
+import total from "./Total";
 
 const Table = styled.div`
   position: absolute;
@@ -78,7 +79,9 @@ const HouseType = memo(() => {
         dispatch(changeJianPrices(0))
     }
 
+
     return (
+
         <Table>
             <TopMessage>
                 <div className='textCss'>
@@ -134,7 +137,8 @@ const HouseType = memo(() => {
                            showArrow={false}
                     >
                         <p>请填写平米数</p>
-                        {panel === 3 ? <InputNumber min={1} defaultValue={0} onChange={onInputNumberVrmChange}/> : null}
+                        {panel === 3 ?
+                            <InputNumber min={1} defaultValue={0} onChange={onInputNumberVrmChange}/> : null}
                         <p>请填写窗外景观点数</p>
                         {panel === 3 ?
                             <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberVrChange}/> : null}
@@ -158,7 +162,7 @@ const HouseType = memo(() => {
                 </button>
                 <div className="line"/>
                 <button className='next'>
-                    <NavLink to='gallery'>
+                    <NavLink to={panel === 3 ? 'total' : 'gallery'}>
                         下一步
                     </NavLink>
                 </button>

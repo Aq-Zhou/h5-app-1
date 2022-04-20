@@ -21,3 +21,5 @@ export const changeJianPrices = (res) => ({type:actionTypes.CHANGE_JIANPRICES,va
 // 阳台景观
 export const changeYangPrices = (res) => ({type:actionTypes.CHANGE_YANGPRICES,value: res})
 
+
+
