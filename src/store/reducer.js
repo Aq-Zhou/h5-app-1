@@ -50,15 +50,15 @@ function reducer(state = defaultState, action) {
       };
     case actionTypes.CHANGE_JIANPRICES:
       return {
-        ...state, sandPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices + state.yangPrices + state.defaultPrices + state.yingPrices
+        ...state, jianPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quanPrices  + state.sandPrices + state.yangPrices + state.defaultPrices + state.yingPrices
       };
     case actionTypes.CHANGE_YANGPRICES:
       return {
-        ...state, yangPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices + state.yangPrices + state.defaultPrices + state.yingPrices
+        ...state, yangPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quanPrices  + state.sandPrices + state.jianPrices + state.defaultPrices + state.yingPrices
       };
     case actionTypes.CHANGE_YINGPRICES:
       return {
-        ...state, yingPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.sandPrices + state.jianPrices + state.yangPrices + state.defaultPrices + state.yingPrices
+        ...state, yingPrices: action.value, totalPrices: action.value + state.quWeiPrices + state.niaoPrices + state.quanPrices  + state.sandPrices + state.jianPrices + state.yangPrices + state.defaultPrices
       };
     default:
       return state;

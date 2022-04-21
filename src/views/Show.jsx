@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import {Button} from 'antd';
 import styled from "styled-components";
 import '../index.less'
@@ -46,19 +46,19 @@ const Showing = styled.div`
 `
 
 const Show = () => {
-
-
     const projectName = useSelector(state => state.projectName)
-
 
     const dispatch = useDispatch()
 
-    //0：视频  1：VR  2：不需要
+    // 默认不需要
     const [state, setState] = useState(3)
 
     const changePrices = (param) => {
         dispatch(changeQuWeiPrices(param))
     }
+
+
+
 
 
     return (
@@ -138,4 +138,4 @@ const Show = () => {
     );
 }
 
-export default Show;
+export default withRouter(Show);

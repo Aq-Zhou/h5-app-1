@@ -10,8 +10,8 @@ import PriceCss from "../components/PriceCss";
 import FontCss from "../components/FontCss";
 import {changeYingPrices} from "../store/actionCreators";
 
-import * as prices from "../store/prices";
 import PriceSelect from "../components/Price";
+import * as prices from "../store/prices";
 
 
 const Table = styled.div`
@@ -48,7 +48,6 @@ const Showing = styled.div`
 `
 
 const Total = () => {
-
 
     const projectName = useSelector(state => state.projectName)
 
@@ -106,7 +105,7 @@ const Total = () => {
                         className={(state === 2) ? ("change-btn") : null}
                         type="primary"
                         onClick={() => {
-                            changePrices(40000)
+                            changePrices(prices.H5Price)
                             setState(2)
                         }}
                     >

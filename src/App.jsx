@@ -14,17 +14,15 @@ import Landscape from "./views/Landscape";
 import Viewbird from "./views/Viewbird";
 import Gallery from "./views/Gallery";
 import Total from "./views/Total";
-import Price from "./components/Price";
 
 
 const App = (props) => {
-    console.log(props)
 
     useEffect(() => {
-        /* 增加缓存监听器 */
-        // addKeeperListener((history, cacheKey) => {
-        //     if (history) console.log('当前激活状态缓存组件：' + cacheKey)
-        // })
+         // 缓存监听
+         addKeeperListener((history, cacheKey) => {
+             if (cacheKey === 'home' || 'write') console.log(cacheKey)
+         })
 
     }, [])
 
@@ -70,10 +68,6 @@ const App = (props) => {
 
                 <KeepaliveRoute exact path="/total">
                     <Total/>
-                </KeepaliveRoute>
-
-                <KeepaliveRoute exact path="/price">
-                    <Price />
                 </KeepaliveRoute>
 
                 <Redirect exact from="/" to="/home"/>
