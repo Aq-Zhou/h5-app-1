@@ -68,7 +68,7 @@ const Total = () => {
                     <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
-                        <PriceSelect />
+                        <PriceSelect/>
                     </PriceCss>
                 </div>
                 <video
@@ -89,41 +89,38 @@ const Total = () => {
                 <h3 style={{color: "white"}}>选择需要进行展示的硬件载体</h3>
 
 
-                    <Button
-                        className={(state === 1) ? ("change-btn") : null}
-                        type="primary"
-                        onClick={() => {
-                            // changePrices(prices.videoPrice)
-                            setState(1)
-                        }}
-                    >
-                        iPad端
-                    </Button>
+                <Button
+                    className={(state === 1) ? ("change-btn") : null}
+                    type="primary"
+                    onClick={() => {
+                        // changePrices(prices.videoPrice)
+                        setState(1)
+                    }}
+                >
+                    iPad端
+                </Button>
 
+                <Button
+                    className={(state === 2) ? ("change-btn") : null}
+                    type="primary"
+                    onClick={() => {
+                        changePrices(prices.H5Price)
+                        setState(2)
+                    }}
+                >
+                    手机端（H5端）
+                </Button>
 
-                    <Button
-                        className={(state === 2) ? ("change-btn") : null}
-                        type="primary"
-                        onClick={() => {
-                            changePrices(prices.H5Price)
-                            setState(2)
-                        }}
-                    >
-                        手机端（H5端）
-                    </Button>
-
-
-
-                    <Button
-                        className={(state === 3) ? ("change-btn") : null}
-                        type="primary"
-                        onClick={() => {
-                            // changePrices(0)
-                            setState(3)
-                        }}
-                    >
-                        大屏端(PC端)
-                    </Button>
+                <Button
+                    className={(state === 3) ? ("change-btn") : null}
+                    type="primary"
+                    onClick={() => {
+                        // changePrices(0)
+                        setState(3)
+                    }}
+                >
+                    大屏端(PC端)
+                </Button>
 
 
             </Showing>

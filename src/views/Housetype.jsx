@@ -111,7 +111,7 @@ const HouseType = memo(() => {
                 <Collapse accordion defaultActiveKey={4} onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
-                        header={`720°三维全景户型漫游(￥${prices.quanJingHousePrice}/条)`}
+                        header={`720°三维全景户型漫游 + ￥${prices.quanJingHousePrice}/条`}
                         key="1"
                         showArrow={false}
                     >
@@ -121,7 +121,7 @@ const HouseType = memo(() => {
                     </Panel>
                     <Panel
                         className={panel === 2 ? 'antPanel' : null}
-                        header={`720°全景实拍户型漫游(￥${prices.shiPaiHousePrice}/条)`}
+                        header={`720°全景实拍户型漫游 + ￥${prices.shiPaiHousePrice}/条`}
                         key="2"
                         showArrow={false}
                     >
@@ -130,7 +130,7 @@ const HouseType = memo(() => {
                             <InputNumber min={1} max={20} defaultValue={0} onChange={onInputNumberPaiChange}/> : null}
                     </Panel>
                     <Panel className={panel === 3 ? 'antPanel' : null}
-                           header={`VR户型套装(￥${prices.vrHpousePrice}/㎡) / (￥${prices.xuShiJingPrice}/张)`}
+                           header={`VR户型套装 + ￥${prices.vrHpousePrice}/㎡  ￥${prices.xuShiJingPrice}/张`}
                            key="3"
                            showArrow={false}
                     >

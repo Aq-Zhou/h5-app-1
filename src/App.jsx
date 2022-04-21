@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Route, withRouter} from "react-router-dom";
 import {Redirect} from "react-router-dom";
 import {KeepaliveRouterSwitch, KeepaliveRoute, addKeeperListener} from 'react-keepalive-router'
@@ -14,17 +14,32 @@ import Landscape from "./views/Landscape";
 import Viewbird from "./views/Viewbird";
 import Gallery from "./views/Gallery";
 import Total from "./views/Total";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const App = (props) => {
 
+    const projectName = useSelector(state=> state.projectName)
+
+
+    console.log(projectName)
+
     useEffect(() => {
          // 缓存监听
          addKeeperListener((history, cacheKey) => {
-             if (cacheKey === 'home' || 'write') console.log(cacheKey)
+             console.log(cacheKey,'-------')
+             console.log(props)
+             if(cacheKey !== '/home' && cacheKey !=='/write') {
+                 // {projectName === '' ? props.history.push('/home') : null}
+             }
          })
 
     }, [])
+
+    useEffect(() => {
+
+    })
+
 
     return (
 

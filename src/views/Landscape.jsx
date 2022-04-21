@@ -106,7 +106,7 @@ const Landscape = memo(() => {
                 <Collapse accordion defaultActiveKey={3} onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
-                        header={`720°全景漫游(￥${prices.quanJingManYouPrice}/点)`}
+                        header={`720°全景漫游 + ￥${prices.quanJingManYouPrice}/点`}
                         key={1}
                         showArrow={false}
                     >
@@ -117,7 +117,7 @@ const Landscape = memo(() => {
 
                     <Panel
                         className={panel === 2 ? 'antPanel' : null}
-                        header={`全景路径漫游(￥${prices.quanJingLuJingPrice}/条)`}
+                        header={`全景路径漫游 + ￥${prices.quanJingLuJingPrice}/条`}
                         key={2}
                         showArrow={false}
                     >

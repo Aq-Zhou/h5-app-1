@@ -102,7 +102,7 @@ const Gallery = memo(() => {
                 <Collapse accordion defaultActiveKey={3} onChange={changeCollapse} className='collapseClass'>
                     <Panel
                         className={panel === 1 ? 'antPanel' : null}
-                        header={`三维渲染景观(￥${prices.sanWeiPrice}/点)`}
+                        header={`三维渲染景观 + ￥${prices.sanWeiPrice}/点`}
                         key="1"
                         showArrow={false}
                     >
@@ -113,7 +113,7 @@ const Gallery = memo(() => {
 
                     <Panel
                         className={panel === 2 ? 'antPanel' : null}
-                        header={`虚实结合景观(￥${prices.xuShiJingPrice}/点)`}
+                        header={`虚实结合景观 + ￥${prices.xuShiJingPrice}/点`}
                         key="2"
                         showArrow={false}
                     >

@@ -9,7 +9,6 @@ import styled from "styled-components";
 import Day from "../components/Day";
 import ShowTime from "../components/Showtime";
 import {Collapse} from "antd";
-// import ShowCss from "../components/ShowCss";
 
 import * as prices from '../store/prices'
 import {changeNiaoPrices} from "../store/actionCreators";
@@ -196,7 +195,7 @@ const Viewbird = () => {
                     <Panel
                         className={(panel === 1 ? ("antPanel") : null)}
                         key={1}
-                        header={`三维渲染全景鸟瞰(￥${prices.noXuShiPrice}~${prices.xuShiPrice})`}
+                        header={`三维渲染全景鸟瞰 + ￥${prices.noXuShiPrice}~${prices.xuShiPrice}`}
                         showArrow={false}
                     >
                         <p style={{color: "white"}}>是否需要日夜景切换</p>
@@ -206,7 +205,7 @@ const Viewbird = () => {
                     <Panel
                         className={(panel === 2 ? ("antPanel") : null)}
                         key={2}
-                        header={`虚实结合全景鸟瞰(￥${prices.niaoKanPrice1}~${prices.niaoKanPrice3})`}
+                        header={`虚实结合全景鸟瞰 + ￥${prices.niaoKanPrice1}~${prices.niaoKanPrice3}`}
                         showArrow={false}
                     >
                         <p style={{color: "white"}}>请选择展示时段</p>
@@ -216,7 +215,7 @@ const Viewbird = () => {
                     <Panel
                         className={(state ? ("antCo") : null)}
                         key={3}
-                        header={`CIM孪生城市(￥${prices.cimPrice})`}
+                        header={`CIM孪生城市 + ￥${prices.cimPrice}`}
                         showArrow={false}
                     >
                     </Panel>

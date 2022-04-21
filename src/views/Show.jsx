@@ -96,7 +96,7 @@ const Show = () => {
                         setState(1)
                     }}
                 >
-                    视频包装式区位(￥{prices.videoPrice})
+                    视频包装式区位 + ￥{prices.videoPrice}
                 </Button>
                 <Button
                     className={(state === 2) ? ("change-btn") : null}
@@ -106,7 +106,7 @@ const Show = () => {
                         setState(2)
                     }}
                 >
-                    VR无缝穿梭式区位(￥{prices.vrPrice})
+                    VR无缝穿梭式区位 + ￥{prices.vrPrice}
                 </Button>
                 <Button
                     className={(state === 3) ? ("change-btn") : null}

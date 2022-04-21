@@ -100,7 +100,7 @@ const Trim = () => {
                         setState(0)
                     }}
                 >
-                    360°项目沙盘(￥{prices.shaPanPrice})
+                    360°项目沙盘 + ￥{prices.shaPanPrice}
                 </Button>
                 <Button
                     className={(state === 1) ? ('changeButton') : null}
@@ -109,7 +109,7 @@ const Trim = () => {
                         setState(1);
                     }}
                 >
-                    VR项目沙盘(￥{prices.vrShaPanPrice})
+                    VR项目沙盘 + ￥{prices.vrShaPanPrice}
                 </Button>
                 <Button
                     className={(state === 2) ? ('changeButton') : null}

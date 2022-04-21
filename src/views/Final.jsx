@@ -127,6 +127,7 @@ function Final() {
             <TopMessage>
                 <div className='textCss'>
                     <Pricecss>
+
                         <p style={{color: "#edeef0"}}>产品总价及明细</p>
                         <h5 style={{color: "#b0b4bc"}}>不含税总价</h5>
                         <h4 style={{color: "#feffff"}}>￥{totalPrice}</h4>

@@ -3,7 +3,6 @@ import React, {useRef} from "react";
 import {Input} from 'antd';
 import styled from "styled-components";
 import right from '../icons/right.svg'
-
 import {changeName} from '../store/actionCreators.js'
 
 import {useDispatch} from "react-redux";
