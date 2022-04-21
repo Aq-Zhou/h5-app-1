@@ -1,7 +1,7 @@
 import * as actionTypes from './constants';
 
 const defaultState = {
-  projectName: '测试',
+  projectName: '',
 
   // 区位模块价格
   quWeiPrices: 0,

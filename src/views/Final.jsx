@@ -129,7 +129,7 @@ function Final() {
                         <h5 style={{color: "#b0b4bc"}}>不含税总价</h5>
                         <h4 style={{color: "#feffff"}}>￥{totalPrices}</h4>
                         <h3 style={{color: "#b0b4bc"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.3}</h2>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.13}</h2>
                     </Pricecss>
                 </div>
             </TopMessage>
