@@ -15,6 +15,7 @@ import * as prices from '../store/prices'
 
 import 'antd/dist/antd.css';
 import Showing from "../components/Showing";
+import PriceSelect from "../components/Price";
 
 const Table = styled.div`
   position: absolute;
@@ -28,8 +29,6 @@ const {Panel} = Collapse;
 const Landscape = memo(() => {
     const projectName = useSelector(state => state.projectName)
 
-    const totalPrice = useSelector(state => state.totalPrices)
-    const totalPrices = Math.ceil(totalPrice * 1.13)
 
     const dispatch = useDispatch()
 
@@ -84,9 +83,7 @@ const Landscape = memo(() => {
                     <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
-                        <h3 style={{color: "white"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
-                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
+                        <PriceSelect />
                     </PriceCss>
                 </div>
                 <video

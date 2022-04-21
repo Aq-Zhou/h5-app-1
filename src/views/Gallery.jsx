@@ -28,9 +28,6 @@ const {Panel} = Collapse;
 const Gallery = memo(() => {
     const projectName = useSelector(state => state.projectName)
 
-    const totalPrice = useSelector(state => state.totalPrices)
-    const totalPrices = Math.ceil(totalPrice * 1.13)
-
     const dispatch = useDispatch()
 
     // 点击的按钮

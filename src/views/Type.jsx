@@ -7,6 +7,7 @@ import {NavLink} from "react-router-dom";
 import PriceCss from "../components/PriceCss";
 import FontCss from "../components/FontCss";
 import {useSelector} from "react-redux";
+import PriceSelect from "../components/Price";
 
 
 const Demo = styled.div`
@@ -48,8 +49,6 @@ const Demo = styled.div`
 function Type() {
     const projectName = useSelector(state => state.projectName)
 
-    const totalPrice = useSelector(state => state.totalPrices)
-    const totalPrices = Math.ceil(totalPrice * 1.13)
 
 
     return (
@@ -59,9 +58,7 @@ function Type() {
                     <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
-                        <h3 style={{color: "white"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
-                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
+                        <PriceSelect />
                     </PriceCss>
                 </div>
 
