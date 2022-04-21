@@ -72,9 +72,9 @@ const App = (props) => {
                     <Total/>
                 </KeepaliveRoute>
 
-                <Route path="/price">
+                <KeepaliveRoute exact path="/price">
                     <Price />
-                </Route>
+                </KeepaliveRoute>
 
                 <Redirect exact from="/" to="/home"/>
                 <Route path="*">

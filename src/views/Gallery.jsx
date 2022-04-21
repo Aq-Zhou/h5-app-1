@@ -13,6 +13,7 @@ import {Collapse} from 'antd';
 import * as prices from '../store/prices'
 import 'antd/dist/antd.css';
 import Showing from "../components/Showing";
+import PriceSelect from "../components/Price";
 
 
 const Table = styled.div`
@@ -35,14 +36,13 @@ const Gallery = memo(() => {
     // 点击的按钮
     const [state, setState] = useState(false)
 
-    //
+
     const [panel, setPanel] = useState(3)
 
     function onInputNumberSdChange(value) {
         console.log('changed', value);
         let temp = value * prices.sanWeiPrice
         dispatch(changeYangPrices(temp))
-
     }
 
     function onInputNumberXsChange(value) {
@@ -83,11 +83,7 @@ const Gallery = memo(() => {
                 <div className='textCss'>
                     <FontCss>{projectName}</FontCss>
 
-                    <PriceCss>
-                        <h3 style={{color: "white"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
-                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
-                    </PriceCss>
+                    <PriceSelect />
                 </div>
                 <video
                     className='videoCss'

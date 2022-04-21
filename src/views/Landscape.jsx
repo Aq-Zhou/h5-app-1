@@ -43,7 +43,6 @@ const Landscape = memo(() => {
         console.log('changed', value);
         let temp = value * prices.quanJingManYouPrice
         dispatch(changeQuanPrices(temp))
-
     }
 
     function onInputNumberLuChange(value) {
