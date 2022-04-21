@@ -1,16 +1,17 @@
 import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
-import {Checkbox, Button} from 'antd';
+import {Button} from 'antd';
 import styled from "styled-components";
 import '../index.less'
 import Footer from "../components/Footer";
 import TopMessage from "../components/TopMessage";
 import {useDispatch, useSelector} from "react-redux";
-// import {changeQuWeiPrices} from "../store/actionCreators";
 import PriceCss from "../components/PriceCss";
 import FontCss from "../components/FontCss";
+import {changeYingPrices} from "../store/actionCreators";
 
-// import * as prices from '../store/prices'
+import * as prices from "../store/prices";
+
 
 const Table = styled.div`
   position: absolute;
@@ -40,9 +41,9 @@ const Showing = styled.div`
     border-radius: 12px;
   }
 
-  //.change-btn {
-  //  border: 1px solid;
-  //}
+  .change-btn {
+    border: 1px solid;
+  }
 `
 
 const Total = () => {
@@ -50,16 +51,16 @@ const Total = () => {
 
     const projectName = useSelector(state => state.projectName)
 
-    const totalPrices = useSelector(state => state.totalPrices)
+    const totalPrice = useSelector(state => state.totalPrices)
+    const totalPrices = Math.ceil(totalPrice * 1.13)
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-    //0：视频  1：VR  2：不需要
     const [state, setState] = useState(1)
 
-    // const changePrices = (param) => {
-    //     dispatch(changeQuWeiPrices(param))
-    // }
+    const changePrices = (param) => {
+        dispatch(changeYingPrices(param))
+    }
 
 
     return (
@@ -70,8 +71,8 @@ const Total = () => {
 
                     <PriceCss>
                         <h3 style={{color: "white"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.13}</h2>
-                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrices}</h4>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
+                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
                     </PriceCss>
                 </div>
                 <video
@@ -91,7 +92,7 @@ const Total = () => {
             <Showing>
                 <h3 style={{color: "white"}}>选择需要进行展示的硬件载体</h3>
 
-                <Checkbox defaultChecked={true}>
+
                     <Button
                         className={(state === 1) ? ("change-btn") : null}
                         type="primary"
@@ -100,24 +101,23 @@ const Total = () => {
                             setState(1)
                         }}
                     >
-                        大屏端(PC端)
+                        iPad端
                     </Button>
-                </Checkbox>
 
-                <Checkbox>
+
                     <Button
                         className={(state === 2) ? ("change-btn") : null}
                         type="primary"
                         onClick={() => {
-                            // changePrices(prices.vrPrice)
+                            changePrices(40000)
                             setState(2)
                         }}
                     >
-                        iPad端
+                        手机端（H5端）
                     </Button>
-                </Checkbox>
 
-                <Checkbox>
+
+
                     <Button
                         className={(state === 3) ? ("change-btn") : null}
                         type="primary"
@@ -126,9 +126,9 @@ const Total = () => {
                             setState(3)
                         }}
                     >
-                        手机端（H5端）
+                        大屏端(PC端)
                     </Button>
-                </Checkbox>
+
 
             </Showing>
 

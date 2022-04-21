@@ -49,7 +49,10 @@ const Trim = () => {
 
     const projectName = useSelector(state => state.projectName)
 
-    const totalPrices = useSelector(state => state.totalPrices)
+    // 不含税
+    const totalPrice = useSelector(state => state.totalPrices)
+    // 含税13% 解决精度丢失
+    const totalPrices = Math.ceil(totalPrice * 1.13)
 
     const dispatch = useDispatch()
 
@@ -74,8 +77,8 @@ const Trim = () => {
 
                     <PriceCss>
                         <h3 style={{color: "white"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.13}</h2>
-                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrices}</h4>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
+                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
                     </PriceCss>
                 </div>
                 <video

@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeQuWeiPrices} from "../store/actionCreators";
 import PriceCss from "../components/PriceCss";
 import FontCss from "../components/FontCss";
+import PriceSelect from "../components/Price";
 
 import * as prices from '../store/prices'
 
@@ -49,7 +50,8 @@ const Show = () => {
 
     const projectName = useSelector(state => state.projectName)
 
-    const totalPrices = useSelector(state => state.totalPrices)
+    const totalPrice = useSelector(state => state.totalPrices)
+    const totalPrices = Math.ceil(totalPrice * 1.13)
 
     const dispatch = useDispatch()
 
@@ -60,25 +62,6 @@ const Show = () => {
         dispatch(changeQuWeiPrices(param))
     }
 
-    // const addPrices = (evt) => {
-    //   console.log(evt);
-    //
-    //   // 视频包装
-    //   // if (evt === '1') {
-    //   //   setState('1')
-    //   //   dispatch(changeQuWeiPrices(42000))
-    //   //   dispatch(changeNiaoPrices(0))
-    //   // } else if (evt === '2') {
-    //   //   setState('2')
-    //   //   dispatch(changeQuWeiPrices(48000))
-    //   //   dispatch(changeNiaoPrices(0))
-    //   // } else if (evt === '3') {
-    //   //   setState('3')
-    //   //   dispatch(changeQuWeiPrices(0))
-    //   //   dispatch(changeNiaoPrices(0))
-    //   // }
-    // }
-
 
     return (
         <Table>
@@ -87,9 +70,10 @@ const Show = () => {
                     <FontCss>{projectName}</FontCss>
 
                     <PriceCss>
+                        <PriceSelect />
                         <h3 style={{color: "white"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.13}</h2>
-                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrices}</h4>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
+                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
                     </PriceCss>
                 </div>
                 <video

@@ -14,6 +14,7 @@ import Landscape from "./views/Landscape";
 import Viewbird from "./views/Viewbird";
 import Gallery from "./views/Gallery";
 import Total from "./views/Total";
+import Price from "./components/Price";
 
 
 const App = (props) => {
@@ -70,6 +71,11 @@ const App = (props) => {
                 <KeepaliveRoute exact path="/total">
                     <Total/>
                 </KeepaliveRoute>
+
+                <Route path="/price">
+                    <Price />
+                </Route>
+
                 <Redirect exact from="/" to="/home"/>
                 <Route path="*">
                     <NoMatch/>

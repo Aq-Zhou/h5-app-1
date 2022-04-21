@@ -118,7 +118,9 @@ const Pricecss = styled.div`
 
 function Final() {
 
-    const totalPrices = useSelector(state => state.totalPrices)
+    const totalPrice = useSelector(state => state.totalPrices)
+    const totalPrices = Math.ceil(totalPrice * 1.13)
+
 
     return (
         <Table>

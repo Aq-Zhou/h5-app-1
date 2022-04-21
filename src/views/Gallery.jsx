@@ -27,7 +27,8 @@ const {Panel} = Collapse;
 const Gallery = memo(() => {
     const projectName = useSelector(state => state.projectName)
 
-    const totalPrices = useSelector(state => state.totalPrices)
+    const totalPrice = useSelector(state => state.totalPrices)
+    const totalPrices = Math.ceil(totalPrice * 1.13)
 
     const dispatch = useDispatch()
 
@@ -84,8 +85,8 @@ const Gallery = memo(() => {
 
                     <PriceCss>
                         <h3 style={{color: "white"}}>含税总价(13%)</h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices * 1.13}</h2>
-                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrices}</h4>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
+                        <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
                     </PriceCss>
                 </div>
                 <video

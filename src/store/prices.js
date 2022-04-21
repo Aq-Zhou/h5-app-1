@@ -44,4 +44,7 @@ export const sanWeiPrice = 6000
 export const xuShiJingPrice = 8000
 
 
+// H5端价格
+export const H5Price = 40000
+
 

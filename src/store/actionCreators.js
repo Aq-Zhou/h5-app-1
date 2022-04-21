@@ -1,7 +1,10 @@
 import * as actionTypes from "./constants.js";
 
+
 // 项目名称
 export const changeName = (res) => ({type: actionTypes.CHANGE_NAME,value: res})
+
+
 
 // 区位模块
 export const changeQuWeiPrices = (res) => ({type: actionTypes.CHANGE_QUWEIPRICES,value: res})
@@ -20,6 +23,9 @@ export const changeJianPrices = (res) => ({type:actionTypes.CHANGE_JIANPRICES,va
 
 // 阳台景观
 export const changeYangPrices = (res) => ({type:actionTypes.CHANGE_YANGPRICES,value: res})
+
+// 硬件载体
+export const changeYingPrices = (res) => ({type:actionTypes.CHANGE_YINGPRICES,value: res})
 
 
 
