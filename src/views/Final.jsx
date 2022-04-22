@@ -4,6 +4,7 @@ import '../index.less'
 import TopMessage from "../components/TopMessage";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+import PriceSelect from "../components/Price";
 
 
 const Table = styled.div`
@@ -87,6 +88,7 @@ const Pricecss = styled.div`
     height: 22px;
     border-radius: 6px;
     text-align: center;
+    
   }
 
   h2 {
@@ -114,6 +116,12 @@ const Pricecss = styled.div`
     left: 36px;
     position: absolute;
   }
+
+  .ant-select {
+    top: 0;
+    left: -37px;
+    
+  }
 `
 
 function Final() {
@@ -121,17 +129,15 @@ function Final() {
     const totalPrice = useSelector(state => state.totalPrices)
     const totalPrices = Math.ceil(totalPrice * 1.13)
 
-
     return (
         <Table>
             <TopMessage>
                 <div className='textCss'>
                     <Pricecss>
-
                         <p style={{color: "#edeef0"}}>产品总价及明细</p>
                         <h5 style={{color: "#b0b4bc"}}>不含税总价</h5>
                         <h4 style={{color: "#feffff"}}>￥{totalPrice}</h4>
-                        <h3 style={{color: "#b0b4bc"}}>含税总价(13%)</h3>
+                        <h3 style={{color: "#b0b4bc"}}><PriceSelect/></h3>
                         <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
                     </Pricecss>
                 </div>

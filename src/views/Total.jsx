@@ -61,6 +61,7 @@ const Total = () => {
     }
 
 
+
     return (
         <Table>
             <TopMessage>
@@ -115,7 +116,6 @@ const Total = () => {
                     className={(state === 3) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
-                        // changePrices(0)
                         setState(3)
                     }}
                 >

@@ -28,10 +28,10 @@ const App = (props) => {
          // 缓存监听
          addKeeperListener((history, cacheKey) => {
              console.log(cacheKey,'-------')
-             console.log(props)
-             if(cacheKey !== '/home' && cacheKey !=='/write') {
-                 // {projectName === '' ? props.history.push('/home') : null}
-             }
+
+             // if(cacheKey !== '/home' && cacheKey !=='/write') {
+             //         props.history.push(projectName ===''  ? '/home' : cacheKey)
+             // }
          })
 
     }, [])
@@ -44,6 +44,7 @@ const App = (props) => {
     return (
 
         <div>
+
             <KeepaliveRouterSwitch>
                 <Route exact path="/home">
                     <Home/>
