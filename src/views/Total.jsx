@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {Button} from 'antd';
 import styled from "styled-components";
@@ -54,11 +54,25 @@ const Total = () => {
 
     const dispatch = useDispatch()
 
-    const [state, setState] = useState(1)
+    const [state, setState] = useState({
+        //没有选中为0，选中为1
+        ipad:true,
+        h5: false,
+        pc: false
+    })
 
     const changePrices = (param) => {
-        dispatch(changeYingPrices(param))
+
+        // dispatch(changeYingPrices(param))
     }
+
+    useEffect(() => {
+        if(state.h5 === true){
+            dispatch(changeYingPrices(40000))
+        } else {
+            dispatch(changeYingPrices(0))
+        }
+    })
 
 
 
@@ -91,32 +105,32 @@ const Total = () => {
 
 
                 <Button
-                    className={(state === 1) ? ("change-btn") : null}
+                    className={(state.ipad === true) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
                         // changePrices(prices.videoPrice)
-                        setState(1)
+                        setState({...state, ipad :!state.ipad})
                     }}
                 >
                     iPad端
                 </Button>
 
                 <Button
-                    className={(state === 2) ? ("change-btn") : null}
+                    className={(state.h5 === true) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
                         changePrices(prices.H5Price)
-                        setState(2)
+                        setState({...state, h5: !state.h5})
                     }}
                 >
                     手机端（H5端）
                 </Button>
 
                 <Button
-                    className={(state === 3) ? ("change-btn") : null}
+                    className={(state.pc === true) ? ("change-btn") : null}
                     type="primary"
                     onClick={() => {
-                        setState(3)
+                        setState({...state, pc:!state.pc})
                     }}
                 >
                     大屏端(PC端)

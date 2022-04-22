@@ -18,23 +18,33 @@ import {useDispatch, useSelector} from "react-redux";
 
 
 const App = (props) => {
-
+    console.log('111111111111111111111111111')
     const projectName = useSelector(state=> state.projectName)
 
-
     console.log(projectName)
+    console.log(props.location.pathname)
 
     useEffect(() => {
          // 缓存监听
          addKeeperListener((history, cacheKey) => {
              console.log(cacheKey,'-------')
 
-             // if(cacheKey !== '/home' && cacheKey !=='/write') {
-             //         props.history.push(projectName ===''  ? '/home' : cacheKey)
-             // }
+                 if(cacheKey !== '/home' && cacheKey !=='/write') {
+                     if(projectName ===''){
+                         console.log('这里要发生跳转')
+                     }
+                 }
+
+
          })
 
-    }, [])
+        // if(props.location.pathname !== '/home' && props.location.pathname !== '/write') {
+        //     if(projectName ===''){
+        //         console.log('这里要发生跳转')
+        //     }
+        // }
+
+    })
 
     useEffect(() => {
 
