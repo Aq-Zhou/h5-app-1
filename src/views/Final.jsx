@@ -51,21 +51,7 @@ const Back = styled.div`
       color: white;
     }
   }
-
-  //position: absolute;
-  //bottom: 0;
-  //width: 100%;
-  //display: flex;
-  //height: 38px;
-  //font-size: 18px;
-  //.-button {
-  //  color: white;
-  //  border: none ;
-  //  background: #70747f;
-  //  //background: #ffb522;
-  //  width: 100%;
-  //  font-weight: bold;
-  //}
+  
 `
 
 
@@ -127,7 +113,8 @@ const Pricecss = styled.div`
 function Final() {
 
     const totalPrice = useSelector(state => state.totalPrices)
-    const totalPrices = Math.ceil(totalPrice * 1.13)
+    // const totalPrices = Math.ceil(totalPrice * 1.13)
+    console.log(PriceSelect)
 
     return (
         <Table>
@@ -136,30 +123,31 @@ function Final() {
                     <Pricecss>
                         <p style={{color: "#edeef0"}}>产品总价及明细</p>
                         <h5 style={{color: "#b0b4bc"}}>不含税总价</h5>
-                        <h4 style={{color: "#feffff"}}>￥{totalPrice}</h4>
+                        <h4 style={{color: "#feffff"}}>￥{Math.ceil(totalPrice / 1.13)}</h4>
                         <h3 style={{color: "#b0b4bc"}}><PriceSelect/></h3>
-                        <h2 style={{color: "#ffb520"}}>￥{totalPrices}</h2>
+                        <h2 style={{color: "#ffb520"}}>￥{totalPrice}</h2>
                     </Pricecss>
                 </div>
             </TopMessage>
 
             <Showing>
                 <h3 style={{color: "white", textAlign: "center", borderRadius: "12px",}}>产品明细</h3>
-                <hr/>
-                <h5 style={{color: "#9fa3ac"}}>区位优势</h5>
-                <span>VR无缝穿梭式区位</span>
+                {/*<hr/>*/}
+                待开发
+                {/*<h5 style={{color: "#9fa3ac"}}>区位优势</h5>*/}
+                {/*<span>VR无缝穿梭式区位</span>*/}
 
-                <h5>项目鸟瞰</h5>
-                <span>虚实结合全景鸟瞰</span>
-                <h6 style={{color: "#f3f2f3"}}>时段订制: <br/>1.白天 <br/>2.夜晚 </h6>
-                <h5>项目沙盘</h5>
-                <span>VR项目沙盘</span>
-                <h5>景观漫游</h5>
-                <span>全景路径漫游</span>
-                <h5>户型鉴赏</h5>
-                <span>VR户型套装</span>
-                <h5>阳台景观</h5>
-                <span>三维渲染景观</span>
+                {/*<h5>项目鸟瞰</h5>*/}
+                {/*<span>虚实结合全景鸟瞰</span>*/}
+                {/*<h6 style={{color: "#f3f2f3"}}>时段订制: <br/>1.白天 <br/>2.夜晚 </h6>*/}
+                {/*<h5>项目沙盘</h5>*/}
+                {/*<span>VR项目沙盘</span>*/}
+                {/*<h5>景观漫游</h5>*/}
+                {/*<span>全景路径漫游</span>*/}
+                {/*<h5>户型鉴赏</h5>*/}
+                {/*<span>VR户型套装</span>*/}
+                {/*<h5>阳台景观</h5>*/}
+                {/*<span>三维渲染景观</span>*/}
 
             </Showing>
 

@@ -37,8 +37,8 @@ function PriceSelect() {
                 <Option className="set2" value="2">含税总价(3%)</Option>
             </Select>
             {/*<h3 style={{color: "white"}}>含税总价(13%)</h3>*/}
-            <h2 style={{color: "#ffb520"}}>￥{state === 1 ? Math.ceil(totalPrice * 1.13) : Math.ceil(totalPrice * 1.03)}</h2>
-            <h4 style={{color: "white"}}>不含税总价：￥{totalPrice}</h4>
+            <h2 style={{color: "#ffb520"}}>￥{totalPrice}</h2>
+            <h4 style={{color: "white"}}>不含税总价：￥{state === 1 ? Math.ceil(totalPrice / 1.13) : Math.ceil(totalPrice / 1.03)}</h4>
         </PriceCss>
     )
 }
