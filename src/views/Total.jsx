@@ -51,7 +51,6 @@ const Total = () => {
 
     const projectName = useSelector(state => state.projectName)
 
-
     const dispatch = useDispatch()
 
     const [state, setState] = useState({
@@ -61,14 +60,13 @@ const Total = () => {
         pc: false
     })
 
-    const changePrices = (param) => {
-
-        // dispatch(changeYingPrices(param))
-    }
+    // const changePrices = (param) => {
+    //     // dispatch(changeYingPrices(param))
+    // }
 
     useEffect(() => {
         if(state.h5 === true){
-            dispatch(changeYingPrices(40000))
+            dispatch(changeYingPrices(prices.H5Price))
         } else {
             dispatch(changeYingPrices(0))
         }
